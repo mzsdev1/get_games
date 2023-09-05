@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "320110094164",
+    "project_id": "getgames-538ae",
+    "storage_bucket": "getgames-538ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320110094164:android:087bde1eff1ec0428a0ac1",
+        "android_client_info": {
+          "package_name": "com.appsroved.app.get_games.get_games"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320110094164-cf171dt3bm7rfnjfv3et4i5327qjhpnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appsroved.app.get_games.get_games",
+            "certificate_hash": "b2b6c6d73ca5b5c2e69d6eabc89e9a40fbe991d4"
+          }
+        },
+        {
+          "client_id": "320110094164-vpo59s3i6p016eai69h31pmvcueep7ut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6ooV8wDIv_ECC9qdh0iSROrT-vbMrNNM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320110094164-vpo59s3i6p016eai69h31pmvcueep7ut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-9317560027150133~1509973315"
+    }
+  ],
+  "configuration_version": "1"
+}
