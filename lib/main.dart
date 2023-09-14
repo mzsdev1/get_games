@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_games/firebase_options.dart';
-import 'home_page.dart';
+import 'free_games_view.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,7 +11,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const App());
+  runApp(
+    const ProviderScope(
+      child: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -20,11 +26,12 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Get Games',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
+      theme: FlexThemeData.light(
+          scheme: FlexScheme.blumineBlue, useMaterial3: true),
+      darkTheme: FlexThemeData.dark(
+          scheme: FlexScheme.blumineBlue, useMaterial3: true),
+      themeMode: ThemeMode.system,
+      home: const FreeGamesView(),
     );
   }
 }
