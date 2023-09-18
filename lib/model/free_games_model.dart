@@ -2,11 +2,11 @@
 //
 //     final freeGamesModel = freeGamesModelFromJson(jsonString);
 
-import 'dart:convert';
+// import 'dart:convert';
 
-List<FreeGamesModel> freeGamesModelFromJson(String str) =>
-    List<FreeGamesModel>.from(
-        json.decode(str).map((x) => FreeGamesModel.fromJson(x))).toList();
+// List<FreeGamesModel> freeGamesModelFromJson(String str) =>
+//     List<FreeGamesModel>.from(
+//         json.decode(str).map((x) => FreeGamesModel.fromJson(x))).toList();
 
 class FreeGamesModel {
   final int id;
