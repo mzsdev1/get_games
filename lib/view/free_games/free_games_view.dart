@@ -1,8 +1,6 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get_games/model/free_games_api_controller.dart';
+import 'package:get_games/provider/free_games/free_games_api_controller.dart';
 
 final filters = [
   'epic-games-store',
@@ -119,7 +117,7 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
                 },
               );
             },
-            icon: const Icon(FontAwesomeIcons.filter),
+            icon: const Icon(Icons.filter_alt),
           ),
           IconButton(
             onPressed: () {},

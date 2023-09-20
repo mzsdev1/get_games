@@ -1,13 +1,3 @@
-// To parse this JSON data, do
-//
-//     final freeGamesModel = freeGamesModelFromJson(jsonString);
-
-// import 'dart:convert';
-
-// List<FreeGamesModel> freeGamesModelFromJson(String str) =>
-//     List<FreeGamesModel>.from(
-//         json.decode(str).map((x) => FreeGamesModel.fromJson(x))).toList();
-
 class FreeGamesModel {
   final int id;
   final String title;
@@ -24,7 +14,7 @@ class FreeGamesModel {
   final String gamerpowerUrl;
   final String openGiveaway;
 
-  FreeGamesModel({
+  const FreeGamesModel({
     required this.id,
     required this.title,
     required this.worth,
