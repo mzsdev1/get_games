@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/view/free_games/free_games_view.dart';
 import 'package:get_games/provider/free_games/free_games_api_controller.dart';
 import 'package:get_games/view/game_deals/game_deals_list_view.dart';
-import 'package:get_games/view/game_search/game_search_view.dart';
+import 'package:get_games/view/game_favorite/game_favorite_view.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -26,7 +26,7 @@ class HomePage extends ConsumerWidget {
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.search),
-            icon: Icon(Icons.search_off_outlined),
+            icon: Icon(Icons.search_outlined),
             label: 'Deals',
           ),
         ],
@@ -38,7 +38,8 @@ class HomePage extends ConsumerWidget {
       body: <Widget>[
         const FreeGamesView(),
         const GameDealsListView(),
-        const GameSearchView(),
+        const GameFavoriteView(),
+        //const GameSearchView(),
       ][navBarIndexProvider],
     );
   }

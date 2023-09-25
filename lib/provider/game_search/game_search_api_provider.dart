@@ -11,7 +11,7 @@ final gameSearchProvider = FutureProvider<List<GameSearchModel>>((ref) async {
 
   try {
     final response = await http.get(url);
-    print(url);
+    print("gameSearchApi: $url");
 
     if (response.statusCode == 200) {
       final List<dynamic> jsonList = json.decode(response.body);
