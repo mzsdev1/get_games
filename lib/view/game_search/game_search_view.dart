@@ -108,7 +108,10 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
                           height: 50,
                           fit: BoxFit.cover,
                         ),
-                        Text(game.external!),
+                        Text(
+                          game.external!,
+                          style: const TextStyle(overflow: TextOverflow.clip),
+                        ),
                         IconButton(
                           onPressed: () {
                             //dialog
@@ -121,6 +124,7 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
                                       tag: SizedBox,
                                       child: SizedBox(
                                         height: 250,
+                                        width: 300,
                                         child: Column(
                                           children: [
                                             Text(game.cheapest.toString()),

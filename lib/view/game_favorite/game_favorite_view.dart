@@ -62,7 +62,6 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
       appBar: AppBar(
         title: const Text('Search'),
         actions: [
-          // Navigate to the Search Screen
           IconButton(
               onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => const GameSearchView())),
@@ -76,15 +75,61 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
               itemCount: data.length,
               itemBuilder: (context, index) {
                 final game = data[index];
-                return ListTile(
-                  title: Text(game.info!.title!),
-                  leading: IconButton(
-                    onPressed: () {
-                      // ref
-                      // .read(favoriteGameIdsProvider.notifier)
-                      // .toggle(game.info!.title!.hashCode.toString());
-                    },
-                    icon: const Icon(Icons.delete),
+                final deals = game.deals;
+
+                // final deals = game.deals[index];
+
+                // Eğer indeks geçerli ise, deals'dan ilgili deal'i alın
+                //final deal = index < deals.length ? deals[index] : null;
+
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: SizedBox(
+                                      height: 500,
+                                      width: 300,
+                                      child: ListView.builder(
+                                        itemCount: deals!.length,
+                                        itemBuilder: (context, index) {
+                                          final deal = deals[index];
+                                          return Text(deal.price!);
+                                        },
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Image.network(game.info!.thumb!),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    (game.info!.title! +
+                                        game.cheapestPriceEver!.price
+                                            .toString()),
+                                    style: const TextStyle(
+                                        overflow: TextOverflow.ellipsis),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 );
               },
