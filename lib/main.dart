@@ -26,10 +26,9 @@ class App extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Get Games',
-        theme: FlexThemeData.light(
-            scheme: FlexScheme.blumineBlue, useMaterial3: true),
+        theme: FlexThemeData.light(scheme: FlexScheme.blue, useMaterial3: true),
         darkTheme: FlexThemeData.dark(
-            scheme: FlexScheme.blumineBlue, useMaterial3: true),
+            scheme: FlexScheme.mallardGreen, useMaterial3: true),
         themeMode: ThemeMode.system,
         home: const HomePage() //const FreeGamesView(),
         );

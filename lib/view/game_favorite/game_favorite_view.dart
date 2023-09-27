@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/provider/game_favorite/game_favorite_api_provider.dart';
 import 'package:get_games/provider/game_favorite/favorites_provider.dart';
+import 'package:get_games/store_name_provider.dart';
 import 'package:get_games/view/game_search/game_search_view.dart';
 
 class GameFavoriteView extends ConsumerStatefulWidget {
@@ -18,6 +19,7 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
     //todo:1000
     final favoriteProvider = ref.watch(gameFavoriteApiProvider);
     final favIdsList = ref.watch(favoriteGameIdsProvider);
+
     return Scaffold(
       floatingActionButton: favIdsList.isNotEmpty
           ? FloatingActionButton(
@@ -77,11 +79,6 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                 final game = data[index];
                 final deals = game.deals;
 
-                // final deals = game.deals[index];
-
-                // Eğer indeks geçerli ise, deals'dan ilgili deal'i alın
-                //final deal = index < deals.length ? deals[index] : null;
-
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -101,7 +98,21 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                                         itemCount: deals!.length,
                                         itemBuilder: (context, index) {
                                           final deal = deals[index];
-                                          return Text(deal.price!);
+                                          final storeName = ref
+                                              .watch(storeNameProvider)
+                                              .getStoreNameById(deal.storeID!);
+
+                                          return Column(
+                                            children: [
+                                              Wrap(
+                                                spacing: 5,
+                                                children: [
+                                                  Text(storeName),
+                                                  Text(deal.price!),
+                                                ],
+                                              ),
+                                            ],
+                                          );
                                         },
                                       ),
                                     ),
