@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'package:get_games/model/game_search_model.dart';
+import 'package:get_games/models/game_search_model.dart';
 
 final gameSearchProvider = FutureProvider<List<GameSearchModel>>((ref) async {
   final query = ref.watch(searchQueryProvider);

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/model/game_deals_model.dart';
-import 'package:get_games/provider/game_deals/game_deals_price_provider.dart';
-import 'package:get_games/provider/game_deals/game_deals_store_provider.dart';
+import 'package:get_games/models/game_deals_model.dart';
+import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
+import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:http/http.dart' as http;
 
 final gameDealsProvider = FutureProvider<List<GameDealsModel>>((ref) async {

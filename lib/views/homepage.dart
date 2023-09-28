@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/view/free_games/free_games_view.dart';
-import 'package:get_games/provider/free_games/free_games_api_controller.dart';
-import 'package:get_games/view/game_deals/game_deals_list_view.dart';
-import 'package:get_games/view/game_favorite/game_favorite_view.dart';
+import 'package:get_games/views/free_games/free_games_view.dart';
+import 'package:get_games/providers/free_games/free_games_api_controller.dart';
+import 'package:get_games/views/game_deals/game_deals_list_view.dart';
+import 'package:get_games/views/game_favorite/game_favorite_view.dart';
+import 'package:get_games/views/settings/settings_view.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -27,7 +28,12 @@ class HomePage extends ConsumerWidget {
           NavigationDestination(
             selectedIcon: Icon(Icons.search),
             icon: Icon(Icons.search_outlined),
-            label: 'Deals',
+            label: 'Search',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.settings),
+            icon: Icon(Icons.settings_outlined),
+            label: 'Settings',
           ),
         ],
         onDestinationSelected: (index) {
@@ -39,8 +45,12 @@ class HomePage extends ConsumerWidget {
         const FreeGamesView(),
         const GameDealsListView(),
         const GameFavoriteView(),
+        const SettingsView(),
         //const GameSearchView(),
       ][navBarIndexProvider],
     );
   }
 }
+
+//todo.
+ 

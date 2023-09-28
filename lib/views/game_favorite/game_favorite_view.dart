@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/provider/game_favorite/game_favorite_api_provider.dart';
-import 'package:get_games/provider/game_favorite/favorites_provider.dart';
-import 'package:get_games/store_name_provider.dart';
-import 'package:get_games/view/game_search/game_search_view.dart';
+import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
+import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/providers/game_favorite/store_name_provider.dart';
+import 'package:get_games/views/game_search/game_search_view.dart';
+import 'package:get_games/widgets/search_text.dart';
 
 class GameFavoriteView extends ConsumerStatefulWidget {
   const GameFavoriteView({super.key});
@@ -16,7 +17,6 @@ class GameFavoriteView extends ConsumerStatefulWidget {
 class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
   @override
   Widget build(BuildContext context) {
-    //todo:1000
     final favoriteProvider = ref.watch(gameFavoriteApiProvider);
     final favIdsList = ref.watch(favoriteGameIdsProvider);
 
@@ -59,10 +59,11 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                   },
                 );
               },
-              child: const Icon(Icons.delete_forever))
+              child: const Icon(Icons.delete),
+            )
           : null,
       appBar: AppBar(
-        title: const Text('Search'),
+        title: const Text("Search Game"),
         actions: [
           IconButton(
               onPressed: () => Navigator.of(context).push(

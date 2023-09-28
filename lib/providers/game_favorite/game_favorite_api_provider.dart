@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/model/favorite_game_model.dart';
-import 'package:get_games/provider/game_favorite/favorites_provider.dart';
+import 'package:get_games/models/favorite_game_model.dart';
+import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 import 'package:http/http.dart' as http;
 
 // final gameFavoriteApiProvider =

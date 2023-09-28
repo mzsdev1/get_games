@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/provider/free_games/freegames_api_filter.dart';
-import 'package:get_games/model/free_games_model.dart';
+import 'package:get_games/providers/free_games/freegames_api_filter.dart';
+import 'package:get_games/models/free_games_model.dart';
 import 'package:http/http.dart' as http;
 
 final freeGamesProvider = FutureProvider<List<FreeGamesModel>>((ref) async {

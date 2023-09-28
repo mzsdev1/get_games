@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/provider/free_games/free_games_api_controller.dart';
+import 'package:get_games/providers/free_games/free_games_api_controller.dart';
+import 'package:get_games/views/free_games/free_games_index_view.dart';
 
 final filters = [
   'epic-games-store',
@@ -25,10 +26,7 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
   @override
   Widget build(BuildContext context) {
     final freeGamesData = ref.watch(freeGamesProvider);
-    //final selectedFilters = ref.watch(selectedFiltersProvider);
-//test TODO:
-    //final selectedGameType = ref.watch(selectedGameTypeProvider);
-//test TODO:
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Free Games"),
@@ -51,7 +49,6 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
                               children: [
                                 const Text(
                                   "Select type",
-                                  style: TextStyle(color: Colors.white),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -80,7 +77,6 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
                               children: [
                                 const Text(
                                   "Select game filter",
-                                  style: TextStyle(color: Colors.white),
                                 ),
                                 Wrap(
                                   children: filters.map((filter) {
@@ -117,10 +113,6 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
                 },
               );
             },
-            icon: const Icon(Icons.filter_alt),
-          ),
-          IconButton(
-            onPressed: () {},
             icon: const Icon(Icons.filter_list),
           ),
         ],
@@ -134,11 +126,21 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
             itemBuilder: (context, index) {
               final game = data[index];
 
-              return Card(
-                child: Column(
-                  children: [
-                    Text(game.title),
-                  ],
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GameFreeIndexView(freeGame: game),
+                    ),
+                  );
+                },
+                child: Card(
+                  child: Column(
+                    children: [
+                      Text(game.title),
+                    ],
+                  ),
                 ),
               );
             },

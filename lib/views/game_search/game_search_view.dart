@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/provider/game_favorite/favorites_provider.dart';
-import 'package:get_games/provider/game_search/game_search_api_provider.dart';
+import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/providers/game_search/game_search_api_provider.dart';
+import 'package:get_games/widgets/search_text.dart';
 
 class GameSearchView extends ConsumerStatefulWidget {
   const GameSearchView({super.key});
@@ -13,9 +14,6 @@ class GameSearchView extends ConsumerStatefulWidget {
 class _GameSearchViewState extends ConsumerState<GameSearchView> {
   final controller = TextEditingController();
 
-  //
-
-//
   @override
   void dispose() {
     super.dispose();
@@ -27,26 +25,38 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
     final favoriteProvider = ref.watch(favoriteGameIdsProvider);
     final searchGameProvider = ref.watch(gameSearchProvider);
 
-//test
-
-//t4st
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.back_hand),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             //todo:
             //ref.read(isFirstRequestProvider.notifier).state = true;
             Navigator.pop(context);
           },
         ),
-        title: SizedBox(
-          width: double.infinity,
-          child: Center(
-            child: TextField(
-              //maxLength: 40,
-              controller: controller,
-              onSubmitted: (_) {
+        //todo:
+        title: TextField(
+          controller: controller,
+          onSubmitted: (_) {
+            final ctrlText = controller.text.trim();
+            bool isAlphaNumeric = RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
+
+            FocusScope.of(context).unfocus();
+
+            if (ctrlText.isNotEmpty &&
+                ctrlText.length <= 40 &&
+                ctrlText.length >= 3 &&
+                isAlphaNumeric) {
+              ref.read(searchQueryProvider.notifier).state = controller.text;
+            }
+
+            controller.text = "";
+          },
+          decoration: InputDecoration(
+            hintText: "Search game",
+            suffixIcon: IconButton(
+              onPressed: () {
                 final ctrlText = controller.text.trim();
                 bool isAlphaNumeric =
                     RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
@@ -63,32 +73,11 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
 
                 controller.text = "";
               },
-              decoration: InputDecoration(
-                hintText: "GTA",
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    final ctrlText = controller.text.trim();
-                    bool isAlphaNumeric =
-                        RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
-
-                    FocusScope.of(context).unfocus();
-
-                    if (ctrlText.isNotEmpty &&
-                        ctrlText.length <= 40 &&
-                        ctrlText.length >= 3 &&
-                        isAlphaNumeric) {
-                      ref.read(searchQueryProvider.notifier).state =
-                          controller.text;
-                    }
-
-                    controller.text = "";
-                  },
-                  icon: const Icon(Icons.search),
-                ),
-              ),
+              icon: const Icon(Icons.search),
             ),
           ),
         ),
+        //todo:
       ),
       body: searchGameProvider.when(
         data: (data) {
@@ -110,7 +99,8 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
                         ),
                         Text(
                           game.external!,
-                          style: const TextStyle(overflow: TextOverflow.clip),
+                          style:
+                              const TextStyle(overflow: TextOverflow.ellipsis),
                         ),
                         IconButton(
                           onPressed: () {

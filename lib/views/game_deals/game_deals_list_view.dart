@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/provider/game_deals/game_deals_api_provider.dart';
-import 'package:get_games/provider/game_deals/game_deals_price_provider.dart';
-import 'package:get_games/provider/game_deals/game_deals_store_provider.dart';
+import 'package:get_games/providers/game_deals/game_deals_api_provider.dart';
+import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
+import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
+import 'package:get_games/views/game_deals/game_deals_index_view.dart';
 
 final List<String> storeLabels = ["Steam", "Epic Games"];
 
@@ -18,8 +19,7 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
   @override
   Widget build(BuildContext context) {
     final gameDealsData = ref.watch(gameDealsProvider);
-    // final priceProvider = ref.watch(gameDealsPriceProvider);
-    // final storeProvideri = ref.watch(storeProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Game Deals"),
@@ -90,7 +90,7 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
                 },
               );
             },
-            icon: const Icon(Icons.filter_alt),
+            icon: const Icon(Icons.filter_list),
           ),
         ],
       ),
@@ -101,7 +101,17 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
             itemBuilder: (context, index) {
               final game = data[index];
               return ListTile(
-                title: Text(game.title ?? "eee"),
+                title: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GameDealIndexView(gameDeal: game),
+                      ),
+                    );
+                  },
+                  child: Text(game.title ?? "eee"),
+                ),
               );
             },
           );

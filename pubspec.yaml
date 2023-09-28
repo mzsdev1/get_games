@@ -29,6 +29,9 @@ dependencies:
   flutter_local_notifications: ^15.1.1
   flutter_riverpod: ^2.4.0
   shared_preferences: ^2.2.1
+  animated_toggle_switch: ^0.8.0
+  dot_navigation_bar: ^1.0.2
+ 
   
 
 dev_dependencies:
