@@ -6,12 +6,20 @@ import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:http/http.dart' as http;
 
 final gameDealsProvider = FutureProvider<List<GameDealsModel>>((ref) async {
-  final priceProvider = ref.watch(gameDealsPriceProvider);
+  // final priceProvider = ref.watch(gameDealsPriceProvider);
+
+  //todo:
+  final minPriceProvider = ref.watch(gameDealsMinPriceProvider);
+  final maxPriceProvider = ref.watch(gameDealsMaxPriceProvider);
+  //todo:
   final storeProviderInt = ref.watch(storeApichProvider).selectedApiNumber;
 
-  final url = Uri.parse(
-      "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${priceProvider.toString()}");
+  // final url = Uri.parse(
+  //     "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${priceProvider.toString()}");
 
+  final url = Uri.parse(
+      "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${minPriceProvider.toString()}&upperPrice=${maxPriceProvider.toString()}");
+  print("slider url: $url");
   try {
     final response = await http.get(url);
     print(url);

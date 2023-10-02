@@ -4,7 +4,8 @@ import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dar
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 import 'package:get_games/providers/game_favorite/store_name_provider.dart';
 import 'package:get_games/views/game_search/game_search_view.dart';
-import 'package:get_games/widgets/search_text.dart';
+import 'package:get_games/widgets/common/load_progress_indicator.dart';
+import 'package:get_games/widgets/game_search/search_text.dart';
 
 class GameFavoriteView extends ConsumerStatefulWidget {
   const GameFavoriteView({super.key});
@@ -153,9 +154,7 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
         error: (error, stackTrace) {
           return Text("favoriteview: ${error.toString()}");
         },
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
+        loading: () => const LoadProgressIndicator(),
       ),
     );
   }
