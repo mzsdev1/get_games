@@ -4,6 +4,7 @@ class FreeGamesModel {
   final String worth;
   final String thumbnail;
   final String image;
+  final String type;
   final String description;
   final String instructions;
   final String openGiveawayUrl;
@@ -20,6 +21,7 @@ class FreeGamesModel {
     required this.worth,
     required this.thumbnail,
     required this.image,
+    required this.type,
     required this.description,
     required this.instructions,
     required this.openGiveawayUrl,
@@ -37,6 +39,7 @@ class FreeGamesModel {
         worth: json["worth"],
         thumbnail: json["thumbnail"],
         image: json["image"],
+        type: json['type'],
         description: json["description"],
         instructions: json["instructions"],
         openGiveawayUrl: json["open_giveaway_url"],
