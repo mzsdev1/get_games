@@ -51,17 +51,17 @@ class FullContainer extends StatelessWidget {
     return Container(
       height: 100, // Set a fixed height
       width: double.infinity,
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.all(15),
+      margin: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.all(17),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.2),
+            color: Theme.of(context).shadowColor.withOpacity(0.3),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -72,7 +72,7 @@ class FullContainer extends StatelessWidget {
           Text(
             header,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 15,
               fontWeight: FontWeight.bold,
             ),
           ),

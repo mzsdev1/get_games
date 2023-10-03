@@ -49,18 +49,17 @@ class HalfContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(15),
+        margin: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.all(17),
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              //color: Colors.grey.withOpacity(0.5),
-              color: Theme.of(context).shadowColor.withOpacity(0.2),
+              color: Theme.of(context).shadowColor.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
