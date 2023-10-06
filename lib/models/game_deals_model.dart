@@ -74,8 +74,8 @@ class GameDealsModel {
   String? steamRatingText;
   String? steamRatingPercent;
   String? steamRatingCount;
-  int? releaseDate;
-  int? lastChange;
+  DateTime? releaseDate;
+  DateTime? lastChange;
   String? dealRating;
   String? thumb;
 
@@ -99,13 +99,20 @@ class GameDealsModel {
     dealID = json['dealID'];
     salePrice = json['salePrice'] ?? "0";
     normalPrice = json['normalPrice'] ?? "0";
-    savings = json['savings'] ?? "0";
+    savings = (double.tryParse(json['savings'])?.toStringAsFixed(0) ??
+        "0"); //json['savings'] ?? "0";
     metacriticScore = json['metacriticScore'] ?? "0";
     steamRatingText = json['steamRatingText'] ?? "N/A";
     steamRatingPercent = json['steamRatingPercent'] ?? "0";
     steamRatingCount = json['steamRatingCount'] ?? "0";
-    releaseDate = json['releaseDate'];
-    lastChange = json['lastChange'];
+    releaseDate = json['releaseDate'] != null
+        ? DateTime.fromMillisecondsSinceEpoch(
+            (json['releaseDate'] as int) * 1000)
+        : DateTime.now();
+    lastChange = json['lastChange'] != null
+        ? DateTime.fromMillisecondsSinceEpoch(
+            (json['lastChange'] as int) * 1000)
+        : DateTime.now();
     dealRating = json['dealRating'] ?? "0";
     thumb = json['thumb'];
   }

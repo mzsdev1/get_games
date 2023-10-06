@@ -39,14 +39,12 @@ class GetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
-      margin: EdgeInsets.all(10),
       child: ElevatedButton(
         onPressed: buttonFunction,
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          backgroundColor: Theme.of(context).primaryColor,
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -54,11 +52,6 @@ class GetButton extends StatelessWidget {
         ),
         child: Text(
           buttonText!,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).buttonTheme.colorScheme!.onTertiary,
-          ),
         ),
       ),
     );

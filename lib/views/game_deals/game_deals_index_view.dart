@@ -74,24 +74,48 @@ class GameDealIndexView extends ConsumerWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "\$${gameDeal.normalPrice}",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .copyWith(
-                                    decoration: TextDecoration
-                                        .lineThrough, // Üstü çizgiyi etkinleştirir
-                                    // decorationColor: Colors
-                                    //     .red, // Çizgi rengini belirleyebilirsiniz
-                                    decorationThickness:
-                                        2.0, // Çizgi kalınlığını ayarlayabilirsiniz
-                                    decorationStyle: TextDecorationStyle.solid,
+                            // Text(
+                            //   "\$${gameDeal.normalPrice}",
+                            //   style: Theme.of(context)
+                            //       .textTheme
+                            //       .labelLarge!
+                            //       .copyWith(
+                            //         decoration: TextDecoration
+                            //             .lineThrough, // Üstü çizgiyi etkinleştirir
+                            //         // decorationColor: Colors
+                            //         //     .red, // Çizgi rengini belirleyebilirsiniz
+                            //         decorationThickness:
+                            //             2.0, // Çizgi kalınlığını ayarlayabilirsiniz
+                            //         decorationStyle: TextDecorationStyle.solid,
+                            //       ),
+                            // ),
+                            // Text(
+                            //   gameDeal.savings!,
+                            //   style: Theme.of(context).textTheme.labelLarge!,
+                            // ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "\$${gameDeal.normalPrice!}",
+                                ),
+                                Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
-                            ),
-                            Text(
-                              gameDeal.savings!,
-                              style: Theme.of(context).textTheme.labelLarge!,
+                                  child: Center(
+                                    child: Text(
+                                      "-${gameDeal.savings!}%",
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  "\$${gameDeal.salePrice!}",
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -140,8 +164,8 @@ class GameDealIndexView extends ConsumerWidget {
                   height: 8,
                 ),
                 DealDateContainer(
-                    releaseDate: gameDeal.releaseDate!.toString(),
-                    lastChange: gameDeal.releaseDate!.toString()),
+                  gameDeal: gameDeal,
+                ),
                 const SizedBox(
                   height: 8,
                 ),

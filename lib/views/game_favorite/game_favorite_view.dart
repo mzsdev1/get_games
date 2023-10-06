@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
@@ -49,7 +50,7 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                           onPressed: () {
                             ref
                                 .read(favoriteGameIdsProvider.notifier)
-                                .deleteAllFavorites();
+                                .deleteAllFavorites(context);
 
                             Navigator.pop(context);
                           },
@@ -82,67 +83,175 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                 final deals = game.deals;
 
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Dialog(
-                                    child: SizedBox(
-                                      height: 500,
-                                      width: 300,
-                                      child: ListView.builder(
-                                        itemCount: deals!.length,
-                                        itemBuilder: (context, index) {
-                                          final deal = deals[index];
-                                          final storeName = ref
-                                              .watch(storeNameProvider)
-                                              .getStoreNameById(deal.storeID!);
-
-                                          return Column(
-                                            children: [
-                                              Wrap(
-                                                spacing: 5,
-                                                children: [
-                                                  Text(storeName),
-                                                  Text(deal.price!),
-                                                ],
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            },
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                  child: InkWell(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
                             child: Container(
-                              child: Row(
-                                children: [
-                                  Image.network(game.info!.thumb!),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    (game.info!.title! +
-                                        game.cheapestPriceEver!.price
-                                            .toString()),
-                                    style: const TextStyle(
-                                        overflow: TextOverflow.ellipsis),
-                                  ),
-                                ],
+                              width:
+                                  300, // Adjust the width to your desired size
+                              height:
+                                  250, // Adjust the height to your desired size
+                              padding: EdgeInsets.all(16.0),
+                              child: Scrollbar(
+                                thumbVisibility:
+                                    true, // Set this property to ensure the scrollbar is always shown
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: deals!.length,
+                                  itemBuilder: (context, index) {
+                                    final deal = deals[index];
+                                    final storeName = ref
+                                        .watch(storeNameProvider)
+                                        .getStoreNameById(deal.storeID!);
+
+                                    return Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                              storeName,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .subtitle1,
+                                            ),
+                                            Text(
+                                              deal.price!,
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 8.0),
+                                      ],
+                                    );
+                                  },
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          );
+                        },
+                      );
+
+                      // showDialog(
+                      //   context: context,
+                      //   builder: (context) {
+                      //     return Dialog(
+                      //       shape: RoundedRectangleBorder(
+                      //         borderRadius: BorderRadius.circular(10.0),
+                      //       ),
+                      //       child: Container(
+                      //         width: 300,
+                      //         height: 250,
+                      //         padding: const EdgeInsets.all(16.0),
+                      //         child: ListView.builder(
+                      //           itemCount: deals!.length,
+                      //           itemBuilder: (context, index) {
+                      //             final deal = deals[index];
+                      //             final storeName = ref
+                      //                 .watch(storeNameProvider)
+                      //                 .getStoreNameById(deal.storeID!);
+
+                      //             return Column(
+                      //               children: [
+                      //                 Row(
+                      //                   children: [
+                      //                     Text(
+                      //                       storeName,
+                      //                       style: Theme.of(context)
+                      //                           .textTheme
+                      //                           .subtitle1,
+                      //                     ),
+                      //                     Text(
+                      //                       deal.price!,
+                      //                       style: TextStyle(
+                      //                         fontWeight: FontWeight.bold,
+                      //                       ),
+                      //                     ),
+                      //                   ],
+                      //                 ),
+                      //                 SizedBox(height: 8.0),
+                      //               ],
+                      //             );
+                      //           },
+                      //         ),
+                      //       ),
+                      //     );
+                      //   },
+                      // );
+                      //todo
+                      // showDialog(
+                      //   context: context,
+                      //   builder: (context) {
+                      //     return SizedBox(
+                      //       height: 350,
+                      //       width: 550,
+                      //       child: Dialog(
+                      //         child: ListView.builder(
+                      //           itemCount: deals!.length,
+                      //           itemBuilder: (context, index) {
+                      //             final deal = deals[index];
+                      //             final storeName = ref
+                      //                 .watch(storeNameProvider)
+                      //                 .getStoreNameById(deal.storeID!);
+
+                      //             return Column(
+                      //               children: [
+                      //                 Row(
+                      //                   children: [
+                      //                     Text(
+                      //                       storeName,
+                      //                       style: Theme.of(context)
+                      //                           .textTheme
+                      //                           .labelMedium,
+                      //                     ),
+                      //                     Text(deal.price!),
+                      //                   ],
+                      //                 ),
+                      //               ],
+                      //             );
+                      //           },
+                      //         ),
+                      //       ),
+                      //     );
+                      //   },
+                      // );
+                    },
+                    child: SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: Card(
+                        child: Row(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: CachedNetworkImage(
+                                imageUrl: game.info!.thumb!,
+                                width: 110.0,
+                                height: 50,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            const SizedBox(width: 15),
+                            Container(
+                              width: 222,
+                              child: Text(
+                                game.info!.title!,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
+                    ),
                   ),
                 );
               },

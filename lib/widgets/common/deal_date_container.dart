@@ -1,20 +1,24 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
+import 'package:get_games/models/game_deals_model.dart';
+import 'package:intl/intl.dart';
 
 class DealDateContainer extends StatelessWidget {
   const DealDateContainer({
     Key? key,
-    required this.releaseDate,
-    required this.lastChange,
+    required this.gameDeal,
   }) : super(key: key);
-  final String releaseDate;
-  final String lastChange;
+  final GameDealsModel gameDeal;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    final releaseDate = gameDeal.releaseDate != null
+        ? DateFormat('yyyy-MM-dd').format(gameDeal.releaseDate!)
+        : "Unknown";
+    final lastChange = gameDeal.lastChange != null
+        ? DateFormat('yyyy-MM-dd').format(gameDeal.lastChange!)
+        : "Unknown";
 
     return SizedBox(
       width: screenWidth, // Set the width to the screen's width
