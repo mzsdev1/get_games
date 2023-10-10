@@ -7,7 +7,7 @@ import 'package:get_games/widgets/common/deal_date_container.dart';
 import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
-import 'package:get_games/widgets/common/rate_container.dart';
+import 'package:get_games/widgets/game_deals/rate_container.dart';
 
 class GameDealIndexView extends ConsumerWidget {
   const GameDealIndexView({super.key, required this.gameDeal});
@@ -140,12 +140,26 @@ class GameDealIndexView extends ConsumerWidget {
                   children: [
                     RateContainer(
                       rateTitle: "Deal Score",
-                      infoWidget: Text(gameDeal.dealRating ?? "0"),
+                      infoWidget: CircleAvatar(
+                        child: Text(gameDeal.dealRating ?? "0"),
+                      ),
                     ),
                     const SizedBox(width: 10),
                     RateContainer(
                       rateTitle: "Metacritic",
-                      infoWidget: Text(gameDeal.metacriticScore ?? "0"),
+                      infoWidget: Center(
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 40,
+                          color: Theme.of(context).colorScheme.surfaceTint,
+                          child: Text(
+                            gameDeal.metacriticScore ?? "0",
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 10),
                     RateContainer(

@@ -1,40 +1,5 @@
 import 'package:flutter/material.dart';
-
-// class HalfContainer extends StatelessWidget {
-//   final String header;
-//   final String info;
-//   const HalfContainer({
-//     Key? key,
-//     required this.header,
-//     required this.info,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(
-//       child: Container(
-//         height: 50,
-//         decoration: BoxDecoration(
-//           color: Theme.of(context).hoverColor,
-//           borderRadius: BorderRadius.circular(25),
-//         ),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//           children: [
-//             Text(
-//               header,
-//             ),
-//             Text(
-//               info,
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-//todo:
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HalfContainer extends StatelessWidget {
   final String header;
@@ -49,14 +14,14 @@ class HalfContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 12),
-        padding: const EdgeInsets.all(17),
+        margin: const EdgeInsets.symmetric(vertical: 5).r,
+        padding: const EdgeInsets.all(16).r,
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(13).r,
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).shadowColor.withOpacity(0.3),
+              color: Theme.of(context).shadowColor.withOpacity(0.4),
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(0, 3),
@@ -69,18 +34,18 @@ class HalfContainer extends StatelessWidget {
           children: [
             Text(
               header,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.sp,
+                  ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Text(
               info,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[800],
-              ),
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    fontSize: 14.sp,
+                    //color: Theme.of(context).primaryColor,
+                  ),
             ),
           ],
         ),

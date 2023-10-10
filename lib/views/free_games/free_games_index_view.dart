@@ -1,9 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/models/free_games_model.dart';
+import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
+import 'package:get_games/widgets/free_games/column_text.dart';
 
 class GameFreeIndexView extends StatelessWidget {
   const GameFreeIndexView({super.key, required this.freeGame});
@@ -12,11 +15,6 @@ class GameFreeIndexView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MediaQueryData mediaQueryData = MediaQuery.of(context);
-
-    final double deviceHeight = mediaQueryData.size.height;
-
-    final double deviceWidth = mediaQueryData.size.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -29,79 +27,53 @@ class GameFreeIndexView extends StatelessWidget {
           children: [
             CachedNetworkImage(
               fit: BoxFit.fill,
-              imageUrl: freeGame.image,
-              //height: deviceHeight / 4,
-              width: deviceWidth,
-              //height: deviceHeight * 0.229,
-              height: deviceHeight * 0.3,
+              imageUrl: freeGame.image!,
+              width: 1.sw,
+              height: 225.h,
+              errorWidget: (context, url, error) => const ErrorImage(),
             ),
-            const SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              padding: REdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
                     child: Text(
                       textAlign: TextAlign.center,
-                      freeGame.title,
-                      style: TextStyle(
-                        fontSize: 7.5 * MediaQuery.of(context).devicePixelRatio,
-                      ),
+                      freeGame.title!,
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19.sp,
+                          ),
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 7.h),
                   Row(
                     children: [
-                      HalfContainer(header: "Price", info: freeGame.worth),
-                      const SizedBox(width: 30),
-                      HalfContainer(header: "Type", info: freeGame.type),
+                      HalfContainer(header: "Price", info: freeGame.worth!),
+                      SizedBox(width: 30.w),
+                      HalfContainer(header: "Type", info: freeGame.type!),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 7.h),
                   FullContainer(header: "Platforms", info: freeGame.platforms),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Description",
-                          textAlign: TextAlign.start,
-                        ),
-                        Text(
-                          freeGame.description,
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 7.h),
+                  ColumnText(title: "Description", data: freeGame.description!),
+                  SizedBox(height: 7.h),
                   FullContainer(header: "End Date", info: freeGame.endDate),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Instructions",
-                          textAlign: TextAlign.start,
-                        ),
-                        Text(
-                          freeGame.instructions,
-                          textAlign: TextAlign.start,
-                        ),
-                      ],
-                    ),
+                  SizedBox(height: 7.h),
+                  ColumnText(
+                    title: "Instructions",
+                    data: freeGame.instructions!,
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 7.h),
                   Center(
                     child: GetButton(
                       buttonText: "Get",
                       buttonFunction: () {},
                     ),
                   ),
+                  SizedBox(height: 10.h),
                 ],
               ),
             ),

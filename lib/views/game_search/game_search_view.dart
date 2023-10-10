@@ -91,6 +91,9 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
                             final favoriteProvider =
                                 ref.watch(favoriteGameIdsProvider);
                             return Dialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
                               child: SingleChildScrollView(
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),

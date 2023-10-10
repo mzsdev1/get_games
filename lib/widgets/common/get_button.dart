@@ -1,31 +1,5 @@
 import 'package:flutter/material.dart';
-
-// class GetButton extends StatelessWidget {
-//   const GetButton({
-//     Key? key,
-//     this.buttonText,
-//     this.buttonFunction,
-//   }) : super(key: key);
-//   final String? buttonText;
-//   final Function()? buttonFunction;
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: 45,
-//       width: 210,
-//       child: ElevatedButton(
-//         onPressed: buttonFunction,
-//         style: ElevatedButton.styleFrom(
-//             backgroundColor: Colors.teal,
-//             shape: RoundedRectangleBorder(
-//                 borderRadius: BorderRadius.circular(25))),
-//         child: Text(
-//           buttonText!,
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GetButton extends StatelessWidget {
   const GetButton({
@@ -40,18 +14,19 @@ class GetButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
+      width: 200.w,
       child: ElevatedButton(
-        onPressed: buttonFunction,
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20).r,
           elevation: 5,
         ),
+        onPressed: buttonFunction,
         child: Text(
           buttonText!,
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 14.sp,
+              ),
         ),
       ),
     );

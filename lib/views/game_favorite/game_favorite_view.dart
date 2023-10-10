@@ -117,20 +117,29 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                                         Row(
                                           children: [
                                             Text(
-                                              storeName,
+                                              "$storeName:",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .subtitle1,
+                                                  .titleMedium!
+                                                  .copyWith(
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                             ),
+                                            const SizedBox(width: 3),
                                             Text(
-                                              deal.price!,
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                              "\$${deal.price!}",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium,
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 8.0),
+                                        Divider(
+                                          color: Theme.of(context).dividerColor,
+                                        ),
+                                        const SizedBox(
+                                          height: 8.0,
+                                        ),
                                       ],
                                     );
                                   },

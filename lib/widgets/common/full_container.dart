@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // class FullContainer extends StatelessWidget {
 //   final String header;
@@ -49,16 +50,15 @@ class FullContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100, // Set a fixed height
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 12),
-      padding: const EdgeInsets.all(17),
+      width: 1.sw,
+      margin: const EdgeInsets.symmetric(vertical: 5).r,
+      padding: const EdgeInsets.all(16).r,
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(13).r,
         boxShadow: [
           BoxShadow(
-            color: Theme.of(context).shadowColor.withOpacity(0.5),
+            color: Theme.of(context).shadowColor.withOpacity(0.4),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3),
@@ -71,19 +71,19 @@ class FullContainer extends StatelessWidget {
         children: [
           Text(
             header,
-            style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
+                ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Text(
             info!,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey[800],
-            ),
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  //color: Theme.of(context).primaryColor,
+                  fontSize: 14.sp,
+                ),
           ),
         ],
       ),
