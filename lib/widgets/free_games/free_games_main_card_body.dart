@@ -104,7 +104,7 @@ class FreeGamesMainCardBody extends StatelessWidget {
             height: 146.h,
             imageUrl: imagePath,
             fit: BoxFit.fill,
-            errorWidget: (context, url, error) => const ErrorImage(),
+            errorWidget: (context, url, error) => const ErrorIcon(),
           ),
           Padding(
             padding: EdgeInsets.all(8.r),

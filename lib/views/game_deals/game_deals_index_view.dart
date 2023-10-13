@@ -2,8 +2,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/models/game_deals_model.dart';
+import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:get_games/widgets/common/deal_date_container.dart';
+import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
@@ -16,6 +19,8 @@ class GameDealIndexView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final storeNum = ref.watch(storeNameProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Get"),
@@ -23,48 +28,48 @@ class GameDealIndexView extends ConsumerWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            padding: REdgeInsets.all(8),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8),
+                SizedBox(height: 5.h),
+                Center(
                   child: Text(
                     textAlign: TextAlign.center,
                     gameDeal.title!,
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 19.sp,
+                        ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 7.h),
                 Row(
                   children: [
                     ClipRRect(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(12),
-                      ), // Adjust the radius as needed
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(13).r),
                       child: CachedNetworkImage(
                         fit: BoxFit.fill,
-                        height: 57,
-                        width: 150,
+                        height: 44.h,
+                        width: 134.w,
                         imageUrl: gameDeal.thumb!,
+                        errorWidget: (context, url, error) => const ErrorIcon(),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     Expanded(
                       child: Container(
-                        height: 57,
-                        //width: double.infinity,
+                        margin: const EdgeInsets.symmetric(vertical: 5).r,
+                        padding: const EdgeInsets.symmetric(horizontal: 16).r,
+                        height: 44.h,
                         decoration: BoxDecoration(
                           color: Theme.of(context).cardColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(12)),
+                          borderRadius: BorderRadius.circular(13).r,
                           boxShadow: [
                             BoxShadow(
-                              //color: Colors.grey.withOpacity(0.5),
                               color: Theme.of(context)
                                   .shadowColor
-                                  .withOpacity(0.3),
+                                  .withOpacity(0.4),
                               spreadRadius: 2,
                               blurRadius: 5,
                               offset: const Offset(0, 3),
@@ -72,50 +77,50 @@ class GameDealIndexView extends ConsumerWidget {
                           ],
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Text(
-                            //   "\$${gameDeal.normalPrice}",
-                            //   style: Theme.of(context)
-                            //       .textTheme
-                            //       .labelLarge!
-                            //       .copyWith(
-                            //         decoration: TextDecoration
-                            //             .lineThrough, // Üstü çizgiyi etkinleştirir
-                            //         // decorationColor: Colors
-                            //         //     .red, // Çizgi rengini belirleyebilirsiniz
-                            //         decorationThickness:
-                            //             2.0, // Çizgi kalınlığını ayarlayabilirsiniz
-                            //         decorationStyle: TextDecorationStyle.solid,
-                            //       ),
-                            // ),
-                            // Text(
-                            //   gameDeal.savings!,
-                            //   style: Theme.of(context).textTheme.labelLarge!,
-                            // ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
-                                  "\$${gameDeal.normalPrice!}",
-                                ),
-                                Container(
-                                  height: 40,
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.circular(8),
+                            Text(
+                              "\$${gameDeal.normalPrice!}",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                    decoration: TextDecoration.lineThrough,
+                                    color: Theme.of(context).hintColor,
+                                    fontSize: 14.sp,
                                   ),
-                                  child: Center(
-                                    child: Text(
-                                      "-${gameDeal.savings!}%",
-                                    ),
+                            ),
+                            Container(
+                              height: 35.h,
+                              width: 40.w,
+                              decoration: BoxDecoration(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  borderRadius: BorderRadius.circular(8).r),
+                              child: Center(
+                                child: Text(
+                                  "-${gameDeal.savings!}%",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onPrimary,
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 14.sp,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "\$${gameDeal.salePrice!}",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                    fontSize: 14.sp,
                                   ),
-                                ),
-                                Text(
-                                  "\$${gameDeal.salePrice!}",
-                                ),
-                              ],
                             ),
                           ],
                         ),
@@ -123,71 +128,119 @@ class GameDealIndexView extends ConsumerWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                const FullContainer(header: "Platform", info: "Steam"),
+                SizedBox(height: 7.h),
+                FullContainer(
+                  header: "Platform",
+                  info:
+                      storeNum.selectedApiNumber == 1 ? "Steam" : "Epic Games",
+                ),
+                SizedBox(height: 7.h),
                 Row(
                   children: [
                     HalfContainer(
                         header: "Rating Count",
                         info: gameDeal.steamRatingCount!),
-                    const SizedBox(
-                      width: 30,
-                    ),
+                    SizedBox(width: 26.w),
                     const HalfContainer(header: "Type", info: "Game"),
                   ],
                 ),
+                SizedBox(height: 7.h),
                 Row(
                   children: [
                     RateContainer(
-                      rateTitle: "Deal Score",
-                      infoWidget: CircleAvatar(
-                        child: Text(gameDeal.dealRating ?? "0"),
+                      rateTitle: "Score",
+                      infoWidget: Container(
+                        alignment: Alignment.center,
+                        height: 36.h,
+                        width: 38.w,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                        ),
+                        child: Text(
+                          gameDeal.dealRating ?? "0",
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    fontSize: 14.sp,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
+                                  ),
+                        ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 9.w),
                     RateContainer(
                       rateTitle: "Metacritic",
                       infoWidget: Center(
                         child: Container(
                           alignment: Alignment.center,
-                          height: 40,
-                          width: 40,
-                          color: Theme.of(context).colorScheme.surfaceTint,
+                          height: 36.h,
+                          width: 38.w,
+                          color: Theme.of(context).colorScheme.primaryContainer,
                           child: Text(
                             gameDeal.metacriticScore ?? "0",
+                            overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge,
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      fontSize: 14.sp,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimaryContainer,
+                                    ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 9.w),
                     RateContainer(
                       rateTitle: "Rate",
-                      infoWidget:
-                          Text("%${gameDeal.steamRatingPercent}" ?? "%0"),
+                      infoWidget: Container(
+                        alignment: Alignment.center,
+                        height: 36.h,
+                        width: 38.w,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primaryContainer,
+                          borderRadius: BorderRadius.only(
+                            topLeft: const Radius.circular(8).r,
+                            bottomRight: const Radius.circular(8).r,
+                          ),
+                        ),
+                        child: Text(
+                          "%${gameDeal.steamRatingPercent}",
+                          overflow: TextOverflow.ellipsis,
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    fontSize: 14.sp,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimaryContainer,
+                                  ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 8,
+                SizedBox(
+                  height: 7.h,
                 ),
                 FullContainer(
                     header: "Reviews", info: gameDeal.steamRatingText),
-                const SizedBox(
-                  height: 8,
+                SizedBox(
+                  height: 7.h,
                 ),
                 DealDateContainer(
                   gameDeal: gameDeal,
                 ),
-                const SizedBox(
-                  height: 8,
+                SizedBox(
+                  height: 10.h,
                 ),
                 GetButton(
                   buttonText: "Get",
                   buttonFunction: () {},
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
               ],
             ),
           ),

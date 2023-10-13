@@ -30,7 +30,7 @@ class GameFreeIndexView extends StatelessWidget {
               imageUrl: freeGame.image!,
               width: 1.sw,
               height: 225.h,
-              errorWidget: (context, url, error) => const ErrorImage(),
+              errorWidget: (context, url, error) => const ErrorIcon(),
             ),
             Padding(
               padding: REdgeInsets.all(8),
@@ -66,7 +66,7 @@ class GameFreeIndexView extends StatelessWidget {
                     title: "Instructions",
                     data: freeGame.instructions!,
                   ),
-                  SizedBox(height: 7.h),
+                  SizedBox(height: 10.h),
                   Center(
                     child: GetButton(
                       buttonText: "Get",

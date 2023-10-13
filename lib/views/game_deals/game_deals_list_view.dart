@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/providers/game_deals/game_deals_api_provider.dart';
-import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
-import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:get_games/views/game_deals/game_deals_index_view.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_deals/deal_filter_select.dart';
@@ -27,7 +25,6 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
       appBar: AppBar(
         title: const Text("Game Deals"),
         actions: const [
-          //DealBottomSheet(),
           DealBottomSheet(),
         ],
       ),
@@ -47,10 +44,12 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
                   );
                 },
                 child: GameDealMainCardBody(
-                    thumbUrl: game.thumb!,
-                    gameTitle: game.title!,
-                    gameSalePrice: game.salePrice!,
-                    gameDealRate: game.dealRating!),
+                  thumbUrl: game.thumb!,
+                  gameTitle: game.title!,
+                  saving: game.savings!,
+                  gameSalePrice: game.salePrice!,
+                  gameDealRate: game.dealRating!,
+                ),
               );
             },
           );

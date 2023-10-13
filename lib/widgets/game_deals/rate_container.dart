@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RateContainer extends StatelessWidget {
   const RateContainer({
@@ -14,12 +15,11 @@ class RateContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 12),
-        padding: const EdgeInsets.all(17),
-        //height: 120,
+        margin: const EdgeInsets.symmetric(vertical: 5).r,
+        padding: const EdgeInsets.all(16).r,
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(13).r,
           boxShadow: [
             BoxShadow(
               //color: Colors.grey.withOpacity(0.5),
@@ -36,13 +36,13 @@ class RateContainer extends StatelessWidget {
           children: [
             Text(
               rateTitle!,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14.sp,
+                  ),
             ),
             SizedBox(
-              height: 12,
+              height: 10.h,
             ),
             infoWidget!,
           ],

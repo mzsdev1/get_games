@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GameDealMainCardBody extends StatelessWidget {
   const GameDealMainCardBody({
@@ -9,88 +10,119 @@ class GameDealMainCardBody extends StatelessWidget {
     required this.gameTitle,
     required this.gameSalePrice,
     required this.gameDealRate,
+    required this.saving,
   }) : super(key: key);
   final String thumbUrl;
   final String gameTitle;
   final String gameSalePrice;
   final String gameDealRate;
+  final String saving;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 55,
-      width: double.infinity,
+    return SizedBox(
+      height: 45.h,
+      width: 1.sw,
       child: Card(
         child: Row(
           children: [
-            Flexible(
-              flex: 2,
-              child: CachedNetworkImage(
-                imageUrl: thumbUrl,
-                height: 55,
-                width: 110,
-                fit: BoxFit.cover,
-              ),
+            CachedNetworkImage(
+              imageUrl: thumbUrl,
+              height: 45.h,
+              width: 90.w,
+              fit: BoxFit.cover,
             ),
-            Flexible(
-              flex: 5,
+            SizedBox(
+              //color: Colors.red,
+              width: 254.w,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Container(
-                  width: double
-                      .infinity, // Make the container take up all available width
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        gameTitle,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Row(
-                        children: [
-                          Wrap(
-                            spacing: 5,
-                            children: [
-                              Text("Price:"),
-                              Text(
-                                gameSalePrice,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
+                padding: const EdgeInsets.symmetric(horizontal: 5).r,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      gameTitle,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13.sp,
                           ),
-                          const Spacer(),
-                          Container(
-                            width: 70,
-                            //color: Colors.amber,
-                            child: RichText(
-                              overflow: TextOverflow.ellipsis,
-                              text: TextSpan(
-                                text: 'Rate: ',
-                                style: DefaultTextStyle.of(context)
-                                    .style
-                                    .copyWith(color: Colors.teal),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                    text: gameDealRate,
-                                    style: DefaultTextStyle.of(context)
-                                        .style
-                                        .copyWith(
-                                            color:
-                                                Theme.of(context).primaryColor),
+                    ),
+                    Row(
+                      children: [
+                        Wrap(
+                          spacing: 4.r,
+                          children: [
+                            Text(
+                              "Price:",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12.sp,
                                   ),
-                                ],
-                              ),
+                            ),
+                            Text(
+                              "-$saving%",
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context)
+                                  .primaryTextTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    fontSize: 12.sp,
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                            ),
+                            Text(
+                              "\$$gameSalePrice",
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    fontSize: 12.sp,
+                                  ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Container(
+                          width: 68.w,
+                          //color: Colors.green,
+                          child: RichText(
+                            overflow: TextOverflow.ellipsis,
+                            text: TextSpan(
+                              text: 'Score: ',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12.sp,
+                                  ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: gameDealRate,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .copyWith(
+                                        fontSize: 12.sp,
+                                      ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        )
+                      ],
+                    ),
+                  ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

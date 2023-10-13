@@ -14,6 +14,6 @@ class StoreApiNameNotifier extends ChangeNotifier {
   }
 }
 
-final storeApichProvider = ChangeNotifierProvider<StoreApiNameNotifier>((ref) {
+final storeNameProvider = ChangeNotifierProvider<StoreApiNameNotifier>((ref) {
   return StoreApiNameNotifier();
 });

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/models/game_deals_model.dart';
 import 'package:intl/intl.dart';
 
@@ -12,7 +13,6 @@ class DealDateContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
     final releaseDate = gameDeal.releaseDate != null
         ? DateFormat('yyyy-MM-dd').format(gameDeal.releaseDate!)
         : "Unknown";
@@ -21,24 +21,24 @@ class DealDateContainer extends StatelessWidget {
         : "Unknown";
 
     return SizedBox(
-      width: screenWidth, // Set the width to the screen's width
+      width: 1.sw,
       child: Row(
         mainAxisAlignment:
             MainAxisAlignment.spaceBetween, // Adjust alignment as needed
         children: [
           Expanded(
             child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 12),
-              padding: const EdgeInsets.all(17),
+              margin: const EdgeInsets.symmetric(vertical: 5).r,
+              padding: const EdgeInsets.all(16).r,
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  bottomLeft: Radius.circular(15),
+                borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(13).r,
+                  bottomLeft: const Radius.circular(13).r,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.3),
+                    color: Theme.of(context).shadowColor.withOpacity(0.4),
                     spreadRadius: 2,
                     blurRadius: 5,
                     offset: const Offset(0, 3),
@@ -50,28 +50,37 @@ class DealDateContainer extends StatelessWidget {
                 children: [
                   Text(
                     "Release Date",
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Text(
                     releaseDate,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontSize: 14.sp,
+                          //color: Theme.of(context).primaryColor,
+                        ),
                   ),
                 ],
               ),
             ),
           ),
+          SizedBox(width: 5.w),
           Expanded(
             child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 12),
-              padding: const EdgeInsets.all(17),
+              margin: const EdgeInsets.symmetric(vertical: 5).r,
+              padding: const EdgeInsets.all(16).r,
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(15),
-                  topRight: Radius.circular(15),
+                borderRadius: BorderRadius.only(
+                  topRight: const Radius.circular(13).r,
+                  bottomRight: const Radius.circular(13).r,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.3),
+                    color: Theme.of(context).shadowColor.withOpacity(0.4),
                     spreadRadius: 2,
                     blurRadius: 5,
                     offset: const Offset(0, 3),
@@ -84,10 +93,18 @@ class DealDateContainer extends StatelessWidget {
                 children: [
                   Text(
                     "Discount Date",
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14.sp,
+                        ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   Text(
                     lastChange,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontSize: 14.sp,
+                          //color: Theme.of(context).primaryColor,
+                        ),
                   ),
                 ],
               ),

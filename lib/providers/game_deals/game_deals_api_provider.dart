@@ -12,7 +12,7 @@ final gameDealsProvider = FutureProvider<List<GameDealsModel>>((ref) async {
   final minPriceProvider = ref.watch(gameDealsMinPriceProvider);
   final maxPriceProvider = ref.watch(gameDealsMaxPriceProvider);
   //todo:
-  final storeProviderInt = ref.watch(storeApichProvider).selectedApiNumber;
+  final storeProviderInt = ref.watch(storeNameProvider).selectedApiNumber;
 
   // final url = Uri.parse(
   //     "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${priceProvider.toString()}");

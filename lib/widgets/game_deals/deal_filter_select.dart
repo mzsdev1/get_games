@@ -19,7 +19,7 @@ class DealBottomSheet extends StatelessWidget {
           builder: (context) {
             return Consumer(
               builder: (context, ref, child) {
-                final selectedStore = ref.watch(storeApichProvider);
+                final selectedStore = ref.watch(storeNameProvider);
                 //todo
                 final minV = ref.watch(gameDealsMinPriceProvider);
                 final maxV = ref.watch(gameDealsMaxPriceProvider);
@@ -38,7 +38,7 @@ class DealBottomSheet extends StatelessWidget {
                                 value: selectedStore.selectedStoreLabel,
                                 onChanged: (value) {
                                   ref
-                                      .read(storeApichProvider.notifier)
+                                      .read(storeNameProvider.notifier)
                                       .changeStore(value!);
                                 },
                                 items:
