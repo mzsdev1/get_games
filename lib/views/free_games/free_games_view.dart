@@ -1,182 +1,13 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:get_games/providers/free_games/free_games_api_controller.dart';
-// import 'package:get_games/views/free_games/free_games_index_view.dart';
-// import 'package:get_games/widgets/common/load_progress_indicator.dart';
-// import 'package:get_games/widgets/free_games/free_games_main_card_body.dart';
-
-// final filters = [
-//   'epic-games-store',
-//   'steam',
-//   'gog',
-//   "itchio",
-//   "ubisoft",
-//   "origin",
-//   "drm-free",
-// ];
-
-// final List<String> gameTypes = ["game", "loot"];
-
-// class FreeGamesView extends ConsumerStatefulWidget {
-//   const FreeGamesView({super.key});
-
-//   @override
-//   ConsumerState<ConsumerStatefulWidget> createState() => _FreeGamesViewState();
-// }
-
-// class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
-//   @override
-//   Widget build(BuildContext context) {
-//     final freeGamesData = ref.watch(freeGamesProvider);
-
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text("Free Games"),
-//         actions: const [
-//           FreeGamesBottomSheet(),
-//         ],
-//       ),
-//       body: freeGamesData.when(
-//         data: (data) {
-//           return GridView.builder(
-//             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//               // childAspectRatio: 1.sw / 228.h,
-//               childAspectRatio: 500.w / 330.h,
-//               crossAxisCount: 1,
-//               mainAxisSpacing: 5.h,
-//             ),
-//             itemCount: data.length,
-//             itemBuilder: (context, index) {
-//               final game = data[index];
-
-//               return GestureDetector(
-//                 onTap: () {
-//                   Navigator.push(
-//                     context,
-//                     MaterialPageRoute(
-//                       builder: (context) => GameFreeIndexView(freeGame: game),
-//                     ),
-//                   );
-//                 },
-//                 child: FreeGamesMainCardBody(
-//                     imagePath: game.image!,
-//                     title: game.title!,
-//                     platforms: game.platforms!,
-//                     price: game.worth!),
-//               );
-//             },
-//           );
-//         },
-//         error: (error, stackTrace) {
-//           return const Center(
-//             child: Text(
-//               // "Something went wrong: ${error.toString()}", //TODO:
-//               // style: const TextStyle(color: Colors.red),
-//               "No active giveaways available at the moment, please try again later",
-//             ),
-//           );
-//         },
-//         loading: () => const LoadProgressIndicator(),
-//       ),
-//     );
-//   }
-// }
-
-// class FreeGamesBottomSheet extends StatelessWidget {
-//   const FreeGamesBottomSheet({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return IconButton(
-//       onPressed: () {
-//         showModalBottomSheet(
-//           context: context,
-//           builder: (context) {
-//             return Consumer(
-//               builder: (context, ref, child) {
-//                 return SizedBox(
-//                   height: 400,
-//                   width: double.infinity,
-//                   child: Column(
-//                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                     children: [
-//                       Column(
-//                         mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                         children: [
-//                           const Text(
-//                             "Select type",
-//                           ),
-//                           Padding(
-//                             padding: const EdgeInsets.all(8.0),
-//                             child: DropdownButton(
-//                                 value: ref.watch(selectedGameTypeProvider),
-//                                 onChanged: (value) {
-//                                   ref
-//                                       .read(selectedGameTypeProvider.notifier)
-//                                       .setSelectedGameType(value!);
-//                                 },
-//                                 items: gameTypes.map<DropdownMenuItem<String>>(
-//                                   (value) {
-//                                     return DropdownMenuItem(
-//                                         value: value,
-//                                         child: Text(value.toUpperCase()));
-//                                   },
-//                                 ).toList()),
-//                           ),
-//                         ],
-//                       ),
-//                       Column(
-//                         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                         children: [
-//                           const Text(
-//                             "Select game filter",
-//                           ),
-//                           Wrap(
-//                             children: filters.map((filter) {
-//                               final isSelected = ref
-//                                   .watch(selectedFiltersProvider)
-//                                   .contains(filter);
-
-//                               return Padding(
-//                                 padding: const EdgeInsets.all(8.0),
-//                                 child: FilterChip(
-//                                   label: Text(
-//                                     filter.replaceAll("-", " ").toUpperCase(),
-//                                   ),
-//                                   selected: isSelected,
-//                                   onSelected: (_) {
-//                                     ref
-//                                         .read(selectedFiltersProvider.notifier)
-//                                         .toggleFilter(filter);
-//                                   },
-//                                 ),
-//                               );
-//                             }).toList(),
-//                           ),
-//                         ],
-//                       ),
-//                     ],
-//                   ),
-//                 );
-//               },
-//             );
-//           },
-//         );
-//       },
-//       icon: const Icon(Icons.filter_list),
-//     );
-//   }
-// }
-//todo:
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/free_games/free_games_api_controller.dart';
 import 'package:get_games/views/free_games/free_games_index_view.dart';
+import 'package:get_games/widgets/common/appbar_title_text.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
+import 'package:get_games/widgets/free_games/free_games_bottom_sheet.dart';
 import 'package:get_games/widgets/free_games/free_games_main_card_body.dart';
+import 'package:get_games/widgets/free_games/type_dropdown_button.dart';
 
 final filters = [
   'epic-games-store',
@@ -203,11 +34,15 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
     final freeGamesData = ref.watch(freeGamesProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Free Games"),
-        actions: const [
-          FreeGamesBottomSheet(),
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(44.h),
+        child: AppBar(
+          title: const AppBarTitleText(text: "Giveaways"),
+          actions: const [
+            TypeDropdownButton(),
+            FreeGamesBottomSheet(),
+          ],
+        ),
       ),
       body: freeGamesData.when(
         data: (data) {
@@ -246,94 +81,6 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
         },
         loading: () => const LoadProgressIndicator(),
       ),
-    );
-  }
-}
-
-class FreeGamesBottomSheet extends StatelessWidget {
-  const FreeGamesBottomSheet({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return Consumer(
-              builder: (context, ref, child) {
-                return SizedBox(
-                  height: 400,
-                  width: double.infinity,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Text(
-                            "Select type",
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton(
-                                value: ref.watch(selectedGameTypeProvider),
-                                onChanged: (value) {
-                                  ref
-                                      .read(selectedGameTypeProvider.notifier)
-                                      .setSelectedGameType(value!);
-                                },
-                                items: gameTypes.map<DropdownMenuItem<String>>(
-                                  (value) {
-                                    return DropdownMenuItem(
-                                        value: value,
-                                        child: Text(value.toUpperCase()));
-                                  },
-                                ).toList()),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Text(
-                            "Select game filter",
-                          ),
-                          Wrap(
-                            children: filters.map((filter) {
-                              final isSelected = ref
-                                  .watch(selectedFiltersProvider)
-                                  .contains(filter);
-
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: FilterChip(
-                                  label: Text(
-                                    filter.replaceAll("-", " ").toUpperCase(),
-                                  ),
-                                  selected: isSelected,
-                                  onSelected: (_) {
-                                    ref
-                                        .read(selectedFiltersProvider.notifier)
-                                        .toggleFilter(filter);
-                                  },
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-          },
-        );
-      },
-      icon: const Icon(Icons.filter_list),
     );
   }
 }

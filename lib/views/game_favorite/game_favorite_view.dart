@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
-import 'package:get_games/views/game_search/game_search_view.dart';
+import 'package:get_games/widgets/common/appbar_title_text.dart';
 import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_favorite/delete_favorite_dialog.dart';
@@ -38,14 +38,11 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
               child: const Icon(Icons.delete),
             )
           : null,
-      appBar: AppBar(
-        title: const Text("Search Game"),
-        actions: [
-          IconButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const GameSearchView())),
-              icon: const Icon(Icons.search))
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(44.h),
+        child: AppBar(
+          title: const AppBarTitleText(text: "Favorites"),
+        ),
       ),
       body: favoriteProvider.when(
         data: (data) {
@@ -76,7 +73,7 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                         child: Row(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(13.0).r,
+                              borderRadius: BorderRadius.circular(10.0).r,
                               child: CachedNetworkImage(
                                 imageUrl: game.info!.thumb!,
                                 width: 110.0.w,

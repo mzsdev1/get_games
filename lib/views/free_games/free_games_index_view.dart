@@ -21,6 +21,15 @@ class GameFreeIndexView extends StatelessWidget {
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: Theme.of(context)
+                  .bottomNavigationBarTheme
+                  .selectedItemColor!
+                  .withGreen(200),
+            )),
       ),
       body: SingleChildScrollView(
         child: Column(

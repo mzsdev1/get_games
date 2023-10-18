@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/models/game_search_model.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/providers/game_search/dialog_button_provider.dart';
 
 class SearchDialog extends StatelessWidget {
   const SearchDialog({
@@ -18,6 +19,7 @@ class SearchDialog extends StatelessWidget {
     return Consumer(
       builder: (context, ref, child) {
         final favoriteProvider = ref.watch(favoriteGameIdsProvider);
+        final buttonEnableProvider = ref.watch(favButtonProvider);
         return Dialog(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0).r),
@@ -55,28 +57,50 @@ class SearchDialog extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 8.h),
-                  Center(
-                    child: IconButton.filledTonal(
-                      onPressed: () {
-                        ref
-                            .read(favoriteGameIdsProvider.notifier)
-                            .toggle(game.gameID!, context);
-
-                        Timer(const Duration(milliseconds: 650), () {
-                          Navigator.of(context).pop();
-                        });
-                      },
-                      color: favoriteProvider.contains(game.gameID)
-                          ? Colors.red
-                          : Theme.of(context).unselectedWidgetColor,
-                      icon: Icon(
-                        favoriteProvider.contains(game.gameID)
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        // size: 26.r,
-                        size: 26.r,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.close_rounded,
+                          size: 26.r,
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 40.w),
+                      IconButton.filledTonal(
+                        onPressed: buttonEnableProvider
+                            ? () {
+                                ref
+                                    .read(favoriteGameIdsProvider.notifier)
+                                    .toggle(game.gameID!, context);
+
+                                ref.read(favButtonProvider.notifier).state =
+                                    false;
+
+                                Timer(
+                                  const Duration(milliseconds: 500),
+                                  () {
+                                    ref.read(favButtonProvider.notifier).state =
+                                        true;
+                                  },
+                                );
+                              }
+                            : null,
+                        color: favoriteProvider.contains(game.gameID)
+                            ? Theme.of(context).indicatorColor
+                            : Theme.of(context).unselectedWidgetColor,
+                        icon: Icon(
+                          favoriteProvider.contains(game.gameID)
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          // size: 26.r,
+                          size: 26.r,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 2.h),
                 ],

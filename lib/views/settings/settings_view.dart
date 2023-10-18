@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/theme_provider.dart';
+import 'package:get_games/widgets/common/appbar_title_text.dart';
 
 class SettingsView extends ConsumerWidget {
   const SettingsView({super.key});
@@ -11,8 +12,11 @@ class SettingsView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeProvider = ref.watch(themeIndexProvider);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Settings"),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(44.h),
+        child: AppBar(
+          title: const AppBarTitleText(text: "Settings"),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -30,7 +34,7 @@ class SettingsView extends ConsumerWidget {
                   ),
                   const Spacer(),
                   AnimatedToggleSwitch<int>.rolling(
-                    height: 50,
+                    height: 35.h,
                     current: themeProvider,
                     values: const [0, 1],
                     onChanged: (_) {
@@ -46,8 +50,7 @@ class SettingsView extends ConsumerWidget {
                         color: Colors.blueGrey,
                       ),
                     ],
-
-                    style: const ToggleStyle(), // optional style settings
+                    style: const ToggleStyle(),
                   ),
                 ],
               ),

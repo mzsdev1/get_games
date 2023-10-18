@@ -5,6 +5,7 @@ import 'package:get_games/views/free_games/free_games_view.dart';
 import 'package:get_games/providers/free_games/free_games_api_controller.dart';
 import 'package:get_games/views/game_deals/game_deals_list_view.dart';
 import 'package:get_games/views/game_favorite/game_favorite_view.dart';
+import 'package:get_games/views/game_search/game_search_view.dart';
 import 'package:get_games/views/settings/settings_view.dart';
 
 class HomePage extends ConsumerWidget {
@@ -30,10 +31,14 @@ class HomePage extends ConsumerWidget {
           NavigationDestination(
             selectedIcon: Icon(
               Icons.search,
-              // size: 19.h,
             ),
             icon: Icon(Icons.search_outlined),
             label: 'Search',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.favorite),
+            icon: Icon(Icons.favorite_border),
+            label: 'Favorite',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.settings),
@@ -49,6 +54,7 @@ class HomePage extends ConsumerWidget {
       body: <Widget>[
         const FreeGamesView(),
         const GameDealsListView(),
+        const GameSearchView(),
         const GameFavoriteView(),
         const SettingsView(),
         //const GameSearchView(),

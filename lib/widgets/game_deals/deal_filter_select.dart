@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
-import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
+import 'package:get_games/widgets/game_deals/slider_price_text.dart';
 
 final List<String> storeLabels = ["Steam", "Epic Games"];
 
@@ -19,66 +20,83 @@ class DealBottomSheet extends StatelessWidget {
           builder: (context) {
             return Consumer(
               builder: (context, ref, child) {
-                final selectedStore = ref.watch(storeNameProvider);
                 //todo
                 final minV = ref.watch(gameDealsMinPriceProvider);
                 final maxV = ref.watch(gameDealsMaxPriceProvider);
 
                 return SizedBox(
-                  height: 400,
-                  width: double.infinity,
-                  child: Column(
-                    children: [
-                      Column(
-                        children: [
-                          const Text("Select store"),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton(
-                                value: selectedStore.selectedStoreLabel,
-                                onChanged: (value) {
-                                  ref
-                                      .read(storeNameProvider.notifier)
-                                      .changeStore(value!);
-                                },
-                                items:
-                                    storeLabels.map<DropdownMenuItem<String>>(
-                                  (value) {
-                                    return DropdownMenuItem(
-                                      value: value,
-                                      child: Text(
-                                        value,
-                                      ),
-                                    );
-                                  },
-                                ).toList()),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const Text("Select minimum price"),
-                          RangeSlider(
-                            labels: RangeLabels(
-                              '\$${minV.toStringAsFixed(0)}',
-                              '\$${maxV.toStringAsFixed(0)}',
+                  height: 170.h,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0).r,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(width: 19.w),
+                            Text(
+                              "PRICE",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14.sp,
+                                  ),
                             ),
-                            values: RangeValues(minV, maxV),
-                            min: 0,
-                            max: 80,
-                            divisions: 8,
-                            onChanged: (RangeValues values) {
-                              ref
-                                  .read(gameDealsMinPriceProvider.notifier)
-                                  .state = values.start;
-                              ref
-                                  .read(gameDealsMaxPriceProvider.notifier)
-                                  .state = values.end;
-                            },
-                          )
-                        ],
-                      ),
-                    ],
+                            const Spacer(),
+                            IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: Icon(
+                                Icons.close,
+                                size: 23.w,
+                                // color: Theme.of(context).colorScheme.error,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 40.w,
+                            ),
+                            SliderPriceText(
+                                label: "Min:",
+                                priceData: '\$${minV.toStringAsFixed(0)}'),
+                            const Spacer(),
+                            SliderPriceText(
+                                label: "Max:",
+                                priceData: '\$${maxV.toStringAsFixed(0)}'),
+                            SizedBox(
+                              width: 40.w,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        RangeSlider(
+                          labels: RangeLabels(
+                            '\$${minV.toStringAsFixed(0)}',
+                            '\$${maxV.toStringAsFixed(0)}',
+                          ),
+                          values: RangeValues(minV, maxV),
+                          min: 0.10,
+                          max: 80.0,
+                          divisions: 8,
+                          onChanged: (RangeValues values) {
+                            ref.read(gameDealsMinPriceProvider.notifier).state =
+                                values.start;
+                            ref.read(gameDealsMaxPriceProvider.notifier).state =
+                                values.end;
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -90,3 +108,31 @@ class DealBottomSheet extends StatelessWidget {
     );
   }
 }
+
+// class SliderPriceText extends StatelessWidget {
+//   const SliderPriceText({
+//     super.key,
+//     required this.minV,
+//   });
+
+//   final double minV;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Wrap(
+//       spacing: 4.w,
+//       children: [
+//         Text(
+//           "Min:",
+//           style: Theme.of(context).textTheme.labelLarge,
+//         ),
+//         Text(
+//           '\$${minV.toStringAsFixed(0)}',
+//           style: Theme.of(context).textTheme.labelLarge,
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+ 

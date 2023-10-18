@@ -2,6 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/widgets/common/error_image.dart';
 
 class GameDealMainCardBody extends StatelessWidget {
   const GameDealMainCardBody({
@@ -31,6 +32,7 @@ class GameDealMainCardBody extends StatelessWidget {
               height: 45.h,
               width: 90.w,
               fit: BoxFit.cover,
+              errorWidget: (context, url, error) => const ErrorIcon(),
             ),
             SizedBox(
               //color: Colors.red,
@@ -89,32 +91,28 @@ class GameDealMainCardBody extends StatelessWidget {
                           ],
                         ),
                         const Spacer(),
-                        Container(
-                          width: 68.w,
-                          //color: Colors.green,
-                          child: RichText(
-                            overflow: TextOverflow.ellipsis,
-                            text: TextSpan(
-                              text: 'Score: ',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12.sp,
-                                  ),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: gameDealRate,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(
-                                        fontSize: 12.sp,
-                                      ),
+                        RichText(
+                          overflow: TextOverflow.ellipsis,
+                          text: TextSpan(
+                            text: 'Score: ',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12.sp,
                                 ),
-                              ],
-                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: gameDealRate,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall!
+                                    .copyWith(
+                                      fontSize: 12.sp,
+                                    ),
+                              ),
+                            ],
                           ),
                         )
                       ],

@@ -23,7 +23,19 @@ class GameDealIndexView extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Get"),
+        scrolledUnderElevation: 0,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Theme.of(context)
+                .bottomNavigationBarTheme
+                .selectedItemColor!
+                .withGreen(150),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Center(
