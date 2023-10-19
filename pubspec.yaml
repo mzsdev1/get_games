@@ -27,7 +27,6 @@ dependencies:
   flutter_local_notifications: ^15.1.1
   flutter_riverpod: ^2.4.0
   shared_preferences: ^2.2.1
-  animated_toggle_switch: ^0.8.0
   animations: ^2.0.8
   intl: ^0.18.1
   extended_image: ^8.1.1

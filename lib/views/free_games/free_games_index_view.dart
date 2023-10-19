@@ -16,20 +16,18 @@ class GameFreeIndexView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      //extendBodyBehindAppBar: true,
       appBar: AppBar(
+        title: Text("Free"),
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              color: Theme.of(context)
-                  .bottomNavigationBarTheme
-                  .selectedItemColor!
-                  .withGreen(200),
-            )),
+          onPressed: () => Navigator.pop(context),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -52,7 +50,7 @@ class GameFreeIndexView extends StatelessWidget {
                       freeGame.title!,
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: 19.sp,
+                            fontSize: 18.sp,
                           ),
                     ),
                   ),
@@ -75,7 +73,7 @@ class GameFreeIndexView extends StatelessWidget {
                     title: "Instructions",
                     data: freeGame.instructions!,
                   ),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: 15.h),
                   Center(
                     child: GetButton(
                       buttonText: "Get",

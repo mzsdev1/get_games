@@ -16,7 +16,7 @@ class HomePage extends ConsumerWidget {
     final navBarIndexProvider = ref.watch(navBarProvider);
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        height: 62.h,
+        height: 65.h,
         destinations: const [
           NavigationDestination(
             selectedIcon: Icon(Icons.redeem),

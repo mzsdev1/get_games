@@ -35,7 +35,7 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(44.h),
+        preferredSize: Size.fromHeight(56.h),
         child: AppBar(
           title: const AppBarTitleText(text: "Giveaways"),
           actions: const [

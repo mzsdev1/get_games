@@ -96,8 +96,7 @@ class SearchDialog extends StatelessWidget {
                           favoriteProvider.contains(game.gameID)
                               ? Icons.favorite
                               : Icons.favorite_border,
-                          // size: 26.r,
-                          size: 26.r,
+                          size: 24.r,
                         ),
                       ),
                     ],

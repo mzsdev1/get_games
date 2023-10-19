@@ -1,4 +1,3 @@
-import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +12,7 @@ class SettingsView extends ConsumerWidget {
     final themeProvider = ref.watch(themeIndexProvider);
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(44.h),
+        preferredSize: Size.fromHeight(56.h),
         child: AppBar(
           title: const AppBarTitleText(text: "Settings"),
         ),
@@ -26,31 +25,27 @@ class SettingsView extends ConsumerWidget {
               Row(
                 children: [
                   Text(
-                    "Theme Mode",
+                    "Dark Mode",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.sp,
                         ),
                   ),
                   const Spacer(),
-                  AnimatedToggleSwitch<int>.rolling(
-                    height: 35.h,
-                    current: themeProvider,
-                    values: const [0, 1],
+
+                  //todo
+                  Switch(
+                    thumbIcon: themeProvider == 0
+                        ? MaterialStateProperty.resolveWith(
+                            (states) => const Icon(Icons.close),
+                          )
+                        : MaterialStateProperty.resolveWith(
+                            (states) => const Icon(Icons.check),
+                          ),
+                    value: themeProvider == 0 ? false : true,
                     onChanged: (_) {
                       ref.read(themeIndexProvider.notifier).toggleTheme();
                     },
-                    iconList: const [
-                      Icon(
-                        Icons.light_mode,
-                        color: Colors.amber,
-                      ),
-                      Icon(
-                        Icons.dark_mode,
-                        color: Colors.blueGrey,
-                      ),
-                    ],
-                    style: const ToggleStyle(),
                   ),
                 ],
               ),

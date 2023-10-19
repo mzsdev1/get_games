@@ -1,10 +1,14 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/models/game_deals_model.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
+import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/providers/game_search/dialog_button_provider.dart';
 import 'package:get_games/widgets/common/deal_date_container.dart';
 import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/full_container.dart';
@@ -20,20 +24,21 @@ class GameDealIndexView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final storeNum = ref.watch(storeNameProvider);
+    //todo
+    final favoriteProvider = ref.watch(favoriteGameIdsProvider);
+    final buttonEnableProvider = ref.watch(favButtonProvider);
+    //todo:
 
     return Scaffold(
       appBar: AppBar(
+        title: Text("Discounted"),
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new,
-            color: Theme.of(context)
-                .bottomNavigationBarTheme
-                .selectedItemColor!
-                .withGreen(150),
           ),
         ),
       ),
@@ -50,7 +55,7 @@ class GameDealIndexView extends ConsumerWidget {
                     gameDeal.title!,
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.bold,
-                          fontSize: 19.sp,
+                          fontSize: 18.sp,
                         ),
                   ),
                 ),
@@ -62,7 +67,7 @@ class GameDealIndexView extends ConsumerWidget {
                           BorderRadius.all(const Radius.circular(13).r),
                       child: CachedNetworkImage(
                         fit: BoxFit.fill,
-                        height: 44.h,
+                        height: 47.h,
                         width: 134.w,
                         imageUrl: gameDeal.thumb!,
                         errorWidget: (context, url, error) => const ErrorIcon(),
@@ -73,7 +78,7 @@ class GameDealIndexView extends ConsumerWidget {
                       child: Container(
                         margin: const EdgeInsets.symmetric(vertical: 5).r,
                         padding: const EdgeInsets.symmetric(horizontal: 16).r,
-                        height: 44.h,
+                        height: 47.h,
                         decoration: BoxDecoration(
                           color: Theme.of(context).cardColor,
                           borderRadius: BorderRadius.circular(13).r,
@@ -81,10 +86,10 @@ class GameDealIndexView extends ConsumerWidget {
                             BoxShadow(
                               color: Theme.of(context)
                                   .shadowColor
-                                  .withOpacity(0.4),
-                              spreadRadius: 2,
-                              blurRadius: 5,
-                              offset: const Offset(0, 3),
+                                  .withOpacity(0.3),
+                              spreadRadius: 1,
+                              blurRadius: 3,
+                              offset: const Offset(0, 2),
                             ),
                           ],
                         ),
@@ -140,18 +145,96 @@ class GameDealIndexView extends ConsumerWidget {
                     ),
                   ],
                 ),
+                //todo:
+                SizedBox(height: 7.h),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 5).r,
+                        padding: const EdgeInsets.symmetric(horizontal: 16).r,
+                        height: 47.h,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).cardColor,
+                          borderRadius: BorderRadius.circular(13).r,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Theme.of(context)
+                                  .shadowColor
+                                  .withOpacity(0.3),
+                              spreadRadius: 1,
+                              blurRadius: 3,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Add Favorite",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleMedium!
+                                  .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14.sp,
+                                  ),
+                            ),
+                            SizedBox(
+                              width: 30.w,
+                            ),
+                            IconButton.filledTonal(
+                              onPressed: buttonEnableProvider
+                                  ? () {
+                                      ref
+                                          .read(
+                                              favoriteGameIdsProvider.notifier)
+                                          .toggle(gameDeal.gameId!, context);
+
+                                      ref
+                                          .read(favButtonProvider.notifier)
+                                          .state = false;
+
+                                      Timer(
+                                        const Duration(milliseconds: 500),
+                                        () {
+                                          ref
+                                              .read(favButtonProvider.notifier)
+                                              .state = true;
+                                        },
+                                      );
+                                    }
+                                  : null,
+                              color: favoriteProvider.contains(gameDeal.gameId)
+                                  ? Theme.of(context).indicatorColor
+                                  : Theme.of(context).unselectedWidgetColor,
+                              icon: Icon(
+                                favoriteProvider.contains(gameDeal.gameId)
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
+                                size: 24.r,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                //todo:
                 SizedBox(height: 7.h),
                 FullContainer(
                   header: "Platform",
-                  info:
-                      storeNum.selectedApiNumber == 1 ? "Steam" : "Epic Games",
+                  info: storeNum.selectedApiNumber == 1
+                      ? "Steam"
+                      : "Epic Games Store",
                 ),
                 SizedBox(height: 7.h),
                 Row(
                   children: [
                     HalfContainer(
-                        header: "Rating Count",
-                        info: gameDeal.steamRatingCount!),
+                        header: "Reviews", info: gameDeal.steamRatingCount!),
                     SizedBox(width: 26.w),
                     const HalfContainer(header: "Type", info: "Game"),
                   ],
@@ -238,7 +321,9 @@ class GameDealIndexView extends ConsumerWidget {
                   height: 7.h,
                 ),
                 FullContainer(
-                    header: "Reviews", info: gameDeal.steamRatingText),
+                  header: "Average Review",
+                  info: gameDeal.steamRatingText,
+                ),
                 SizedBox(
                   height: 7.h,
                 ),
@@ -246,7 +331,7 @@ class GameDealIndexView extends ConsumerWidget {
                   gameDeal: gameDeal,
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: 15.h,
                 ),
                 GetButton(
                   buttonText: "Get",

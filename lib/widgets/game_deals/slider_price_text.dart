@@ -13,23 +13,33 @@ class SliderPriceText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 4.w,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w600,
-              ),
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.r),
+          color: Theme.of(context).colorScheme.secondaryContainer),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0).r,
+        child: Wrap(
+          spacing: 4.w,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                  ),
+            ),
+            Text(
+              priceData,
+              style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    fontSize: 13.sp,
+                    color: Theme.of(context).colorScheme.onSecondaryContainer,
+                  ),
+            ),
+          ],
         ),
-        Text(
-          priceData,
-          style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                fontSize: 13.sp,
-              ),
-        ),
-      ],
+      ),
     );
   }
 }

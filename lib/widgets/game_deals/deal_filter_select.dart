@@ -25,7 +25,7 @@ class DealBottomSheet extends StatelessWidget {
                 final maxV = ref.watch(gameDealsMaxPriceProvider);
 
                 return SizedBox(
-                  height: 170.h,
+                  height: 200.h,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0).r,
                     child: Column(
@@ -51,7 +51,6 @@ class DealBottomSheet extends StatelessWidget {
                               icon: Icon(
                                 Icons.close,
                                 size: 23.w,
-                                // color: Theme.of(context).colorScheme.error,
                               ),
                             )
                           ],
@@ -77,7 +76,7 @@ class DealBottomSheet extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          height: 30.h,
+                          height: 40.h,
                         ),
                         RangeSlider(
                           labels: RangeLabels(

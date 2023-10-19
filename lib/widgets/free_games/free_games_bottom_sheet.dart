@@ -19,7 +19,7 @@ class FreeGamesBottomSheet extends StatelessWidget {
             return Consumer(
               builder: (context, ref, child) {
                 return SizedBox(
-                  height: 220.h,
+                  height: 260.h,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 8,

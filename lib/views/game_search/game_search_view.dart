@@ -112,6 +112,8 @@
 
 //Todo:2
 
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -143,50 +145,89 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(44.h),
+        preferredSize: Size.fromHeight(56.h),
         child: AppBar(
           surfaceTintColor: Colors.transparent,
           title: TextField(
             controller: controller,
             onSubmitted: (_) {
-              // final ctrlText = controller.text.trim();
-              // bool isAlphaNumeric =
-              //     RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
-
               FocusScope.of(context).unfocus();
-
-              // if (ctrlText.isNotEmpty &&
-              //     ctrlText.length <= 40 &&
-              //     ctrlText.length >= 3 &&
-              //     isAlphaNumeric) {
-              //   ref.read(searchQueryProvider.notifier).state = controller.text;
-              // }
-
-              controller.text = "";
-            },
-            onChanged: (value) {
-              final ctrlText = controller.text.trim();
-              bool isAlphaNumeric =
-                  RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
-
-              //FocusScope.of(context).unfocus();
-
-              if (ctrlText.isNotEmpty &&
-                  ctrlText.length <= 40 &&
-                  ctrlText.length >= 3 &&
-                  isAlphaNumeric) {
-                ref.read(searchQueryProvider.notifier).state = controller.text;
-              }
 
               //controller.text = "";
             },
+
+            //todo: test
+            onChanged: (value) {
+              // final ctrlText = controller.text.trim();
+              final ctrlText = value;
+              bool isAlphaNumeric =
+                  RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
+
+              // Use a debounce timer to prevent sending too many requests
+              Timer? timer;
+              if (timer != null) {
+                timer.cancel();
+              }
+
+              // switch (ctrlText.characters.contains(' ')) {
+              //   case true:
+              //     ctrlText.trim();
+
+              //   case false:
+              //     timer = Timer(const Duration(milliseconds: 600), () {
+              //       if (ctrlText.isNotEmpty &&
+              //           ctrlText.length <= 40 &&
+              //           ctrlText.length >= 3 &&
+              //           isAlphaNumeric) {
+              //         ref.read(searchQueryProvider.notifier).state = ctrlText;
+              //       }
+              //     });
+              // }
+
+              // if (ctrlText.characters.contains(' ')) {
+              //   return;
+              // }
+
+              timer = Timer(const Duration(milliseconds: 600), () {
+                if (ctrlText.isNotEmpty &&
+                    ctrlText.length <= 40 &&
+                    ctrlText.length >= 3 &&
+                    isAlphaNumeric) {
+                  ref.read(searchQueryProvider.notifier).state = ctrlText;
+                }
+              });
+            },
+            //todo. test 1
+
+            // onChanged: (value) {
+            //   final ctrlText = value;
+            //   bool isAlphaNumeric =
+            //       RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
+
+            //   if (ctrlText.isNotEmpty &&
+            //       ctrlText.length <= 40 &&
+            //       ctrlText.length >= 3 &&
+            //       isAlphaNumeric) {
+            //     final trimmedText =
+            //         ctrlText.trim(); // Remove leading and trailing spaces.
+            //     ref.read(searchQueryProvider.notifier).state = trimmedText;
+            //     // Now, you can make your API request using 'trimmedText'.
+            //   }
+            // },
+
             decoration: InputDecoration(
               hintText: 'Search game',
               prefixIcon: const Icon(
                 Icons.search,
               ),
+              suffixIcon: IconButton(
+                onPressed: () {
+                  controller.clear();
+                },
+                icon: const Icon(Icons.clear),
+              ),
               border: InputBorder.none,
-              contentPadding: const EdgeInsets.all(12.5).r,
+              contentPadding: const EdgeInsets.all(3.0).r,
             ),
           ),
         ),

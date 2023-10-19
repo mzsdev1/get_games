@@ -1,3 +1,5 @@
+// //todo2
+
 // import 'package:firebase_core/firebase_core.dart';
 // import 'package:flutter/material.dart';
 // import 'package:get_games/firebase_options.dart';
@@ -6,6 +8,7 @@
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flex_color_scheme/flex_color_scheme.dart';
 // import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // //todo.
 
@@ -28,58 +31,57 @@
 //   @override
 //   Widget build(BuildContext context, WidgetRef ref) {
 //     final themeModeIndex = ref.watch(themeIndexProvider);
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Get Games',
-//       // Theme config for FlexColorScheme version 7.3.x. Make sure you use
-// // same or higher package version, but still same major version. If you
-// // use a lower package version, some properties may not be supported.
-// // In that case remove them after copying this theme to your app.
-//       theme: FlexThemeData.light(
-//         scheme: FlexScheme.tealM3,
-//         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-//         blendLevel: 7,
-//         subThemesData: const FlexSubThemesData(
-//           blendOnLevel: 10,
-//           blendOnColors: false,
-//           useTextTheme: true,
-//           useM2StyleDividerInM3: true,
-//           alignedDropdown: true,
-//           useInputDecoratorThemeInDialogs: true,
-//           navigationBarLabelBehavior:
-//               NavigationDestinationLabelBehavior.alwaysHide,
-//         ),
-//         visualDensity: FlexColorScheme.comfortablePlatformDensity,
-//         useMaterial3: true,
-//         swapLegacyOnMaterial3: true,
-//         // To use the Playground font, add GoogleFonts package and uncomment
-//         fontFamily: GoogleFonts.notoSans().fontFamily,
-//       ),
-//       darkTheme: FlexThemeData.dark(
-//         scheme: FlexScheme.tealM3,
-//         surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-//         blendLevel: 13,
-//         subThemesData: const FlexSubThemesData(
-//           blendOnLevel: 20,
-//           useTextTheme: true,
-//           useM2StyleDividerInM3: true,
-//           alignedDropdown: true,
-//           useInputDecoratorThemeInDialogs: true,
-//           navigationBarLabelBehavior:
-//               NavigationDestinationLabelBehavior.alwaysHide,
-//         ),
-//         visualDensity: FlexColorScheme.comfortablePlatformDensity,
-//         useMaterial3: true,
-//         swapLegacyOnMaterial3: true,
-//         // To use the Playground font, add GoogleFonts package and uncomment
-//         fontFamily: GoogleFonts.notoSans().fontFamily,
-//       ),
-// // If you do not have a themeMode switch, uncomment this line
-// // to let the device system mode control the theme mode:
-// // themeMode: ThemeMode.system,
 
-//       themeMode: themeModeIndex == 0 ? ThemeMode.light : ThemeMode.dark,
-//       home: const HomePage(),
+//     return ScreenUtilInit(
+//       designSize: const Size(360, 690),
+//       minTextAdapt: true,
+//       splitScreenMode: true,
+//       builder: (_, child) {
+//         return MaterialApp(
+//           debugShowCheckedModeBanner: false,
+//           title: 'Get Games',
+//           theme: FlexThemeData.light(
+//             scheme: FlexScheme.tealM3,
+//             surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+//             blendLevel: 7,
+//             subThemesData: const FlexSubThemesData(
+//               blendOnLevel: 10,
+//               blendOnColors: false,
+//               useTextTheme: true,
+//               useM2StyleDividerInM3: true,
+//               alignedDropdown: true,
+//               useInputDecoratorThemeInDialogs: true,
+//               navigationBarLabelBehavior:
+//                   NavigationDestinationLabelBehavior.alwaysHide,
+//             ),
+//             visualDensity: FlexColorScheme.comfortablePlatformDensity,
+//             useMaterial3: true,
+//             swapLegacyOnMaterial3: true,
+//             fontFamily: GoogleFonts.poppins().fontFamily,
+//           ),
+//           darkTheme: FlexThemeData.dark(
+//             scheme: FlexScheme.tealM3,
+//             surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+//             blendLevel: 13,
+//             subThemesData: const FlexSubThemesData(
+//               blendOnLevel: 20,
+//               useTextTheme: true,
+//               useM2StyleDividerInM3: true,
+//               alignedDropdown: true,
+//               useInputDecoratorThemeInDialogs: true,
+//               navigationBarLabelBehavior:
+//                   NavigationDestinationLabelBehavior.alwaysHide,
+//             ),
+//             visualDensity: FlexColorScheme.comfortablePlatformDensity,
+//             useMaterial3: true,
+//             swapLegacyOnMaterial3: true,
+//             fontFamily: GoogleFonts.poppins().fontFamily,
+//           ),
+//           themeMode: themeModeIndex == 0 ? ThemeMode.light : ThemeMode.dark,
+//           home: child,
+//         );
+//       },
+//       child: const HomePage(),
 //     );
 //   }
 // }
@@ -120,6 +122,9 @@ class App extends ConsumerWidget {
 
     return ScreenUtilInit(
       designSize: const Size(360, 690),
+      // designSize: Size(
+      //     MediaQuery.sizeOf(context).width, MediaQuery.sizeOf(context).height),
+
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
@@ -143,7 +148,7 @@ class App extends ConsumerWidget {
             visualDensity: FlexColorScheme.comfortablePlatformDensity,
             useMaterial3: true,
             swapLegacyOnMaterial3: true,
-            fontFamily: GoogleFonts.notoSans().fontFamily,
+            fontFamily: GoogleFonts.poppins().fontFamily,
           ),
           darkTheme: FlexThemeData.dark(
             scheme: FlexScheme.tealM3,
@@ -161,13 +166,21 @@ class App extends ConsumerWidget {
             visualDensity: FlexColorScheme.comfortablePlatformDensity,
             useMaterial3: true,
             swapLegacyOnMaterial3: true,
-            fontFamily: GoogleFonts.notoSans().fontFamily,
+            fontFamily: GoogleFonts.poppins().fontFamily,
           ),
           themeMode: themeModeIndex == 0 ? ThemeMode.light : ThemeMode.dark,
+          builder: (context, widget) {
+            return MediaQuery(
+
+                ///Setting font does not change with system font size
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                child: widget!);
+          },
           home: child,
         );
       },
       child: const HomePage(),
+      //child: const HomePage(),
     );
   }
 }

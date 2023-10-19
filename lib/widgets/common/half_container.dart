@@ -21,10 +21,10 @@ class HalfContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(13).r,
           boxShadow: [
             BoxShadow(
-              color: Theme.of(context).shadowColor.withOpacity(0.4),
-              spreadRadius: 2,
-              blurRadius: 5,
-              offset: const Offset(0, 3),
+              color: Theme.of(context).shadowColor.withOpacity(0.3),
+              spreadRadius: 1,
+              blurRadius: 3,
+              offset: const Offset(0, 2),
             ),
           ],
         ),
@@ -56,56 +56,4 @@ class HalfContainer extends StatelessWidget {
 
 //todo: last
 
-// class HalfContainer extends StatelessWidget {
-//   final String header;
-//   final String info;
-//   const HalfContainer({
-//     Key? key,
-//     required this.header,
-//     required this.info,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(
-//       child: Container(
-//         margin: EdgeInsets.all(10),
-//         padding: EdgeInsets.all(15),
-//         decoration: BoxDecoration(
-//           color: Theme.of(context).cardColor,
-//           borderRadius: BorderRadius.circular(15),
-//           boxShadow: [
-//             BoxShadow(
-//               color: Theme.of(context).shadowColor.withOpacity(0.2),
-//               spreadRadius: 3,
-//               blurRadius: 8,
-//               offset: Offset(0, 3),
-//             ),
-//           ],
-//         ),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Text(
-//               header,
-//               style: TextStyle(
-//                 fontSize: 20,
-//                 fontWeight: FontWeight.bold,
-//                 color: Colors.blue,
-//               ),
-//             ),
-//             SizedBox(height: 10),
-//             Text(
-//               info,
-//               style: TextStyle(
-//                 fontSize: 18,
-//                 color: Colors.grey[800],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+ 

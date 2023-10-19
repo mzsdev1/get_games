@@ -67,6 +67,7 @@
 class GameDealsModel {
   String? title;
   String? dealID;
+  String? gameId;
   String? salePrice;
   String? normalPrice;
   String? savings;
@@ -97,6 +98,7 @@ class GameDealsModel {
   GameDealsModel.fromJson(Map<String, dynamic> json) {
     title = json['title'] ?? "N/A";
     dealID = json['dealID'];
+    gameId = json['gameID'];
     salePrice = json['salePrice'] ?? "0";
     normalPrice = json['normalPrice'] ?? "0";
     savings = (double.tryParse(json['savings'])?.toStringAsFixed(0) ??
