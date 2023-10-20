@@ -5,6 +5,7 @@ import 'package:get_games/providers/game_deals/game_deals_api_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:get_games/views/game_deals/game_deals_index_view.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
+import 'package:get_games/widgets/common/empty_view.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_deals/deal_filter_select.dart';
 import 'package:get_games/widgets/game_deals/main_card_body.dart';
@@ -28,7 +29,7 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.h),
+        preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           title: const AppBarTitleText(text: "Deals"),
           actions: [
@@ -39,32 +40,37 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
       ),
       body: gameDealsData.when(
         data: (data) {
-          return ListView.builder(
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-              final game = data[index];
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GameDealIndexView(gameDeal: game),
-                    ),
-                  );
-                },
-                child: GameDealMainCardBody(
-                  thumbUrl: game.thumb!,
-                  gameTitle: game.title!,
-                  saving: game.savings!,
-                  gameSalePrice: game.salePrice!,
-                  gameDealRate: game.dealRating!,
-                ),
-              );
-            },
-          );
+          if (data.isNotEmpty) {
+            return ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                final game = data[index];
+
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GameDealIndexView(gameDeal: game),
+                      ),
+                    );
+                  },
+                  child: GameDealMainCardBody(
+                    thumbUrl: game.thumb!,
+                    gameTitle: game.title!,
+                    saving: game.savings!,
+                    gameSalePrice: game.salePrice!,
+                    gameDealRate: game.dealRating!,
+                  ),
+                );
+              },
+            );
+          } else {
+            return const EmptyView();
+          }
         },
         error: (error, stackTrace) {
-          return Text("Error: $error");
+          return const EmptyView();
         },
         loading: () => const LoadProgressIndicator(),
       ),

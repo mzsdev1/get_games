@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/free_games/free_games_api_controller.dart';
 import 'package:get_games/views/free_games/free_games_index_view.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
+import 'package:get_games/widgets/common/empty_view.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/free_games/free_games_bottom_sheet.dart';
 import 'package:get_games/widgets/free_games/free_games_main_card_body.dart';
@@ -16,6 +17,7 @@ final filters = [
   "itchio",
   "ubisoft",
   "origin",
+  'battlenet',
   "drm-free",
 ];
 
@@ -35,7 +37,7 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.h),
+        preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           title: const AppBarTitleText(text: "Giveaways"),
           actions: const [
@@ -46,38 +48,36 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
       ),
       body: freeGamesData.when(
         data: (data) {
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: data.length,
-            itemBuilder: (context, index) {
-              final game = data[index];
+          if (data.isNotEmpty) {
+            return ListView.builder(
+              shrinkWrap: true,
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                final game = data[index];
 
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => GameFreeIndexView(freeGame: game),
-                    ),
-                  );
-                },
-                child: FreeGamesMainCardBody(
-                    imagePath: game.image!,
-                    title: game.title!,
-                    platforms: game.platforms!,
-                    price: game.worth!),
-              );
-            },
-          );
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GameFreeIndexView(freeGame: game),
+                      ),
+                    );
+                  },
+                  child: FreeGamesMainCardBody(
+                      imagePath: game.image!,
+                      title: game.title!,
+                      platforms: game.platforms!,
+                      price: game.worth!),
+                );
+              },
+            );
+          } else {
+            return const EmptyView();
+          }
         },
         error: (error, stackTrace) {
-          return const Center(
-            child: Text(
-              // "Something went wrong: ${error.toString()}", //TODO:
-              // style: const TextStyle(color: Colors.red),
-              "No active giveaways available at the moment, please try again later",
-            ),
-          );
+          return const EmptyView();
         },
         loading: () => const LoadProgressIndicator(),
       ),

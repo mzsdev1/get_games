@@ -12,7 +12,7 @@ class SettingsView extends ConsumerWidget {
     final themeProvider = ref.watch(themeIndexProvider);
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.h),
+        preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           title: const AppBarTitleText(text: "Settings"),
         ),

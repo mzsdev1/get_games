@@ -35,7 +35,6 @@ class GameDealMainCardBody extends StatelessWidget {
               errorWidget: (context, url, error) => const ErrorIcon(),
             ),
             SizedBox(
-              //color: Colors.red,
               width: 254.w,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5).r,

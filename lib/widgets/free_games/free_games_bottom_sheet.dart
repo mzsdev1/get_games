@@ -19,10 +19,10 @@ class FreeGamesBottomSheet extends StatelessWidget {
             return Consumer(
               builder: (context, ref, child) {
                 return SizedBox(
-                  height: 260.h,
+                  height: 240.h,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      vertical: 8,
+                      vertical: 2,
                       horizontal: 2,
                     ).r,
                     child: Column(
@@ -64,8 +64,8 @@ class FreeGamesBottomSheet extends StatelessWidget {
 
                               return Padding(
                                 padding: const EdgeInsets.symmetric(
-                                  vertical: 5,
-                                  horizontal: 8,
+                                  vertical: 4,
+                                  horizontal: 4,
                                 ).r,
                                 child: FilterChip(
                                   label: Text(

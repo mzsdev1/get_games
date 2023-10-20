@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
+import 'package:get_games/widgets/common/empty_view.dart';
 import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_favorite/delete_favorite_dialog.dart';
@@ -39,7 +40,7 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
             )
           : null,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.h),
+        preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           title: const AppBarTitleText(text: "Favorites"),
         ),
@@ -107,11 +108,11 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
               },
             );
           } else {
-            return const Center(child: Text("No game found add more"));
+            return const EmptyView();
           }
         },
         error: (error, stackTrace) {
-          return Text("favoriteview: ${error.toString()}");
+          return const EmptyView();
         },
         loading: () => const LoadProgressIndicator(),
       ),

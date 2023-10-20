@@ -30,7 +30,7 @@ dependencies:
   animations: ^2.0.8
   intl: ^0.18.1
   extended_image: ^8.1.1
-  flutter_screenutil: ^5.9.0
+  flutter_screenutil: ^5.8.1
  
  
   

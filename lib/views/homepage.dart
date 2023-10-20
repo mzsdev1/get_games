@@ -7,6 +7,7 @@ import 'package:get_games/views/game_deals/game_deals_list_view.dart';
 import 'package:get_games/views/game_favorite/game_favorite_view.dart';
 import 'package:get_games/views/game_search/game_search_view.dart';
 import 'package:get_games/views/settings/settings_view.dart';
+import 'package:get_games/widgets/common/nav_destination_icon.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
@@ -16,35 +17,51 @@ class HomePage extends ConsumerWidget {
     final navBarIndexProvider = ref.watch(navBarProvider);
     return Scaffold(
       bottomNavigationBar: NavigationBar(
-        height: 65.h,
+        height: 67.h,
         destinations: const [
-          NavigationDestination(
-            selectedIcon: Icon(Icons.redeem),
-            icon: Icon(Icons.redeem_outlined),
-            label: 'Game',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.discount),
-            icon: Icon(Icons.discount_outlined),
-            label: 'Deals',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(
-              Icons.search,
-            ),
-            icon: Icon(Icons.search_outlined),
-            label: 'Search',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.favorite),
-            icon: Icon(Icons.favorite_border),
-            label: 'Favorite',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.settings),
-            icon: Icon(Icons.settings_outlined),
-            label: 'Settings',
-          ),
+          NavDestinationIcon(
+              title: "Free",
+              selectedIcon: Icons.redeem,
+              unselectedIcon: Icons.redeem_outlined),
+          NavDestinationIcon(
+              title: "Deals",
+              selectedIcon: Icons.discount,
+              unselectedIcon: Icons.discount_outlined),
+          NavDestinationIcon(
+              title: "Search",
+              selectedIcon: Icons.search,
+              unselectedIcon: Icons.search_outlined),
+          NavDestinationIcon(
+              title: "Favorites",
+              selectedIcon: Icons.favorite,
+              unselectedIcon: Icons.favorite_border),
+          NavDestinationIcon(
+              title: "Settings",
+              selectedIcon: Icons.settings,
+              unselectedIcon: Icons.settings_outlined),
+
+          // NavigationDestination(
+          //   selectedIcon: Icon(Icons.discount),
+          //   icon: Icon(Icons.discount_outlined),
+          //   label: 'Deals',
+          // ),
+          // NavigationDestination(
+          //   selectedIcon: Icon(
+          //     Icons.search,
+          //   ),
+          //   icon: Icon(Icons.search_outlined),
+          //   label: 'Search',
+          // ),
+          // NavigationDestination(
+          //   selectedIcon: Icon(Icons.favorite),
+          //   icon: Icon(Icons.favorite_border),
+          //   label: 'Favorite',
+          // ),
+          // NavigationDestination(
+          //   selectedIcon: Icon(Icons.settings),
+          //   icon: Icon(Icons.settings_outlined),
+          //   label: 'Settings',
+          // ),
         ],
         onDestinationSelected: (index) {
           ref.read(navBarProvider.notifier).state = index;
