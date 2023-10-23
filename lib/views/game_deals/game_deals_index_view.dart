@@ -31,7 +31,12 @@ class GameDealIndexView extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Discounted"),
+        title: Text(
+          "Discounted",
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontSize: 20,
+              ),
+        ),
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,

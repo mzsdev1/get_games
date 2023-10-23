@@ -18,7 +18,12 @@ class GameFreeIndexView extends StatelessWidget {
     return Scaffold(
       //extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text("Free"),
+        title: Text(
+          "Free",
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontSize: 20,
+              ),
+        ),
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
         elevation: 0,

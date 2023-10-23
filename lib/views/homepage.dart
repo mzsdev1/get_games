@@ -11,7 +11,7 @@ import 'package:get_games/widgets/common/nav_destination_icon.dart';
 
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
-//TODO:
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final navBarIndexProvider = ref.watch(navBarProvider);
@@ -39,29 +39,6 @@ class HomePage extends ConsumerWidget {
               title: "Settings",
               selectedIcon: Icons.settings,
               unselectedIcon: Icons.settings_outlined),
-
-          // NavigationDestination(
-          //   selectedIcon: Icon(Icons.discount),
-          //   icon: Icon(Icons.discount_outlined),
-          //   label: 'Deals',
-          // ),
-          // NavigationDestination(
-          //   selectedIcon: Icon(
-          //     Icons.search,
-          //   ),
-          //   icon: Icon(Icons.search_outlined),
-          //   label: 'Search',
-          // ),
-          // NavigationDestination(
-          //   selectedIcon: Icon(Icons.favorite),
-          //   icon: Icon(Icons.favorite_border),
-          //   label: 'Favorite',
-          // ),
-          // NavigationDestination(
-          //   selectedIcon: Icon(Icons.settings),
-          //   icon: Icon(Icons.settings_outlined),
-          //   label: 'Settings',
-          // ),
         ],
         onDestinationSelected: (index) {
           ref.read(navBarProvider.notifier).state = index;

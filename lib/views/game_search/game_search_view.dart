@@ -1,7 +1,4 @@
-//Todo:2
-
 import 'dart:async';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,18 +34,21 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
         preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: TextField(
+          title: TextFormField(
             controller: controller,
-            onSubmitted: (_) {
-              FocusScope.of(context).unfocus();
+            // onSubmitted: (_) {
+            //   FocusScope.of(context).unfocus();
 
-              //controller.text = "";
-            },
+            //   //controller.text = "";
+            // },
 
             //todo: test
             onChanged: (value) {
-              // final ctrlText = controller.text.trim();
-              final ctrlText = value;
+              final ctrlText = controller.text;
+              // final ctrlText = value;
+//test:
+
+              //test
               bool isAlphaNumeric =
                   RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
 
@@ -57,25 +57,6 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
               if (timer != null) {
                 timer.cancel();
               }
-
-              // switch (ctrlText.characters.contains(' ')) {
-              //   case true:
-              //     ctrlText.trim();
-
-              //   case false:
-              //     timer = Timer(const Duration(milliseconds: 600), () {
-              //       if (ctrlText.isNotEmpty &&
-              //           ctrlText.length <= 40 &&
-              //           ctrlText.length >= 3 &&
-              //           isAlphaNumeric) {
-              //         ref.read(searchQueryProvider.notifier).state = ctrlText;
-              //       }
-              //     });
-              // }
-
-              // if (ctrlText.characters.contains(' ')) {
-              //   return;
-              // }
 
               timer = Timer(const Duration(milliseconds: 600), () {
                 if (ctrlText.isNotEmpty &&
@@ -87,21 +68,53 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
               });
             },
             //todo. test 1
+            // validator: (value) {},
+            // inputFormatters: [
+            //   FilteringTextInputFormatter.deny(RegExp(r"\s\b|\b\s"))
+            // ],
 
             // onChanged: (value) {
-            //   final ctrlText = value;
+            //   final ctrlText = controller.text.trim();
+            //   // final ctrlText = value;
             //   bool isAlphaNumeric =
             //       RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(ctrlText);
 
-            //   if (ctrlText.isNotEmpty &&
+            //   // Use a debounce timer to prevent sending too many requests
+            //   if ((ctrlText.isEmpty || !RegExp(r'\s').hasMatch(ctrlText)) &&
             //       ctrlText.length <= 40 &&
             //       ctrlText.length >= 3 &&
             //       isAlphaNumeric) {
-            //     final trimmedText =
-            //         ctrlText.trim(); // Remove leading and trailing spaces.
-            //     ref.read(searchQueryProvider.notifier).state = trimmedText;
-            //     // Now, you can make your API request using 'trimmedText'.
+            //     ref.read(searchQueryProvider.notifier).state = ctrlText;
             //   }
+            // },
+
+            // onChanged: (value) {
+            //   final ctrlText = controller.text;
+            //   //test:
+            //   List<String> lines = ctrlText.split('\n');
+            //   lines = lines.where((line) => line.trim().isNotEmpty).toList();
+            //   String updatedText = lines.join('\n');
+            //   controller.text =
+            //       updatedText; // Use controller.text to update the text
+
+            //   //test
+            //   bool isAlphaNumeric = RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(
+            //       updatedText); // Check isAlphaNumeric with updatedText
+
+            //   // Use a debounce timer to prevent sending too many requests
+            //   Timer? timer;
+            //   if (timer != null) {
+            //     timer.cancel();
+            //   }
+
+            //   timer = Timer(const Duration(milliseconds: 600), () {
+            //     if (updatedText.isNotEmpty &&
+            //         updatedText.length <= 40 &&
+            //         updatedText.length >= 3 &&
+            //         isAlphaNumeric) {
+            //       ref.read(searchQueryProvider.notifier).state = updatedText;
+            //     }
+            //   });
             // },
 
             decoration: InputDecoration(
