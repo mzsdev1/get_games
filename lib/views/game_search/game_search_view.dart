@@ -119,14 +119,26 @@ class _GameSearchViewState extends ConsumerState<GameSearchView> {
 
             decoration: InputDecoration(
               hintText: 'Search game',
-              prefixIcon: const Icon(
+              prefixIcon: Icon(
                 Icons.search,
+                size: 24.r,
               ),
               suffixIcon: IconButton(
                 onPressed: () {
+                  final isEmpty =
+                      ref.watch(searchQueryProvider.notifier).state != "";
+
                   controller.clear();
+
+                  if (isEmpty) {
+                    ref.read(searchQueryProvider.notifier).state = "";
+                  }
+                  print(isEmpty.toString());
                 },
-                icon: const Icon(Icons.clear),
+                icon: Icon(
+                  Icons.clear,
+                  size: 24.r,
+                ),
               ),
               border: InputBorder.none,
               contentPadding: const EdgeInsets.all(2.0).r,

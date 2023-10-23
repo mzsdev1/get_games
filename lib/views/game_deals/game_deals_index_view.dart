@@ -42,15 +42,19 @@ class GameDealIndexView extends ConsumerWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios_new,
+            size: 24.r,
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: REdgeInsets.all(8),
+            padding: REdgeInsets.symmetric(
+              vertical: 8,
+              horizontal: 12,
+            ),
             child: Column(
               children: [
                 SizedBox(height: 5.h),
@@ -73,7 +77,7 @@ class GameDealIndexView extends ConsumerWidget {
                       child: CachedNetworkImage(
                         fit: BoxFit.fill,
                         height: 47.h,
-                        width: 134.w,
+                        width: 138.w,
                         imageUrl: gameDeal.thumb!,
                         errorWidget: (context, url, error) => const ErrorIcon(),
                       ),
@@ -91,7 +95,7 @@ class GameDealIndexView extends ConsumerWidget {
                             BoxShadow(
                               color: Theme.of(context)
                                   .shadowColor
-                                  .withOpacity(0.3),
+                                  .withOpacity(0.25),
                               spreadRadius: 1,
                               blurRadius: 3,
                               offset: const Offset(0, 2),
@@ -166,7 +170,7 @@ class GameDealIndexView extends ConsumerWidget {
                             BoxShadow(
                               color: Theme.of(context)
                                   .shadowColor
-                                  .withOpacity(0.3),
+                                  .withOpacity(0.25),
                               spreadRadius: 1,
                               blurRadius: 3,
                               offset: const Offset(0, 2),

@@ -66,4 +66,4 @@ final gameSearchProvider = FutureProvider<List<GameSearchModel>>((ref) async {
   }
 });
 
-final searchQueryProvider = StateProvider<String>((ref) => 'a');
+final searchQueryProvider = StateProvider<String>((ref) => 'batman');

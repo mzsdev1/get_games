@@ -36,7 +36,9 @@ class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
                   },
                 );
               },
-              child: const Icon(Icons.delete),
+              child: const Icon(
+                Icons.delete,
+              ),
             )
           : null,
       appBar: PreferredSize(

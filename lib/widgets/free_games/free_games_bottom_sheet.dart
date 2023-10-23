@@ -97,7 +97,10 @@ class FreeGamesBottomSheet extends StatelessWidget {
           },
         );
       },
-      icon: const Icon(Icons.filter_list),
+      icon: Icon(
+        Icons.filter_list,
+        size: 24.r,
+      ),
     );
   }
 }

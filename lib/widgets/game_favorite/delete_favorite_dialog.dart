@@ -11,12 +11,18 @@ class DeleteFavoriteDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) => AlertDialog(
-        title: const Text("Remove All Games"),
+        title: const Text(
+          "Clear Favorite List",
+        ),
         content: const SingleChildScrollView(
           child: ListBody(
             children: [
-              Text("Are you sure to delete all favorite games?."),
-              Text("You can get back games you approve."),
+              Text(
+                "Are you sure you want to delete all games on the favorite page?",
+              ),
+              Text(
+                "This action cannot be undone.",
+              ),
             ],
           ),
         ),
@@ -35,7 +41,9 @@ class DeleteFavoriteDialog extends StatelessWidget {
 
               Navigator.pop(context);
             },
-            child: const Text("Approve"),
+            child: const Text(
+              "Approve",
+            ),
           ),
         ],
       ),

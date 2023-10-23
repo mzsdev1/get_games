@@ -103,35 +103,10 @@ class DealBottomSheet extends StatelessWidget {
           },
         );
       },
-      icon: const Icon(Icons.filter_list),
+      icon: Icon(
+        Icons.sort,
+        size: 24.r,
+      ),
     );
   }
 }
-
-// class SliderPriceText extends StatelessWidget {
-//   const SliderPriceText({
-//     super.key,
-//     required this.minV,
-//   });
-
-//   final double minV;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Wrap(
-//       spacing: 4.w,
-//       children: [
-//         Text(
-//           "Min:",
-//           style: Theme.of(context).textTheme.labelLarge,
-//         ),
-//         Text(
-//           '\$${minV.toStringAsFixed(0)}',
-//           style: Theme.of(context).textTheme.labelLarge,
-//         ),
-//       ],
-//     );
-//   }
-// }
-
- 

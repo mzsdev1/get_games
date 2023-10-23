@@ -38,7 +38,7 @@ class DealDateContainer extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.3),
+                    color: Theme.of(context).shadowColor.withOpacity(0.25),
                     spreadRadius: 1,
                     blurRadius: 3,
                     offset: const Offset(0, 2),
@@ -80,7 +80,7 @@ class DealDateContainer extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.3),
+                    color: Theme.of(context).shadowColor.withOpacity(0.25),
                     spreadRadius: 1,
                     blurRadius: 3,
                     offset: const Offset(0, 2),

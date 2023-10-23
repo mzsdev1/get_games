@@ -18,7 +18,7 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           duration: Duration(seconds: 3),
-          content: Text('Game removed from favorite list.'),
+          content: Text('Game removed from favorites list.'),
         ),
       );
 
@@ -31,7 +31,7 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           duration: Duration(seconds: 3),
-          content: Text('Game added to favorite list.'),
+          content: Text('Game added to favorites list.'),
         ),
       );
 

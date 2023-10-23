@@ -58,12 +58,7 @@ class FullContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(13).r,
         boxShadow: [
           BoxShadow(
-            // color: Theme.of(context).shadowColor.withOpacity(0.4),
-            // spreadRadius: 2,
-            // blurRadius: 5,
-            // offset: const Offset(0, 3),
-
-            color: Theme.of(context).shadowColor.withOpacity(0.3),
+            color: Theme.of(context).shadowColor.withOpacity(0.25),
             spreadRadius: 1,
             blurRadius: 3,
             offset: const Offset(0, 2),

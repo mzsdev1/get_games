@@ -29,8 +29,9 @@ class GameFreeIndexView extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back_ios,
+            size: 24.r,
           ),
         ),
       ),
@@ -45,10 +46,14 @@ class GameFreeIndexView extends StatelessWidget {
               errorWidget: (context, url, error) => const ErrorIcon(),
             ),
             Padding(
-              padding: REdgeInsets.all(8),
+              padding: REdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 12,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 5.h),
                   Center(
                     child: Text(
                       textAlign: TextAlign.center,

@@ -14,6 +14,7 @@ class EmptyView extends StatelessWidget {
           Icon(
             Icons.smart_toy,
             size: 28.w,
+            color: Theme.of(context).colorScheme.primary,
           ),
           SizedBox(
             height: 10.h,

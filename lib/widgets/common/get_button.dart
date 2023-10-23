@@ -18,7 +18,7 @@ class GetButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20).r,
-          elevation: 5,
+          elevation: 4,
         ),
         onPressed: buttonFunction,
         child: Text(
