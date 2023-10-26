@@ -86,8 +86,9 @@ class GameFreeIndexView extends StatelessWidget {
                   SizedBox(height: 15.h),
                   Center(
                     child: GetButton(
+                      //todo.
                       buttonText: "Get",
-                      buttonFunction: () {},
+                      urlString: freeGame.openGiveawayUrl ?? "",
                     ),
                   ),
                   SizedBox(height: 10.h),

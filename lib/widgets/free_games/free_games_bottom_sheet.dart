@@ -11,6 +11,7 @@ class FreeGamesBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Timer? debounceTimer;
     return IconButton(
       onPressed: () {
         showModalBottomSheet(
@@ -57,35 +58,53 @@ class FreeGamesBottomSheet extends StatelessWidget {
                         ),
                         Center(
                           child: Wrap(
-                            children: filters.map((filter) {
-                              final isSelected = ref
-                                  .watch(selectedFiltersProvider)
-                                  .contains(filter);
+                            children: filters.map(
+                              (filter) {
+                                final isSelected = ref
+                                    .watch(selectedFiltersProvider)
+                                    .contains(filter);
 
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 4,
-                                  horizontal: 4,
-                                ).r,
-                                child: FilterChip(
-                                  label: Text(
-                                    filter.replaceAll("-", " ").toUpperCase(),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .labelLarge!
-                                        .copyWith(
-                                          fontSize: 12.5.sp,
-                                        ),
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 4,
+                                    horizontal: 4,
+                                  ).r,
+                                  child: FilterChip(
+                                    label: Text(
+                                      filter.replaceAll("-", " ").toUpperCase(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .labelLarge!
+                                          .copyWith(
+                                            fontSize: 12.5.sp,
+                                          ),
+                                    ),
+                                    selected: isSelected,
+                                    onSelected: (_) {
+                                      ref
+                                          .read(
+                                              selectedFiltersProvider.notifier)
+                                          .toggleFilter(filter);
+                                    },
+
+                                    //todo
+                                    // onSelected: (_) {
+                                    //   if (debounceTimer != null) {
+                                    //     debounceTimer!.cancel();
+                                    //   }
+                                    //   debounceTimer = Timer(
+                                    //       const Duration(milliseconds: 500),
+                                    //       () {
+                                    //     ref
+                                    //         .read(selectedFiltersProvider
+                                    //             .notifier)
+                                    //         .toggleFilter(filter);
+                                    //   });
+                                    // },
                                   ),
-                                  selected: isSelected,
-                                  onSelected: (_) {
-                                    ref
-                                        .read(selectedFiltersProvider.notifier)
-                                        .toggleFilter(filter);
-                                  },
-                                ),
-                              );
-                            }).toList(),
+                                );
+                              },
+                            ).toList(),
                           ),
                         ),
                       ],

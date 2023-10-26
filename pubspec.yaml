@@ -20,7 +20,7 @@ dependencies:
   firebase_core: ^2.16.0
   firebase_messaging: ^14.6.8
   cached_network_image: ^3.2.3
-  url_launcher: ^6.1.14
+  url_launcher: ^6.2.1
   http: ^1.1.0
   google_fonts: ^6.1.0
   flex_color_scheme: ^7.3.1
@@ -30,6 +30,7 @@ dependencies:
   intl: ^0.18.1
   flutter_screenutil: ^5.8.1
   auto_route: ^7.8.4
+  loading_animation_widget: ^1.2.0+4
    
  
  

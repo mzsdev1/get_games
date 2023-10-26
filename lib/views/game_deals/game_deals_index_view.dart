@@ -343,8 +343,10 @@ class GameDealIndexView extends ConsumerWidget {
                   height: 15.h,
                 ),
                 GetButton(
+                  //todo:
                   buttonText: "Get",
-                  buttonFunction: () {},
+                  urlString:
+                      "https://www.cheapshark.com/redirect?dealID=${gameDeal.dealID}",
                 ),
                 SizedBox(height: 10.h),
               ],
