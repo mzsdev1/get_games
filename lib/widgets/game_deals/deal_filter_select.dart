@@ -104,7 +104,7 @@ class DealBottomSheet extends StatelessWidget {
         );
       },
       icon: Icon(
-        Icons.sort,
+        Icons.tune,
         size: 24.r,
       ),
     );
