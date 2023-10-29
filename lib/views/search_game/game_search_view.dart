@@ -162,15 +162,19 @@ import 'package:get_games/widgets/common/empty_view.dart';
 import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_search/search_dialog.dart';
+import 'package:auto_route/auto_route.dart';
 
-class GameSearchView extends ConsumerStatefulWidget {
-  const GameSearchView({super.key});
+//todo route :
+
+@RoutePage()
+class SearchGameView extends ConsumerStatefulWidget {
+  const SearchGameView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _GameSearchViewState();
 }
 
-class _GameSearchViewState extends ConsumerState<GameSearchView> {
+class _GameSearchViewState extends ConsumerState<SearchGameView> {
   final controller = TextEditingController();
 
   @override

@@ -92,6 +92,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
 import 'package:get_games/providers/free_games/free_games_api_controller.dart';
+import 'package:get_games/routes/app_router.gr.dart';
 import 'package:get_games/views/free_games/free_games_index_view.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
 import 'package:get_games/widgets/common/empty_view.dart';
@@ -99,6 +100,7 @@ import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/free_games/free_games_bottom_sheet.dart';
 import 'package:get_games/widgets/free_games/free_games_main_card_body.dart';
 import 'package:get_games/widgets/free_games/type_dropdown_button.dart';
+import 'package:auto_route/auto_route.dart';
 
 final filters = [
   'epic-games-store',
@@ -113,14 +115,17 @@ final filters = [
 
 final List<String> gameTypes = ["game", "loot"];
 
-class FreeGamesView extends ConsumerStatefulWidget {
-  const FreeGamesView({super.key});
+//todo route :
+
+@RoutePage()
+class FreeGamesListView extends ConsumerStatefulWidget {
+  const FreeGamesListView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _FreeGamesViewState();
 }
 
-class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
+class _FreeGamesViewState extends ConsumerState<FreeGamesListView> {
   @override
   void initState() {
     super.initState();
@@ -161,13 +166,7 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesView> {
                   onTap: () {
                     ref.read(googleAdServiceProvider).showInterstitialAd();
 
-                    //
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GameFreeIndexView(freeGame: game),
-                      ),
-                    );
+                    context.router.push(FreeGamesIndexRoute(freeGame: game));
                   },
                   child: FreeGamesMainCardBody(
                       imagePath: game.image!,

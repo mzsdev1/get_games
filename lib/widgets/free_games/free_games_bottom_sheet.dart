@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/providers/free_games/free_games_api_controller.dart';
-import 'package:get_games/views/free_games/free_games_view.dart';
+import 'package:get_games/views/free_games/free_games_list_view.dart';
 
 class FreeGamesBottomSheet extends StatelessWidget {
   const FreeGamesBottomSheet({
@@ -46,7 +47,7 @@ class FreeGamesBottomSheet extends StatelessWidget {
                             const Spacer(),
                             IconButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                context.router.pop();
                               },
                               icon: Icon(
                                 Icons.close,

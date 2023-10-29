@@ -136,16 +136,20 @@ import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_favorite/delete_favorite_dialog.dart';
 import 'package:get_games/widgets/game_favorite/price_list_dialog.dart';
+import 'package:auto_route/auto_route.dart';
 
-class GameFavoriteView extends ConsumerStatefulWidget {
-  const GameFavoriteView({super.key});
+//todo route :
+
+@RoutePage()
+class FavoriteGamesView extends ConsumerStatefulWidget {
+  const FavoriteGamesView({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
       _GameFavoriteViewState();
 }
 
-class _GameFavoriteViewState extends ConsumerState<GameFavoriteView> {
+class _GameFavoriteViewState extends ConsumerState<FavoriteGamesView> {
   @override
   void initState() {
     super.initState();

@@ -7,9 +7,13 @@ import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
 import 'package:get_games/widgets/free_games/column_text.dart';
+import 'package:auto_route/auto_route.dart';
 
-class GameFreeIndexView extends StatelessWidget {
-  const GameFreeIndexView({super.key, required this.freeGame});
+//todo route :
+
+@RoutePage()
+class FreeGamesIndexView extends StatelessWidget {
+  const FreeGamesIndexView({super.key, required this.freeGame});
 
   final FreeGamesModel freeGame;
 
@@ -28,7 +32,7 @@ class GameFreeIndexView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.router.pop(),
           icon: Icon(
             Icons.arrow_back_ios,
             size: 24.r,

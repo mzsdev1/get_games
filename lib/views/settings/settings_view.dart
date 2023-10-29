@@ -4,7 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/permission_status.dart';
 import 'package:get_games/providers/theme_provider.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
+import 'package:auto_route/auto_route.dart';
 
+//todo route :
+
+@RoutePage()
 class SettingsView extends ConsumerWidget {
   const SettingsView({super.key});
 

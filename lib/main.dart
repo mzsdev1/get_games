@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get_games/firebase_options.dart';
 import 'package:get_games/notifications/firebase_api.dart';
 import 'package:get_games/providers/theme_provider.dart';
-import 'package:get_games/views/homepage.dart';
+import 'package:get_games/routes/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get_games/themes/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -31,6 +30,9 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeModeIndex = ref.watch(themeIndexProvider);
+    final appTheme = AppTheme();
+
+    final appRouter = AppRouter();
 
     return ScreenUtilInit(
       // designSize: const Size(360, 690),
@@ -39,48 +41,14 @@ class App extends ConsumerWidget {
 
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Get Games',
-        theme: FlexThemeData.light(
-          scheme: FlexScheme.tealM3,
-          surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-          blendLevel: 7,
-          subThemesData: const FlexSubThemesData(
-            blendOnLevel: 10,
-            blendOnColors: false,
-            useTextTheme: true,
-            useM2StyleDividerInM3: true,
-            alignedDropdown: true,
-            useInputDecoratorThemeInDialogs: true,
-            navigationBarLabelBehavior:
-                NavigationDestinationLabelBehavior.alwaysHide,
-          ),
-          visualDensity: FlexColorScheme.comfortablePlatformDensity,
-          useMaterial3: true,
-          swapLegacyOnMaterial3: true,
-          fontFamily: GoogleFonts.poppins().fontFamily,
-        ),
-        darkTheme: FlexThemeData.dark(
-          scheme: FlexScheme.tealM3,
-          surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-          blendLevel: 13,
-          subThemesData: const FlexSubThemesData(
-            blendOnLevel: 20,
-            useTextTheme: true,
-            useM2StyleDividerInM3: true,
-            alignedDropdown: true,
-            useInputDecoratorThemeInDialogs: true,
-            navigationBarLabelBehavior:
-                NavigationDestinationLabelBehavior.alwaysHide,
-          ),
-          visualDensity: FlexColorScheme.comfortablePlatformDensity,
-          useMaterial3: true,
-          swapLegacyOnMaterial3: true,
-          fontFamily: GoogleFonts.poppins().fontFamily,
-        ),
+        routerConfig: appRouter.config(),
+        theme: appTheme.lightTheme,
+        darkTheme: appTheme.darkTheme,
         themeMode: themeModeIndex == 0 ? ThemeMode.light : ThemeMode.dark,
-        home: const HomePage(),
+        // home: const DashboardView(),
       ),
     );
   }
