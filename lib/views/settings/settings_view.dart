@@ -45,14 +45,14 @@ class SettingsView extends ConsumerWidget {
 
                   //todo
                   Switch(
-                    thumbIcon: themeProvider == 0
-                        ? MaterialStateProperty.resolveWith(
-                            (states) => const Icon(Icons.close),
-                          )
-                        : MaterialStateProperty.resolveWith(
-                            (states) => const Icon(Icons.check),
-                          ),
-                    value: themeProvider == 0 ? false : true,
+                    // thumbIcon: themeProvider == false
+                    //     ? MaterialStateProperty.resolveWith(
+                    //         (states) => const Icon(Icons.close),
+                    //       )
+                    //     : MaterialStateProperty.resolveWith(
+                    //         (states) => const Icon(Icons.check),
+                    //       ),
+                    value: themeProvider,
                     onChanged: (_) {
                       ref.read(themeIndexProvider.notifier).toggleTheme();
                     },
@@ -89,3 +89,92 @@ class SettingsView extends ConsumerWidget {
     );
   }
 }
+
+//test trot
+// @RoutePage()
+// class SettingsView extends ConsumerStatefulWidget {
+//   const SettingsView({super.key});
+
+//   @override
+//   ConsumerState<ConsumerStatefulWidget> createState() => _SettingsViewState();
+// }
+
+// class _SettingsViewState extends ConsumerState<SettingsView> {
+//   @override
+//   Widget build(BuildContext context) {
+//     final themeProvider = ref.watch(themeIndexProvider);
+//     final status = PermissionStatus();
+
+//     return Scaffold(
+//       appBar: PreferredSize(
+//         preferredSize: Size.fromHeight(54.5.h),
+//         child: AppBar(
+//           title: const AppBarTitleText(text: "Settings"),
+//         ),
+//       ),
+//       body: SingleChildScrollView(
+//         child: Padding(
+//           padding: REdgeInsets.symmetric(
+//             vertical: 8,
+//             horizontal: 12,
+//           ),
+//           child: Column(
+//             children: [
+//               Row(
+//                 children: [
+//                   Text(
+//                     "Dark Mode",
+//                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
+//                           fontWeight: FontWeight.bold,
+//                           fontSize: 16.sp,
+//                         ),
+//                   ),
+//                   const Spacer(),
+
+//                   //todo
+//                   Switch(
+//                     // thumbIcon: themeProvider == false
+//                     //     ? MaterialStateProperty.resolveWith(
+//                     //         (states) => const Icon(Icons.close),
+//                     //       )
+//                     //     : MaterialStateProperty.resolveWith(
+//                     //         (states) => const Icon(Icons.check),
+//                     //       ),
+//                     value: themeProvider,
+
+//                     onChanged: (_) {
+//                       ref.read(themeIndexProvider.notifier).toggleTheme();
+//                     },
+//                   ),
+//                 ],
+//               ),
+//               SizedBox(
+//                 height: 10.h,
+//               ),
+//               Row(
+//                 children: [
+//                   Text(
+//                     "Permissions",
+//                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
+//                           fontWeight: FontWeight.bold,
+//                           fontSize: 16.sp,
+//                         ),
+//                   ),
+//                   const Spacer(),
+//                   OutlinedButton(
+//                     child: const Text(
+//                       "Accept",
+//                     ),
+//                     onPressed: () {
+//                       status.acPerm();
+//                     },
+//                   )
+//                 ],
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

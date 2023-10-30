@@ -12,7 +12,6 @@ import 'package:get_games/routes/app_router.gr.dart';
 import 'package:get_games/widgets/common/nav_destination_icon.dart';
 import 'package:auto_route/auto_route.dart';
 
-// @RoutePage()
 // class Dashboard extends ConsumerWidget {
 //   const Dashboard({super.key});
 
@@ -75,10 +74,6 @@ class DashboardView extends StatelessWidget {
         FavoriteGamesRoute(),
         SettingsRoute(),
       ],
-      transitionBuilder: (context, child, animation) => FadeTransition(
-        opacity: animation,
-        child: child,
-      ),
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
 
@@ -87,11 +82,14 @@ class DashboardView extends StatelessWidget {
           bottomNavigationBar: SizedBox(
             height: 69.h,
             child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
               showSelectedLabels: false,
               showUnselectedLabels: false,
               currentIndex: tabsRouter.activeIndex,
               onTap: (index) {
+                int i = index;
                 tabsRouter.setActiveIndex(index);
+                print("route index : $i");
               },
               items: bottomNavItemList,
             ),

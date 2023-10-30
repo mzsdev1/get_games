@@ -166,7 +166,10 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesListView> {
                   onTap: () {
                     ref.read(googleAdServiceProvider).showInterstitialAd();
 
-                    context.router.push(FreeGamesIndexRoute(freeGame: game));
+                    // context.router.push(FreeGamesIndexRoute(freeGame: game));
+
+                    AutoRouter.of(context)
+                        .push(FreeGamesIndexRoute(freeGame: game));
                   },
                   child: FreeGamesMainCardBody(
                       imagePath: game.image!,

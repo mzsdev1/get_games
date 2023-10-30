@@ -7,6 +7,7 @@ import 'package:get_games/routes/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/themes/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/views/dashboard/dashboard.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
@@ -31,7 +32,6 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeModeIndex = ref.watch(themeIndexProvider);
     final appTheme = AppTheme();
-
     final appRouter = AppRouter();
 
     return ScreenUtilInit(
@@ -47,8 +47,7 @@ class App extends ConsumerWidget {
         routerConfig: appRouter.config(),
         theme: appTheme.lightTheme,
         darkTheme: appTheme.darkTheme,
-        themeMode: themeModeIndex == 0 ? ThemeMode.light : ThemeMode.dark,
-        // home: const DashboardView(),
+        themeMode: themeModeIndex == false ? ThemeMode.light : ThemeMode.dark,
       ),
     );
   }

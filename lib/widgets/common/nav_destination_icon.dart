@@ -89,3 +89,12 @@ final bottomNavItemList = [
     label: "Settings",
   ),
 ];
+
+// class NavLink extends StatelessWidget {
+//   const NavLink({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return NavigationDestination();
+//   }
+// }

@@ -10,7 +10,7 @@ class LoadProgressIndicator extends StatelessWidget {
     return Center(
       child: LoadingAnimationWidget.threeArchedCircle(
         color: Theme.of(context).indicatorColor,
-        size: 44.w,
+        size: 42.w,
       ),
     );
   }

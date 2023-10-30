@@ -148,7 +148,10 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
                   onTap: () {
                     ref.read(googleAdServiceProvider).showInterstitialAd();
 
-                    context.router.push(GameDealsIndexRoute(gameDeal: game));
+                    //context.router.push(GameDealsIndexRoute(gameDeal: game));
+
+                    AutoRouter.of(context)
+                        .push(GameDealsIndexRoute(gameDeal: game));
                   },
                   child: GameDealMainCardBody(
                     thumbUrl: game.thumb!,
