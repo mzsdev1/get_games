@@ -111,7 +111,7 @@ final filters = [
   "drm-free",
 ];
 
-final List<String> gameTypes = ["game", "loot"];
+//final List<String> gameTypes = ["game", "dlc"];
 
 class FreeGamesListView extends ConsumerStatefulWidget {
   const FreeGamesListView({super.key});

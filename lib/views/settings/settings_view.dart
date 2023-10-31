@@ -75,7 +75,20 @@ class SettingsView extends ConsumerWidget {
                     onPressed: () {
                       status.acPerm();
                     },
-                  )
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              ListView(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.flag),
+                    title: Text("English"),
+                    trailing: Icon(Icons.flashlight_off),
+                    onTap: () {},
+                  ),
                 ],
               ),
             ],

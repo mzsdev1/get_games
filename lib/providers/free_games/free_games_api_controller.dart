@@ -30,17 +30,3 @@ final freeGamesProvider = FutureProvider<List<FreeGamesModel>>((ref) async {
     throw Exception("Error: $e");
   }
 });
-
-final selectedFiltersProvider =
-    StateNotifierProvider<SelectedFilterNotifier, List<String>>((ref) {
-  return SelectedFilterNotifier();
-});
-
-final selectedGameTypeProvider =
-    StateNotifierProvider<SelectedGameTypeNotifier, String>((ref) {
-  return SelectedGameTypeNotifier();
-});
-
-final navBarProvider = StateProvider<int>((ref) {
-  return 0;
-});

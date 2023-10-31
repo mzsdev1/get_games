@@ -2,11 +2,9 @@
   "freeGamesView": {
     "appBarTitle": "Giveaway",
     "platformsText": "Platforms",
-    "priceText": "Price",
     "gameText": "Game",
-    "lootText": "Loot",
+    "lootText": "Dlc",
     "freeText": "Free",
-    "typeText": "Type",
     "endDateText": "End Date",
     "descriptionText": "Description",
     "instructionsText": "Instructions"
@@ -16,8 +14,6 @@
     "platformText": "Platform",
     "minPrice": "Min",
     "maxPrice": "Max",
-    "priceText": "Price",
-    "typeText": "Type",
     "discountedText": "Discounted",
     "addFavoriteText": "Add Favorite",
     "reviewsText": "Reviews",
@@ -58,5 +54,11 @@
   "snackbarTexts": {
     "addedText": "Game added to favorites list.",
     "deletedText": "Game removed from favorites list."
+  },
+
+  "commonTexts": {
+    "getButtonText": "Get",
+    "priceText": "Price",
+    "typeText": "Type"
   }
 }

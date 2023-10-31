@@ -1,0 +1,64 @@
+{
+  "freeGamesView": {
+    "appBarTitle": "Gratisangebote",
+    "platformsText": "Plattformen",
+    "gameText": "Spiel",
+    "lootText": "Dlc",
+    "freeText": "Kostenlos",
+    "endDateText": "Enddatum",
+    "descriptionText": "Beschreibung",
+    "instructionsText": "Anweisungen"
+  },
+  "gameDealsView": {
+    "appBarTitle": "Angebote",
+    "platformText": "Plattform",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "discountedText": "Reduziert",
+    "addFavoriteText": "Zu Favoriten hinzufügen",
+    "reviewsText": "Bewertungen",
+    "scoreText": "Bewertung",
+    "rateText": "Bewerten",
+    "avarageReviewText": "Durchschnittliche Bewertung",
+    "releaseDateText": "Veröffentlichungsdatum",
+    "discountDateText": "Rabattdatum"
+  },
+
+  "searchGameView": {
+    "textfieldHintText": "Spiel suchen",
+    "cheapestText": "Günstigster Preis"
+  },
+
+  "favoriteGamesView": {
+    "appBarTitle": "Favoriten",
+    "alertDialog": {
+      "clearFavListText": "Favoritenliste leeren",
+      "sureDeleteAllText": "Sind Sie sicher, dass Sie alle Spiele auf der Favoriten-Seite löschen möchten?",
+      "undoneText": "Diese Aktion kann nicht rückgängig gemacht werden.",
+      "cancelText": "Abbrechen",
+      "approveText": "Bestätigen"
+    }
+  },
+
+  "settingsView": {
+    "appBarTitle": "Einstellungen",
+    "permissionsText": "Berechtigungen",
+    "acceptText": "Akzeptieren",
+    "languagesText": "Sprachen",
+    "disclaimer": "Haftungsausschluss",
+    "contact": "Kontakt"
+  },
+  "emptyView": {
+    "noGameFoundText": "Kein Spiel gefunden"
+  },
+  "snackbarTexts": {
+    "addedText": "Spiel zur Favoritenliste hinzugefügt.",
+    "deletedText": "Spiel aus der Favoritenliste entfernt."
+  },
+
+  "commonTexts": {
+    "getButtonText": "Erhalten",
+    "priceText": "Preis",
+    "typeText": "Typ"
+  }
+}

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/providers/nav_bar_provider.dart';
 import 'package:get_games/views/free_games/free_games_list_view.dart';
-import 'package:get_games/providers/free_games/free_games_api_controller.dart';
 import 'package:get_games/views/game_deals/game_deals_list_view.dart';
 import 'package:get_games/views/favorite_games/game_favorite_view.dart';
 import 'package:get_games/views/search_game/game_search_view.dart';
