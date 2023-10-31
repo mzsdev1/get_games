@@ -43,7 +43,7 @@ final gameSearchProvider = FutureProvider<List<GameSearchModel>>((ref) async {
   final query = ref.watch(searchQueryProvider);
 
   final url = Uri.parse(
-      "https://www.cheapshark.com/api/1.0/games?title=${query}&limit=30");
+      "https://www.cheapshark.com/api/1.0/games?title=$query&limit=30");
 
   try {
     final response = await http.get(url);

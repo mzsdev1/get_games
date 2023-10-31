@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/providers/shared_pref_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

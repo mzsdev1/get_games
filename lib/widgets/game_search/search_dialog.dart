@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,7 +62,7 @@ class SearchDialog extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                          context.router.pop();
+                          Navigator.of(context).pop();
                         },
                         icon: Icon(
                           Icons.close_rounded,
@@ -82,7 +81,7 @@ class SearchDialog extends StatelessWidget {
                                     false;
 
                                 Timer(
-                                  const Duration(milliseconds: 500),
+                                  const Duration(milliseconds: 600),
                                   () {
                                     ref.read(favButtonProvider.notifier).state =
                                         true;

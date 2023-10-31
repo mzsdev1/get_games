@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get_games/firebase_options.dart';
 import 'package:get_games/notifications/firebase_api.dart';
 import 'package:get_games/providers/theme_provider.dart';
-import 'package:get_games/routes/app_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/themes/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,7 +31,6 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeModeIndex = ref.watch(themeIndexProvider);
     final appTheme = AppTheme();
-    final appRouter = AppRouter();
 
     return ScreenUtilInit(
       // designSize: const Size(360, 690),
@@ -41,13 +39,13 @@ class App extends ConsumerWidget {
 
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp.router(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Get Games',
-        routerConfig: appRouter.config(),
         theme: appTheme.lightTheme,
         darkTheme: appTheme.darkTheme,
         themeMode: themeModeIndex == false ? ThemeMode.light : ThemeMode.dark,
+        home: const DashboardView(),
       ),
     );
   }

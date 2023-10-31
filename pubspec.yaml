@@ -29,9 +29,9 @@ dependencies:
   shared_preferences: ^2.2.1
   intl: ^0.18.1
   flutter_screenutil: ^5.8.1
-  auto_route: ^7.8.4
   loading_animation_widget: ^1.2.0+4
   google_mobile_ads: ^3.1.0
+  equatable: ^2.0.5
    
  
  
@@ -41,8 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  auto_route_generator: ^7.3.2  
-  build_runner: ^2.4.6
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

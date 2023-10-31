@@ -84,7 +84,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
 import 'package:get_games/providers/game_deals/game_deals_api_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
-import 'package:get_games/routes/app_router.gr.dart';
 import 'package:get_games/views/game_deals/game_deals_index_view.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
 import 'package:get_games/widgets/common/empty_view.dart';
@@ -92,13 +91,9 @@ import 'package:get_games/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/widgets/game_deals/deal_filter_select.dart';
 import 'package:get_games/widgets/game_deals/main_card_body.dart';
 import 'package:get_games/widgets/game_deals/store_dropdown_button.dart';
-import 'package:auto_route/auto_route.dart';
 
 final List<String> storeLabels = ["Steam", "Epic"];
 
-//todo route :
-
-@RoutePage()
 class GameDealsListView extends ConsumerStatefulWidget {
   const GameDealsListView({super.key});
 
@@ -129,6 +124,7 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
+          surfaceTintColor: Colors.transparent,
           title: const AppBarTitleText(text: "Deals"),
           actions: [
             StoreDropdownButton(selectedStore: selectedStore),
@@ -148,10 +144,12 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
                   onTap: () {
                     ref.read(googleAdServiceProvider).showInterstitialAd();
 
-                    //context.router.push(GameDealsIndexRoute(gameDeal: game));
-
-                    AutoRouter.of(context)
-                        .push(GameDealsIndexRoute(gameDeal: game));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            GameDealsIndexView(gameDeal: game),
+                      ),
+                    );
                   },
                   child: GameDealMainCardBody(
                     thumbUrl: game.thumb!,

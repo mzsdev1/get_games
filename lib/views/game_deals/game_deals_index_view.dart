@@ -15,11 +15,7 @@ import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
 import 'package:get_games/widgets/game_deals/rate_container.dart';
-import 'package:auto_route/auto_route.dart';
 
-//todo route :
-
-@RoutePage()
 class GameDealsIndexView extends ConsumerWidget {
   const GameDealsIndexView({super.key, required this.gameDeal});
 
@@ -45,7 +41,7 @@ class GameDealsIndexView extends ConsumerWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          onPressed: () => context.router.pop(),
+          onPressed: () => Navigator.of(context).pop(),
           icon: Icon(
             Icons.arrow_back_ios_new,
             size: 24.r,
