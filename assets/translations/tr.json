@@ -1,0 +1,14 @@
+{
+    "freeGamesView":{
+        "appBarTitle": "Giveaway",
+        "platformsText": "Platforms",
+        "priceText": "Price",
+        "gameText": "Game",
+        "lootText": "Loot",
+        "freeText": "Free",
+        "typeText": "Type",
+        "endDateText": "End Date",
+        "descriptionText": "Description",
+        "instructionsText": "Instructions"
+    }
+}

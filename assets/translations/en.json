@@ -1,0 +1,62 @@
+{
+  "freeGamesView": {
+    "appBarTitle": "Giveaway",
+    "platformsText": "Platforms",
+    "priceText": "Price",
+    "gameText": "Game",
+    "lootText": "Loot",
+    "freeText": "Free",
+    "typeText": "Type",
+    "endDateText": "End Date",
+    "descriptionText": "Description",
+    "instructionsText": "Instructions"
+  },
+  "gameDealsView": {
+    "appBarTitle": "Deals",
+    "platformText": "Platform",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "priceText": "Price",
+    "typeText": "Type",
+    "discountedText": "Discounted",
+    "addFavoriteText": "Add Favorite",
+    "reviewsText": "Reviews",
+    "scoreText": "Score",
+    "rateText": "Rate",
+    "avarageReviewText": "Average Review",
+    "releaseDateText": "Release Date",
+    "discountDateText": "Discount Date"
+  },
+
+  "searchGameView": {
+    "textfieldHintText": "Search game",
+    "cheapestText": "Cheapest"
+  },
+
+  "favoriteGamesView": {
+    "appBarTitle": "Favorites",
+    "alertDialog": {
+      "clearFavListText": "Clear Favorite List",
+      "sureDeleteAllText": "Are you sure you want to delete all games on the favorite page?",
+      "undoneText": "This action cannot be undone.",
+      "cancelText": "Cancel",
+      "approveText": "Approve"
+    }
+  },
+
+  "settingsView": {
+    "appBarTitle": "Settings",
+    "permissionsText": "Permissions",
+    "acceptText": "Accept",
+    "languagesText": "Languages",
+    "disclaimer": "Disclaimer",
+    "contact": "Contact"
+  },
+  "emptyView": {
+    "noGameFoundText": "No Game Found"
+  },
+  "snackbarTexts": {
+    "addedText": "Game added to favorites list.",
+    "deletedText": "Game removed from favorites list."
+  }
+}

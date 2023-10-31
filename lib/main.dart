@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_games/firebase_options.dart';
+import 'package:get_games/localizations/init_localization.dart';
 import 'package:get_games/notifications/firebase_api.dart';
 import 'package:get_games/providers/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,6 +13,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -18,8 +21,10 @@ void main() async {
   await FirebaseAPI().initNotifications();
 
   runApp(
-    const ProviderScope(
-      child: App(),
+    ProviderScope(
+      child: InitLocalizations(
+        child: const App(),
+      ),
     ),
   );
 }
@@ -33,13 +38,14 @@ class App extends ConsumerWidget {
     final appTheme = AppTheme();
 
     return ScreenUtilInit(
-      // designSize: const Size(360, 690),
       designSize: Size(
           MediaQuery.sizeOf(context).width, MediaQuery.sizeOf(context).height),
-
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         debugShowCheckedModeBanner: false,
         title: 'Get Games',
         theme: appTheme.lightTheme,
