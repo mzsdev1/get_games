@@ -1,61 +1,70 @@
 {
-    "freeGamesView": {
-      "appBarTitle": "Ücretsiz",
-      "platformsText": "Platformlar",
-      "gameText": "Oyun",
-      "lootText": "DLC",
-      "freeText": "Bedava",
-      "endDateText": "Bitiş Tarihi",
-      "descriptionText": "Açıklama",
-      "instructionsText": "Talimatlar"
-    },
-    "gameDealsView": {
-      "appBarTitle": "Fırsatlar",
-      "platformText": "Platform",
-      "minPrice": "Min",
-      "maxPrice": "Maks",
-      "discountedText": "İndirimli",
-      "addFavoriteText": "Favorilere Ekle",
-      "reviewsText": "İncelemeler",
-      "scoreText": "Puan",
-      "rateText": "Oran",
-      "avarageReviewText": "Ortalama İnceleme",
-      "releaseDateText": "Çıkış Tarihi",
-      "discountDateText": "İndirim Tarihi"
-    },
-    "searchGameView": {
-      "textfieldHintText": "Oyun ara",
-      "cheapestText": "En Ucuz"
-    },
-    "favoriteGamesView": {
-      "appBarTitle": "Favoriler",
-      "alertDialog": {
-        "clearFavListText": "Favori Listesini Temizle",
-        "sureDeleteAllText": "Favori sayfasındaki tüm oyunları silmek istediğinizden emin misiniz?",
-        "undoneText": "Bu işlem geri alınamaz.",
-        "cancelText": "İptal",
-        "approveText": "Onayla"
-      }
-    },
-    "settingsView": {
-      "appBarTitle": "Ayarlar",
-      "permissionsText": "İzinler",
-      "acceptText": "Kabul Et",
-      "languagesText": "Diller",
-      "disclaimer": "Yasal Uyarı",
-      "contact": "İletişim"
-    },
-    "emptyView": {
-      "noGameFoundText": "Oyun Bulunamadı"
-    },
-    "snackbarTexts": {
-      "addedText": "Oyun favorilere eklendi.",
-      "deletedText": "Oyun favorilerden kaldırıldı."
-    },
-    "commonTexts": {
-      "getButtonText": "Git",
-      "priceText": "Fiyat",
-      "typeText": "Tür"
+  "freeGamesView": {
+    "appBarTitle": "Ücretsiz",
+    "platformsText": "Platformlar",
+    "gameText": "Oyun",
+    "lootText": "DLC",
+    "freeText": "Bedava",
+    "endDateText": "Bitiş Tarihi",
+    "descriptionText": "Açıklama",
+    "instructionsText": "Talimatlar"
+  },
+  "gameDealsView": {
+    "appBarTitle": "Fırsatlar",
+    "platformText": "Platform",
+    "minPrice": "Min",
+    "maxPrice": "Maks",
+    "discountedText": "İndirimli",
+    "addFavoriteText": "Favorilere Ekle",
+    "reviewsText": "İncelemeler",
+    "scoreText": "Puan",
+    "rateText": "Oran",
+    "avarageReviewText": "Ortalama İnceleme",
+    "releaseDateText": "Çıkış Tarihi",
+    "discountDateText": "İndirim Tarihi"
+  },
+  "searchGameView": {
+    "textfieldHintText": "Oyun ara",
+    "cheapestText": "En Ucuz"
+  },
+  "favoriteGamesView": {
+    "appBarTitle": "Favoriler",
+    "alertDialog": {
+      "clearFavListText": "Favori Listesini Temizle",
+      "sureDeleteAllText": "Favori sayfasındaki tüm oyunları silmek istediğinizden emin misiniz?",
+      "undoneText": "Bu işlem geri alınamaz.",
+      "cancelText": "İptal",
+      "approveText": "Onayla"
     }
+  },
+  "settingsView": {
+    "appBarTitle": "Ayarlar",
+    "permissionsText": "İzinler",
+    "acceptText": "Kabul Et",
+    "languagesText": "Diller",
+    "disclaimer": "Yasal Uyarı",
+    "contact": "İletişim",
+    "darkModeText": "Karanlık Mod"
+  },
+  "emptyView": {
+    "noGameFoundText": "Oyun Bulunamadı"
+  },
+  "snackbarTexts": {
+    "addedText": "Oyun favorilere eklendi.",
+    "deletedText": "Oyun favorilerden kaldırıldı.",
+    "allGamesRemovedText": "Tüm oyunlar kaldırıldı."
+  },
+  "commonTexts": {
+    "getButtonText": "Git",
+    "priceText": "Fiyat",
+    "typeText": "Tür"
+  },
+  "languagesTexts": {
+    "englishText": "İngilizce",
+    "turkishText": "Türkçe",
+    "spanishText": "İspanyolca",
+    "frenchText": "Fransızca",
+    "germanText": "Almanca",
+    "brazilianText": "Brezilya Portekizcesi"
   }
-  
+}

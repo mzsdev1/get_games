@@ -46,19 +46,30 @@
     "acceptText": "Accept",
     "languagesText": "Languages",
     "disclaimer": "Disclaimer",
-    "contact": "Contact"
+    "contact": "Contact",
+    "darkModeText": "Dark Mode"
   },
   "emptyView": {
     "noGameFoundText": "No Game Found"
   },
   "snackbarTexts": {
     "addedText": "Game added to favorites list.",
-    "deletedText": "Game removed from favorites list."
+    "deletedText": "Game removed from favorites list.",
+    "allGamesRemovedText": "All games removed."
   },
 
   "commonTexts": {
     "getButtonText": "Get",
     "priceText": "Price",
     "typeText": "Type"
+  },
+
+  "languagesTexts": {
+    "englishText": "English",
+    "turkishText": "Turkish",
+    "spanishText": "Spanish",
+    "frenchText": "French",
+    "germanText": "German",
+    "brazilianText": "Brazilian Portuguese"
   }
 }
