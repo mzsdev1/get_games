@@ -51,14 +51,29 @@ abstract class LocaleKeys {
   static const settingsView_languagesText = 'settingsView.languagesText';
   static const settingsView_disclaimer = 'settingsView.disclaimer';
   static const settingsView_contact = 'settingsView.contact';
+  static const settingsView_darkModeText = 'settingsView.darkModeText';
+  static const settingsView_sendText = 'settingsView.sendText';
   static const settingsView = 'settingsView';
   static const emptyView_noGameFoundText = 'emptyView.noGameFoundText';
   static const emptyView = 'emptyView';
   static const snackbarTexts_addedText = 'snackbarTexts.addedText';
   static const snackbarTexts_deletedText = 'snackbarTexts.deletedText';
+  static const snackbarTexts_allGamesRemovedText =
+      'snackbarTexts.allGamesRemovedText';
+  static const snackbarTexts_permissionAccepted =
+      'snackbarTexts.permissionAccepted';
+  static const snackbarTexts_permissionAlreadyAccepted =
+      'snackbarTexts.permissionAlreadyAccepted';
   static const snackbarTexts = 'snackbarTexts';
   static const commonTexts_getButtonText = 'commonTexts.getButtonText';
   static const commonTexts_priceText = 'commonTexts.priceText';
   static const commonTexts_typeText = 'commonTexts.typeText';
   static const commonTexts = 'commonTexts';
+  static const languagesTexts_englishText = 'languagesTexts.englishText';
+  static const languagesTexts_turkishText = 'languagesTexts.turkishText';
+  static const languagesTexts_spanishText = 'languagesTexts.spanishText';
+  static const languagesTexts_frenchText = 'languagesTexts.frenchText';
+  static const languagesTexts_germanText = 'languagesTexts.germanText';
+  static const languagesTexts_brazilianText = 'languagesTexts.brazilianText';
+  static const languagesTexts = 'languagesTexts';
 }

@@ -44,7 +44,8 @@
     "languagesText": "Diller",
     "disclaimer": "Yasal Uyarı",
     "contact": "İletişim",
-    "darkModeText": "Karanlık Mod"
+    "darkModeText": "Karanlık Mod",
+    "sendText": "Gönder"
   },
   "emptyView": {
     "noGameFoundText": "Oyun Bulunamadı"
@@ -52,7 +53,9 @@
   "snackbarTexts": {
     "addedText": "Oyun favorilere eklendi.",
     "deletedText": "Oyun favorilerden kaldırıldı.",
-    "allGamesRemovedText": "Tüm oyunlar kaldırıldı."
+    "allGamesRemovedText": "Tüm oyunlar kaldırıldı.",
+    "permissionAccepted": "Tüm izinler kabul edildi.",
+    "permissionAlreadyAccepted": "Tüm izinler kabul edilmiş durumda."
   },
   "commonTexts": {
     "getButtonText": "Git",

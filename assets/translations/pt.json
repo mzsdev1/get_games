@@ -47,7 +47,8 @@
     "languagesText": "Idiomas",
     "disclaimer": "Aviso Legal",
     "contact": "Contato",
-    "darkModeText": "Modo Escuro"
+    "darkModeText": "Modo Escuro",
+    "sendText": "Enviar"
   },
   "emptyView": {
     "noGameFoundText": "Nenhum Jogo Encontrado"
@@ -55,7 +56,9 @@
   "snackbarTexts": {
     "addedText": "Jogo adicionado à lista de favoritos.",
     "deletedText": "Jogo removido da lista de favoritos.",
-    "allGamesRemovedText": "Todos os jogos foram removidos."
+    "allGamesRemovedText": "Todos os jogos foram removidos.",
+    "permissionAccepted": "Todas as permissões aceitas.",
+    "permissionAlreadyAccepted": "Todas as permissões já foram aceitas."
   },
 
   "commonTexts": {

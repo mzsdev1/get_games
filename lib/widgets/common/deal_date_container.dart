@@ -52,6 +52,7 @@ class DealDateContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
+                    overflow: TextOverflow.ellipsis,
                     LocaleKeys.gameDealsView_releaseDateText.tr(),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
@@ -95,6 +96,7 @@ class DealDateContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
+                    overflow: TextOverflow.ellipsis,
                     LocaleKeys.gameDealsView_discountDateText.tr(),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,

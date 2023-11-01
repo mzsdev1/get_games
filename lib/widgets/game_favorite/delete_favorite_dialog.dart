@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 
@@ -15,15 +16,24 @@ class DeleteFavoriteDialog extends StatelessWidget {
       builder: (context, ref, child) => AlertDialog(
         title: Text(
           LocaleKeys.favoriteGamesView_alertDialog_clearFavListText.tr(),
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                fontSize: 24.sp,
+              ),
         ),
         content: SingleChildScrollView(
           child: ListBody(
             children: [
               Text(
                 LocaleKeys.favoriteGamesView_alertDialog_sureDeleteAllText.tr(),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 14.sp,
+                    ),
               ),
               Text(
                 LocaleKeys.favoriteGamesView_alertDialog_undoneText.tr(),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 14.sp,
+                    ),
               ),
             ],
           ),
@@ -35,6 +45,10 @@ class DeleteFavoriteDialog extends StatelessWidget {
             },
             child: Text(
               LocaleKeys.favoriteGamesView_alertDialog_cancelText.tr(),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontSize: 14.sp,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
             ),
           ),
           TextButton(
@@ -47,6 +61,10 @@ class DeleteFavoriteDialog extends StatelessWidget {
             },
             child: Text(
               LocaleKeys.favoriteGamesView_alertDialog_approveText.tr(),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    fontSize: 14.sp,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
             ),
           ),
         ],

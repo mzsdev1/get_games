@@ -9,6 +9,7 @@ import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
 import 'package:get_games/widgets/free_games/column_text.dart';
+import 'package:get_games/widgets/free_games/date_container.dart';
 
 class FreeGamesIndexView extends StatelessWidget {
   const FreeGamesIndexView({super.key, required this.freeGame});
@@ -87,9 +88,14 @@ class FreeGamesIndexView extends StatelessWidget {
                       title: LocaleKeys.freeGamesView_descriptionText.tr(),
                       data: freeGame.description!),
                   SizedBox(height: 7.h),
-                  FullContainer(
+                  //todo
+                  // FullContainer(
+                  //     header: LocaleKeys.freeGamesView_endDateText.tr(),
+                  //     info: freeGame.endDate),
+                  FreeGameDateContainer(
                       header: LocaleKeys.freeGamesView_endDateText.tr(),
-                      info: freeGame.endDate),
+                      freeGame: freeGame),
+                  //todo:
                   SizedBox(height: 7.h),
                   ColumnText(
                     title: LocaleKeys.freeGamesView_instructionsText.tr(),

@@ -47,7 +47,8 @@
     "languagesText": "Languages",
     "disclaimer": "Disclaimer",
     "contact": "Contact",
-    "darkModeText": "Dark Mode"
+    "darkModeText": "Dark Mode",
+    "sendText": "Send"
   },
   "emptyView": {
     "noGameFoundText": "No Game Found"
@@ -55,7 +56,9 @@
   "snackbarTexts": {
     "addedText": "Game added to favorites list.",
     "deletedText": "Game removed from favorites list.",
-    "allGamesRemovedText": "All games removed."
+    "allGamesRemovedText": "All games removed.",
+    "permissionAccepted": "All permissions accepted.",
+    "permissionAlreadyAccepted": "All permissions already accepted."
   },
 
   "commonTexts": {

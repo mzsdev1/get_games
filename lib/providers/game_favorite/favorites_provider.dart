@@ -51,10 +51,9 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
     //todo
     //ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        duration: Duration(seconds: 3),
-        //TODO: ALL GAMES REMOVED TRANSLATE
-        content: Text('All games removed.'),
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: Text(LocaleKeys.snackbarTexts_allGamesRemovedText.tr()),
       ),
     );
   }
