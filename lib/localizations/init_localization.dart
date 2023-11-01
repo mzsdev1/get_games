@@ -10,11 +10,16 @@ class InitLocalizations extends EasyLocalization {
           supportedLocales: _supportedLocales,
           path: _path,
           useOnlyLangCode: true,
+          fallbackLocale: Locales.en.locale,
         );
 
   static final List<Locale> _supportedLocales = [
     Locales.en.locale,
     Locales.tr.locale,
+    Locales.es.locale,
+    Locales.pt.locale,
+    Locales.de.locale,
+    Locales.fr.locale,
   ];
 
   static const String _path = "assets/translations";

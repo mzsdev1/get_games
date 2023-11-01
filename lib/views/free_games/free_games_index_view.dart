@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/models/free_games_model.dart';
 import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/common/full_container.dart';
@@ -19,7 +21,7 @@ class FreeGamesIndexView extends StatelessWidget {
       //extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
-          "Free",
+          LocaleKeys.freeGamesView_freeText.tr(),
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontSize: 20,
               ),
@@ -67,27 +69,37 @@ class FreeGamesIndexView extends StatelessWidget {
                   SizedBox(height: 7.h),
                   Row(
                     children: [
-                      HalfContainer(header: "Price", info: freeGame.worth!),
+                      HalfContainer(
+                          header: LocaleKeys.commonTexts_priceText.tr(),
+                          info: freeGame.worth!),
                       SizedBox(width: 30.w),
-                      HalfContainer(header: "Type", info: freeGame.type!),
+                      HalfContainer(
+                          header: LocaleKeys.commonTexts_typeText.tr(),
+                          info: freeGame.type!),
                     ],
                   ),
                   SizedBox(height: 7.h),
-                  FullContainer(header: "Platforms", info: freeGame.platforms),
-                  SizedBox(height: 7.h),
-                  ColumnText(title: "Description", data: freeGame.description!),
-                  SizedBox(height: 7.h),
-                  FullContainer(header: "End Date", info: freeGame.endDate),
+                  FullContainer(
+                      header: LocaleKeys.freeGamesView_platformsText.tr(),
+                      info: freeGame.platforms),
                   SizedBox(height: 7.h),
                   ColumnText(
-                    title: "Instructions",
+                      title: LocaleKeys.freeGamesView_descriptionText.tr(),
+                      data: freeGame.description!),
+                  SizedBox(height: 7.h),
+                  FullContainer(
+                      header: LocaleKeys.freeGamesView_endDateText.tr(),
+                      info: freeGame.endDate),
+                  SizedBox(height: 7.h),
+                  ColumnText(
+                    title: LocaleKeys.freeGamesView_instructionsText.tr(),
                     data: freeGame.instructions!,
                   ),
                   SizedBox(height: 15.h),
                   Center(
                     child: GetButton(
                       //todo.
-                      buttonText: "Get",
+                      buttonText: LocaleKeys.commonTexts_getButtonText.tr(),
                       urlString: freeGame.openGiveawayUrl ?? "",
                     ),
                   ),

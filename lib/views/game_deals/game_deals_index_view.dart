@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +16,8 @@ import 'package:get_games/widgets/common/full_container.dart';
 import 'package:get_games/widgets/common/get_button.dart';
 import 'package:get_games/widgets/common/half_container.dart';
 import 'package:get_games/widgets/game_deals/rate_container.dart';
+
+import '../../localizations/locale_keys.g.dart';
 
 class GameDealsIndexView extends ConsumerWidget {
   const GameDealsIndexView({super.key, required this.gameDeal});
@@ -32,7 +35,7 @@ class GameDealsIndexView extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Discounted",
+          LocaleKeys.gameDealsView_discountedText.tr(),
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontSize: 20,
               ),
@@ -181,7 +184,7 @@ class GameDealsIndexView extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Add Favorite",
+                              LocaleKeys.gameDealsView_addFavoriteText.tr(),
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium!
@@ -234,7 +237,7 @@ class GameDealsIndexView extends ConsumerWidget {
                 //todo:
                 SizedBox(height: 7.h),
                 FullContainer(
-                  header: "Platform",
+                  header: LocaleKeys.gameDealsView_platformText.tr(),
                   info: storeNum.selectedApiNumber == 1
                       ? "Steam"
                       : "Epic Games Store",
@@ -243,16 +246,20 @@ class GameDealsIndexView extends ConsumerWidget {
                 Row(
                   children: [
                     HalfContainer(
-                        header: "Reviews", info: gameDeal.steamRatingCount!),
+                        header: LocaleKeys.gameDealsView_reviewsText.tr(),
+                        info: gameDeal.steamRatingCount!),
                     SizedBox(width: 26.w),
-                    const HalfContainer(header: "Type", info: "Game"),
+                    HalfContainer(
+                      header: LocaleKeys.commonTexts_typeText.tr(),
+                      info: LocaleKeys.freeGamesView_gameText.tr(),
+                    ),
                   ],
                 ),
                 SizedBox(height: 7.h),
                 Row(
                   children: [
                     RateContainer(
-                      rateTitle: "Score",
+                      rateTitle: LocaleKeys.gameDealsView_scoreText.tr(),
                       infoWidget: Container(
                         alignment: Alignment.center,
                         height: 36.h,
@@ -299,7 +306,7 @@ class GameDealsIndexView extends ConsumerWidget {
                     ),
                     SizedBox(width: 9.w),
                     RateContainer(
-                      rateTitle: "Rate",
+                      rateTitle: LocaleKeys.gameDealsView_rateText.tr(),
                       infoWidget: Container(
                         alignment: Alignment.center,
                         height: 36.h,
@@ -330,7 +337,7 @@ class GameDealsIndexView extends ConsumerWidget {
                   height: 7.h,
                 ),
                 FullContainer(
-                  header: "Average Review",
+                  header: LocaleKeys.gameDealsView_avarageReviewText.tr(),
                   info: gameDeal.steamRatingText,
                 ),
                 SizedBox(
@@ -344,7 +351,7 @@ class GameDealsIndexView extends ConsumerWidget {
                 ),
                 GetButton(
                   //todo:
-                  buttonText: "Get",
+                  buttonText: LocaleKeys.commonTexts_getButtonText.tr(),
                   urlString:
                       "https://www.cheapshark.com/redirect?dealID=${gameDeal.dealID}",
                 ),

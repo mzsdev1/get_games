@@ -153,10 +153,12 @@
 
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_search/game_search_api_provider.dart';
 import 'package:get_games/widgets/common/empty_view.dart';
 import 'package:get_games/widgets/common/error_image.dart';
@@ -229,7 +231,7 @@ class _GameSearchViewState extends ConsumerState<SearchGameView> {
             },
 
             decoration: InputDecoration(
-              hintText: 'Search game',
+              hintText: LocaleKeys.searchGameView_textfieldHintText.tr(),
               prefixIcon: Icon(
                 Icons.search,
                 size: 24.r,

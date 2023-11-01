@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 
 class EmptyView extends StatelessWidget {
   const EmptyView({super.key});
@@ -19,7 +21,7 @@ class EmptyView extends StatelessWidget {
             height: 10.h,
           ),
           Text(
-            "No Game Found",
+            LocaleKeys.emptyView_noGameFoundText.tr(),
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.bold,

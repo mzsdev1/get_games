@@ -142,10 +142,13 @@
 //todo fav test delete
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
+import 'package:get_games/constants/enums/locales.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
@@ -201,7 +204,8 @@ class _GameFavoriteViewState extends ConsumerState<FavoriteGamesView> {
         preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: const AppBarTitleText(text: "Favorites"),
+          title: AppBarTitleText(
+              text: LocaleKeys.favoriteGamesView_appBarTitle.tr()),
         ),
       ),
       body: favoriteProvider.when(

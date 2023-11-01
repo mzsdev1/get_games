@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/models/game_search_model.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 import 'package:get_games/providers/game_search/dialog_button_provider.dart';
@@ -42,7 +44,7 @@ class SearchDialog extends StatelessWidget {
                     spacing: 4.w,
                     children: [
                       Text(
-                        "Cheapest:",
+                        LocaleKeys.searchGameView_cheapestText.tr(),
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                               fontWeight: FontWeight.w600,
                               fontSize: 12.sp,

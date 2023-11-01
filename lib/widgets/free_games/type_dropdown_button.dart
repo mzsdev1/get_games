@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import '../../providers/free_games/freegames_api_filter.dart';
 
 class TypeDropdownButton extends StatelessWidget {
@@ -24,7 +26,7 @@ class TypeDropdownButton extends StatelessWidget {
             DropdownMenuItem(
               value: "game",
               child: Text(
-                "Game".toUpperCase(),
+                LocaleKeys.freeGamesView_gameText.tr().toUpperCase(),
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontSize: 14.sp,
                     ),
@@ -33,7 +35,7 @@ class TypeDropdownButton extends StatelessWidget {
             DropdownMenuItem(
               value: "loot",
               child: Text(
-                "Dlc".toUpperCase(),
+                LocaleKeys.freeGamesView_lootText.tr().toUpperCase(),
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontSize: 14.sp,
                     ),

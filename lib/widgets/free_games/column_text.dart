@@ -27,6 +27,9 @@ class ColumnText extends StatelessWidget {
                   fontSize: 14.sp,
                 ),
           ),
+          SizedBox(
+            height: 1.5.h,
+          ),
           Text(
             data,
             textAlign: TextAlign.start,

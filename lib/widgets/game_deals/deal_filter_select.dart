@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
 import 'package:get_games/widgets/game_deals/slider_price_text.dart';
 
@@ -34,7 +36,7 @@ class DealBottomSheet extends StatelessWidget {
                           children: [
                             SizedBox(width: 19.w),
                             Text(
-                              "PRICE",
+                              LocaleKeys.commonTexts_priceText.tr(),
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium!
@@ -64,11 +66,13 @@ class DealBottomSheet extends StatelessWidget {
                               width: 40.w,
                             ),
                             SliderPriceText(
-                                label: "Min:",
+                                label:
+                                    "${LocaleKeys.gameDealsView_minPrice.tr()}:",
                                 priceData: '\$${minV.toStringAsFixed(0)}'),
                             const Spacer(),
                             SliderPriceText(
-                                label: "Max:",
+                                label:
+                                    "${LocaleKeys.gameDealsView_maxPrice.tr()}:",
                                 priceData: '\$${maxV.toStringAsFixed(0)}'),
                             SizedBox(
                               width: 40.w,

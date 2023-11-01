@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/shared_pref_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,9 +19,9 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
 //todo
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          duration: Duration(seconds: 3),
-          content: Text('Game removed from favorites list.'),
+        SnackBar(
+          duration: const Duration(seconds: 3),
+          content: Text(LocaleKeys.snackbarTexts_deletedText.tr()),
         ),
       );
 
@@ -30,9 +32,9 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
       //todo
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          duration: Duration(seconds: 3),
-          content: Text('Game added to favorites list.'),
+        SnackBar(
+          duration: const Duration(seconds: 3),
+          content: Text(LocaleKeys.snackbarTexts_addedText.tr()),
         ),
       );
 
@@ -51,6 +53,7 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         duration: Duration(seconds: 3),
+        //TODO: ALL GAMES REMOVED TRANSLATE
         content: Text('All games removed.'),
       ),
     );

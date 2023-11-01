@@ -1,8 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/widgets/common/error_image.dart';
+
+import '../../localizations/locale_keys.g.dart';
 
 class GameDealMainCardBody extends StatelessWidget {
   const GameDealMainCardBody({
@@ -56,7 +59,7 @@ class GameDealMainCardBody extends StatelessWidget {
                           spacing: 4.r,
                           children: [
                             Text(
-                              "Price:",
+                              LocaleKeys.commonTexts_priceText.tr(),
                               style: Theme.of(context)
                                   .textTheme
                                   .titleSmall!
@@ -93,7 +96,8 @@ class GameDealMainCardBody extends StatelessWidget {
                         RichText(
                           overflow: TextOverflow.ellipsis,
                           text: TextSpan(
-                            text: 'Score: ',
+                            text:
+                                "${LocaleKeys.gameDealsView_scoreText.tr()}: ",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!

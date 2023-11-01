@@ -1,8 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/models/game_deals_model.dart';
 import 'package:intl/intl.dart';
+
+import '../../localizations/locale_keys.g.dart';
 
 class DealDateContainer extends StatelessWidget {
   const DealDateContainer({
@@ -49,7 +52,7 @@ class DealDateContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Release Date",
+                    LocaleKeys.gameDealsView_releaseDateText.tr(),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 14.sp,
@@ -92,7 +95,7 @@ class DealDateContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Discount Date",
+                    LocaleKeys.gameDealsView_discountDateText.tr(),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 14.sp,

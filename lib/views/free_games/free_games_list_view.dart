@@ -87,10 +87,12 @@
 
 //Todo test
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/free_games/free_games_api_controller.dart';
 import 'package:get_games/views/free_games/free_games_index_view.dart';
 import 'package:get_games/widgets/common/appbar_title_text.dart';
@@ -142,7 +144,8 @@ class _FreeGamesViewState extends ConsumerState<FreeGamesListView> {
         preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: const AppBarTitleText(text: "Giveaways"),
+          title:
+              AppBarTitleText(text: LocaleKeys.freeGamesView_appBarTitle.tr()),
           actions: const [
             TypeDropdownButton(),
             FreeGamesBottomSheet(),

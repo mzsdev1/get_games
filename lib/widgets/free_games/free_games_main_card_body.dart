@@ -73,8 +73,10 @@
 
 //todo.
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/widgets/common/error_image.dart';
 import 'package:get_games/widgets/free_games/main_rich_text.dart';
 
@@ -125,11 +127,13 @@ class FreeGamesMainCardBody extends StatelessWidget {
                   ),
                   SizedBox(height: 3.5.h),
                   MainRichText(
-                    title: 'Platforms: ',
+                    title: "${LocaleKeys.freeGamesView_platformsText.tr()}: ",
                     data: platforms,
                   ),
                   SizedBox(height: 3.5.h),
-                  MainRichText(title: 'Price: ', data: price),
+                  MainRichText(
+                      title: "${LocaleKeys.commonTexts_priceText.tr()}: ",
+                      data: price),
                   SizedBox(height: 3.5.h),
                 ],
               ),

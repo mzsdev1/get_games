@@ -78,10 +78,12 @@
 //   }
 // }
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_deals/game_deals_api_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:get_games/views/game_deals/game_deals_index_view.dart';
@@ -125,7 +127,8 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
         preferredSize: Size.fromHeight(54.5.h),
         child: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: const AppBarTitleText(text: "Deals"),
+          title:
+              AppBarTitleText(text: LocaleKeys.gameDealsView_appBarTitle.tr()),
           actions: [
             StoreDropdownButton(selectedStore: selectedStore),
             const DealBottomSheet(),

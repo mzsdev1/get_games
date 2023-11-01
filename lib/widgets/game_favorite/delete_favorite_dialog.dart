@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
 
 class DeleteFavoriteDialog extends StatelessWidget {
@@ -11,17 +13,17 @@ class DeleteFavoriteDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) => AlertDialog(
-        title: const Text(
-          "Clear Favorite List",
+        title: Text(
+          LocaleKeys.favoriteGamesView_alertDialog_clearFavListText.tr(),
         ),
-        content: const SingleChildScrollView(
+        content: SingleChildScrollView(
           child: ListBody(
             children: [
               Text(
-                "Are you sure you want to delete all games on the favorite page?",
+                LocaleKeys.favoriteGamesView_alertDialog_sureDeleteAllText.tr(),
               ),
               Text(
-                "This action cannot be undone.",
+                LocaleKeys.favoriteGamesView_alertDialog_undoneText.tr(),
               ),
             ],
           ),
@@ -31,7 +33,9 @@ class DeleteFavoriteDialog extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text("Cancel"),
+            child: Text(
+              LocaleKeys.favoriteGamesView_alertDialog_cancelText.tr(),
+            ),
           ),
           TextButton(
             onPressed: () {
@@ -41,8 +45,8 @@ class DeleteFavoriteDialog extends StatelessWidget {
 
               Navigator.of(context).pop();
             },
-            child: const Text(
-              "Approve",
+            child: Text(
+              LocaleKeys.favoriteGamesView_alertDialog_approveText.tr(),
             ),
           ),
         ],
