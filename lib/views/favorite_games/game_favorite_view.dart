@@ -147,7 +147,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ads/ads_service.dart';
-import 'package:get_games/constants/enums/locales.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
 import 'package:get_games/providers/game_favorite/favorites_provider.dart';
