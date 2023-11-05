@@ -83,7 +83,7 @@ class SearchDialog extends StatelessWidget {
                                     false;
 
                                 Timer(
-                                  const Duration(milliseconds: 600),
+                                  const Duration(milliseconds: 250),
                                   () {
                                     ref.read(favButtonProvider.notifier).state =
                                         true;

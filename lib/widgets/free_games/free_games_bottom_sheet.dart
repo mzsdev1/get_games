@@ -14,7 +14,6 @@ class FreeGamesBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Timer? debounceTimer;
     return IconButton(
       onPressed: () {
         showModalBottomSheet(
@@ -90,21 +89,6 @@ class FreeGamesBottomSheet extends StatelessWidget {
                                               selectedFiltersProvider.notifier)
                                           .toggleFilter(filter);
                                     },
-
-                                    //todo
-                                    // onSelected: (_) {
-                                    //   if (debounceTimer != null) {
-                                    //     debounceTimer!.cancel();
-                                    //   }
-                                    //   debounceTimer = Timer(
-                                    //       const Duration(milliseconds: 500),
-                                    //       () {
-                                    //     ref
-                                    //         .read(selectedFiltersProvider
-                                    //             .notifier)
-                                    //         .toggleFilter(filter);
-                                    //   });
-                                    // },
                                   ),
                                 );
                               },
