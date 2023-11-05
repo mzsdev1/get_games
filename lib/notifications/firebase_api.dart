@@ -108,15 +108,14 @@
 //   }
 // }
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print("Title: ${message.notification?.title}");
-  print("Body: ${message.notification?.body}");
-  print("Payload: ${message.data}");
+  await Firebase.initializeApp();
 }
 
 class FirebaseAPI {
@@ -195,7 +194,7 @@ class FirebaseAPI {
             channel.name,
             channelDescription: channel.description,
             icon: "@drawable/ic_notification",
-            color: Colors.red,
+            color: const Color(0xFF006A60),
           ),
         ),
       );
