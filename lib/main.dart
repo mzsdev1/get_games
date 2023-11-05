@@ -47,7 +47,7 @@ class App extends ConsumerWidget {
         supportedLocales: context.supportedLocales,
         locale: context.locale,
         debugShowCheckedModeBanner: false,
-        title: 'Get Games',
+        title: 'Game Castle',
         theme: appTheme.lightTheme,
         darkTheme: appTheme.darkTheme,
         themeMode: themeModeIndex == false ? ThemeMode.light : ThemeMode.dark,

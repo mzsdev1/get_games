@@ -51,5 +51,7 @@
 			<string>https</string>
 			<string>mailto</string>
 		</array>
+		<key>UIStatusBarHidden</key>
+		<false/>
 	</dict>
 </plist>
