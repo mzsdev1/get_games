@@ -110,6 +110,7 @@
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -134,7 +135,7 @@ class FirebaseAPI {
   Future<void> initLocalNotification() async {
     const InitializationSettings initializationSettings =
         InitializationSettings(
-      android: AndroidInitializationSettings("@drawable/ic_launcher"),
+      android: AndroidInitializationSettings("@drawable/ic_notification"),
     );
 
     await flutterLocalNotificationsPlugin.initialize(
@@ -193,7 +194,8 @@ class FirebaseAPI {
             channel.id,
             channel.name,
             channelDescription: channel.description,
-            icon: "@drawable/ic_launcher",
+            icon: "@drawable/ic_notification",
+            color: Colors.red,
           ),
         ),
       );
