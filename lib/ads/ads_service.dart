@@ -6,6 +6,7 @@ final googleAdServiceProvider =
     Provider<GoogleAdsService>((ref) => GoogleAdsService(ref.read));
 
 class GoogleAdsService {
+  // ignore: unused_field
   final T Function<T>(ProviderListenable<T>) _read;
   GoogleAdsService(this._read);
 
@@ -17,10 +18,7 @@ class GoogleAdsService {
 
   InterstitialAd? interstitialAd;
 
-  final AdRequest request = const AdRequest(
-    keywords: <String>['game', 'games'],
-    //nonPersonalizedAds: true,
-  );
+  final AdRequest request = const AdRequest();
 
   void createInterstitialAd() {
     InterstitialAd.load(

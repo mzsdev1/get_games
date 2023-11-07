@@ -20,7 +20,7 @@ class EmptyView extends StatelessWidget {
           // ),
           Image.asset(
             "assets/icons/empty.png",
-            width: 120.w,
+            width: 85.w,
           ),
           SizedBox(
             height: 10.h,
@@ -28,10 +28,8 @@ class EmptyView extends StatelessWidget {
           Text(
             LocaleKeys.emptyView_noGameFoundText.tr(),
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontSize: 17.sp,
+                  fontSize: 14.sp,
                   color: Theme.of(context).colorScheme.primary,
-                  //fontWeight: FontWeight.bold,
-                  fontFamily: GoogleFonts.hennyPenny().fontFamily,
                   wordSpacing: 2.r,
                 ),
           ),

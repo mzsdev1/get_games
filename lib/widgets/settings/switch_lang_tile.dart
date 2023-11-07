@@ -40,7 +40,6 @@ class SwitchLangTile extends StatelessWidget {
               ? Icon(
                   Icons.check,
                   size: 24.w,
-                  color: Theme.of(context).colorScheme.primary,
                 )
               : null,
           onTap: onTap,

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get_games/ads_init_view.dart';
 import 'package:get_games/firebase_options.dart';
 import 'package:get_games/localizations/init_localization.dart';
 import 'package:get_games/notifications/firebase_api.dart';
@@ -19,7 +20,6 @@ void main() async {
   );
   await MobileAds.instance.initialize();
   await FirebaseAPI().initNotifications();
-
   runApp(
     ProviderScope(
       child: InitLocalizations(
@@ -51,7 +51,9 @@ class App extends ConsumerWidget {
         theme: appTheme.lightTheme,
         darkTheme: appTheme.darkTheme,
         themeMode: themeModeIndex == false ? ThemeMode.light : ThemeMode.dark,
-        home: const DashboardView(),
+        home: const InitializeScreen(
+          targetWidget: DashboardView(),
+        ),
       ),
     );
   }
@@ -59,25 +61,33 @@ class App extends ConsumerWidget {
 
 //todo router test
 
-//  import 'package:firebase_core/firebase_core.dart';
+// import 'package:easy_localization/easy_localization.dart';
+// import 'package:firebase_core/firebase_core.dart';
 // import 'package:flutter/material.dart';
 // import 'package:get_games/firebase_options.dart';
+// import 'package:get_games/localizations/init_localization.dart';
+// import 'package:get_games/notifications/firebase_api.dart';
 // import 'package:get_games/providers/theme_provider.dart';
-// import 'package:get_games/views/homepage.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:flex_color_scheme/flex_color_scheme.dart';
-// import 'package:google_fonts/google_fonts.dart';
+// import 'package:get_games/themes/app_theme.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:get_games/views/dashboard/dashboard.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
+//   await EasyLocalization.ensureInitialized();
 //   await Firebase.initializeApp(
 //     options: DefaultFirebaseOptions.currentPlatform,
 //   );
+//   await MobileAds.instance.initialize();
+//   await FirebaseAPI().initNotifications();
 
 //   runApp(
-//     const ProviderScope(
-//       child: App(),
+//     ProviderScope(
+//       child: InitLocalizations(
+//         child: const App(),
+//       ),
 //     ),
 //   );
 // }
@@ -88,61 +98,24 @@ class App extends ConsumerWidget {
 //   @override
 //   Widget build(BuildContext context, WidgetRef ref) {
 //     final themeModeIndex = ref.watch(themeIndexProvider);
+//     final appTheme = AppTheme();
 
 //     return ScreenUtilInit(
-//       // designSize: const Size(360, 690),
 //       designSize: Size(
 //           MediaQuery.sizeOf(context).width, MediaQuery.sizeOf(context).height),
-
 //       minTextAdapt: true,
 //       splitScreenMode: true,
 //       child: MaterialApp(
+//         localizationsDelegates: context.localizationDelegates,
+//         supportedLocales: context.supportedLocales,
+//         locale: context.locale,
 //         debugShowCheckedModeBanner: false,
-//         title: 'Get Games',
-//         theme: FlexThemeData.light(
-//           scheme: FlexScheme.tealM3,
-//           surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-//           blendLevel: 7,
-//           subThemesData: const FlexSubThemesData(
-//             blendOnLevel: 10,
-//             blendOnColors: false,
-//             useTextTheme: true,
-//             useM2StyleDividerInM3: true,
-//             alignedDropdown: true,
-//             useInputDecoratorThemeInDialogs: true,
-//             navigationBarLabelBehavior:
-//                 NavigationDestinationLabelBehavior.alwaysHide,
-//           ),
-//           visualDensity: FlexColorScheme.comfortablePlatformDensity,
-//           useMaterial3: true,
-//           swapLegacyOnMaterial3: true,
-//           fontFamily: GoogleFonts.poppins().fontFamily,
-//         ),
-//         darkTheme: FlexThemeData.dark(
-//           scheme: FlexScheme.tealM3,
-//           surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
-//           blendLevel: 13,
-//           subThemesData: const FlexSubThemesData(
-//             blendOnLevel: 20,
-//             useTextTheme: true,
-//             useM2StyleDividerInM3: true,
-//             alignedDropdown: true,
-//             useInputDecoratorThemeInDialogs: true,
-//             navigationBarLabelBehavior:
-//                 NavigationDestinationLabelBehavior.alwaysHide,
-//           ),
-//           visualDensity: FlexColorScheme.comfortablePlatformDensity,
-//           useMaterial3: true,
-//           swapLegacyOnMaterial3: true,
-//           fontFamily: GoogleFonts.poppins().fontFamily,
-//         ),
-//         themeMode: themeModeIndex == 0 ? ThemeMode.light : ThemeMode.dark,
-//         home: const HomePage(),
+//         title: 'Game Castle',
+//         theme: appTheme.lightTheme,
+//         darkTheme: appTheme.darkTheme,
+//         themeMode: themeModeIndex == false ? ThemeMode.light : ThemeMode.dark,
+//         home: const DashboardView(),
 //       ),
 //     );
 //   }
 // }
-
-// //todo router test
-
- 
