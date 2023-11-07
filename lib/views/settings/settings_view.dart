@@ -11,7 +11,6 @@ import 'package:get_games/widgets/common/appbar_title_text.dart';
 import 'package:dash_flags/dash_flags.dart';
 import 'package:get_games/widgets/settings/settings_tile.dart';
 import 'package:get_games/widgets/settings/switch_lang_tile.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -58,91 +57,61 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                     }),
               ),
 
-              SizedBox(
-                height: 7.h,
-              ),
-
               SettingsTile(
                 subTitle: "Notifications",
                 title: LocaleKeys.settingsView_permissionsText.tr(),
                 leadingIcon: Icons.notifications_outlined,
-                trailing: OutlinedButton(
-                  onPressed: () {
-                    status.acceptPermission(context);
-                  },
-                  child: Text(
-                    LocaleKeys.settingsView_acceptText.tr(),
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 12.sp,
-                        ),
-                  ),
-                ),
+                onTap: () {
+                  status.acceptPermission(context);
+                },
               ),
 
-              SizedBox(
-                height: 7.h,
-              ),
-
-              SettingsTile(
-                subTitle: "Mail",
-                title: LocaleKeys.settingsView_contact.tr(),
-                leadingIcon: Icons.mail_outline,
-                trailing: OutlinedButton(
-                  onPressed: () {
-                    final Uri emailLaunchUri = Uri(
-                      scheme: 'mailto',
-                      path: 'appsroved@gmail.com',
-                    );
-                    launchUrl(emailLaunchUri);
-                  },
-                  child: Text(
-                    LocaleKeys.settingsView_sendText.tr(),
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 12.sp,
-                        ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 7.h,
-              ),
               SettingsTile(
                 subTitle: "Privacy Policy",
                 title: "Privacy",
                 leadingIcon: Icons.privacy_tip_outlined,
-                trailing: OutlinedButton(
-                  onPressed: () async {
-                    final Uri url = Uri.parse(
-                        "https://sites.google.com/view/appsroved-getgames/privacy-policy?authuser=6");
+                onTap: () async {
+                  final Uri url = Uri.parse(
+                      "https://sites.google.com/view/appsroved-getgames/privacy-policy?authuser=6");
 
-                    if (!await launchUrl(url)) {
-                      throw Exception("Error: $url");
-                    }
-                  },
-                  child: Text(
-                    "Open",
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 12.sp,
-                        ),
-                  ),
-                ),
+                  if (!await launchUrl(url)) {
+                    throw Exception("Error: $url");
+                  }
+                },
               ),
 
-              SizedBox(
-                height: 7.h,
+              SettingsTile(
+                subTitle: "E-Mail",
+                title: LocaleKeys.settingsView_contact.tr(),
+                leadingIcon: Icons.mail_outline,
+                onTap: () {
+                  final Uri emailLaunchUri = Uri(
+                    scheme: 'mailto',
+                    path: 'appsroved@gmail.com',
+                  );
+                  launchUrl(emailLaunchUri);
+                },
               ),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Localization",
-                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 12.sp,
-                        ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      Text(
+                        "Localization",
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 11.sp,
+                            ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 5.h),
+                  SizedBox(height: 4.h),
                   Center(
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -175,11 +144,10 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 ],
               ),
               SizedBox(
-                height: 8.h,
+                height: 2.h,
               ),
               Column(
                 children: [
-                  // Divider(),
                   SwitchLangTile(
                     language: Language.en_us,
                     langCode: "en",

@@ -33,7 +33,6 @@ class SwitchLangTile extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   // fontWeight: FontWeight.bold,
                   fontSize: 14.sp,
-                  letterSpacing: 1.w,
                 ),
           ),
           trailing: context.locale == Locale(langCode, countryCode)

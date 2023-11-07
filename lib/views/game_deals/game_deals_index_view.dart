@@ -37,7 +37,7 @@ class GameDealsIndexView extends ConsumerWidget {
         title: Text(
           LocaleKeys.gameDealsView_discountedText.tr(),
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontSize: 20,
+                fontSize: 18,
               ),
         ),
         scrolledUnderElevation: 0,
@@ -67,7 +67,7 @@ class GameDealsIndexView extends ConsumerWidget {
                     gameDeal.title!,
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18.sp,
+                          fontSize: 16.sp,
                         ),
                   ),
                 ),

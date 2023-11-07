@@ -24,7 +24,7 @@ class FreeGamesIndexView extends StatelessWidget {
         title: Text(
           LocaleKeys.freeGamesView_freeText.tr(),
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                fontSize: 20,
+                fontSize: 18,
               ),
         ),
         scrolledUnderElevation: 0,
@@ -63,7 +63,7 @@ class FreeGamesIndexView extends StatelessWidget {
                       freeGame.title!,
                       style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18.sp,
+                            fontSize: 16.sp,
                           ),
                     ),
                   ),

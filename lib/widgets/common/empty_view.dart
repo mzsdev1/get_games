@@ -30,7 +30,7 @@ class EmptyView extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 14.sp,
                   color: Theme.of(context).colorScheme.primary,
-                  wordSpacing: 2.r,
+                  wordSpacing: 1.r,
                 ),
           ),
           SizedBox(

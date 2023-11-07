@@ -18,7 +18,7 @@ class AppBarTitleText extends StatelessWidget {
       style: Theme.of(context).textTheme.headlineMedium!.copyWith(
             fontFamily: GoogleFonts.bebasNeue().fontFamily,
             letterSpacing: 1.5.r,
-            fontSize: 27.sp,
+            fontSize: 25.sp,
           ),
     );
   }

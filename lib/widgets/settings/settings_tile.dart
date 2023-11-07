@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,26 +8,35 @@ class SettingsTile extends StatelessWidget {
     required this.subTitle,
     required this.title,
     required this.leadingIcon,
-    required this.trailing,
+    this.trailing,
+    this.onTap,
   }) : super(key: key);
   final String subTitle;
   final String title;
   final IconData leadingIcon;
-  final Widget trailing;
+  final Widget? trailing;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).primaryColor,
-                // fontFamily: GoogleFonts.roboto().fontFamily,
-                fontSize: 12.sp,
-              ),
+        Row(
+          children: [
+            SizedBox(
+              width: 3.w,
+            ),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor,
+                    // fontFamily: GoogleFonts.roboto().fontFamily,
+                    fontSize: 11.sp,
+                  ),
+            ),
+          ],
         ),
         ListTile(
           leading: Icon(
@@ -41,6 +51,7 @@ class SettingsTile extends StatelessWidget {
                 ),
           ),
           trailing: trailing,
+          onTap: onTap,
           // onTap: onTap,
         ),
       ],
