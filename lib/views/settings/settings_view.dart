@@ -48,7 +48,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
             children: [
               SettingsTile(
                 subTitle: LocaleKeys.settingsView_darkModeText.tr(),
-                title: "Theme",
+                title: LocaleKeys.settingsView_themeText.tr(),
                 leadingIcon: Icons.dark_mode_outlined,
                 trailing: Switch(
                     value: themeProvider,
@@ -58,7 +58,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
               ),
 
               SettingsTile(
-                subTitle: "Notifications",
+                subTitle: LocaleKeys.settingsView_notificationText.tr(),
                 title: LocaleKeys.settingsView_permissionsText.tr(),
                 leadingIcon: Icons.notifications_outlined,
                 onTap: () {
@@ -67,8 +67,8 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
               ),
 
               SettingsTile(
-                subTitle: "Privacy Policy",
-                title: "Privacy",
+                subTitle: LocaleKeys.settingsView_privacyPolicyText.tr(),
+                title: LocaleKeys.settingsView_privacyText.tr(),
                 leadingIcon: Icons.privacy_tip_outlined,
                 onTap: () async {
                   final Uri url = Uri.parse(
@@ -81,7 +81,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
               ),
 
               SettingsTile(
-                subTitle: "E-Mail",
+                subTitle: LocaleKeys.settingsView_eMailText.tr(),
                 title: LocaleKeys.settingsView_contact.tr(),
                 leadingIcon: Icons.mail_outline,
                 onTap: () {
@@ -102,7 +102,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                         width: 3.w,
                       ),
                       Text(
-                        "Localization",
+                        LocaleKeys.settingsView_localizationText.tr(),
                         style: Theme.of(context).textTheme.labelSmall!.copyWith(
                               fontWeight: FontWeight.bold,
                               color: Theme.of(context).primaryColor,

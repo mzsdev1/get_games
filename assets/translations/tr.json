@@ -42,10 +42,15 @@
     "permissionsText": "İzinler",
     "acceptText": "Kabul Et",
     "languagesText": "Diller",
-    "disclaimer": "Yasal Uyarı",
     "contact": "İletişim",
     "darkModeText": "Karanlık Mod",
-    "sendText": "Gönder"
+    "sendText": "Gönder",
+    "themeText": "Tema",
+    "notificationText": "Bildirimler",
+    "privacyPolicyText": "Gizlilik Politikası",
+    "privacyText": "Gizlilik",
+    "eMailText": "E-posta",
+    "localizationText": "Yerelleştirme"
   },
   "emptyView": {
     "noGameFoundText": "Oyun Bulunamadı"

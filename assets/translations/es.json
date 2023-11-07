@@ -45,10 +45,15 @@
     "permissionsText": "Permisos",
     "acceptText": "Aceptar",
     "languagesText": "Idiomas",
-    "disclaimer": "Descargo de Responsabilidad",
     "contact": "Contacto",
     "darkModeText": "Modo Oscuro",
-    "sendText": "Enviar"
+    "sendText": "Enviar",
+    "themeText": "Tema",
+    "notificationText": "Notificaciones",
+    "privacyPolicyText": "Política de Privacidad",
+    "privacyText": "Privacidad",
+    "eMailText": "Correo Electrónico",
+    "localizationText": "Localización"
   },
   "emptyView": {
     "noGameFoundText": "Ningún Juego Encontrado"

@@ -49,10 +49,16 @@ abstract class LocaleKeys {
   static const settingsView_permissionsText = 'settingsView.permissionsText';
   static const settingsView_acceptText = 'settingsView.acceptText';
   static const settingsView_languagesText = 'settingsView.languagesText';
-  static const settingsView_disclaimer = 'settingsView.disclaimer';
   static const settingsView_contact = 'settingsView.contact';
   static const settingsView_darkModeText = 'settingsView.darkModeText';
   static const settingsView_sendText = 'settingsView.sendText';
+  static const settingsView_themeText = 'settingsView.themeText';
+  static const settingsView_notificationText = 'settingsView.notificationText';
+  static const settingsView_privacyPolicyText =
+      'settingsView.privacyPolicyText';
+  static const settingsView_privacyText = 'settingsView.privacyText';
+  static const settingsView_eMailText = 'settingsView.eMailText';
+  static const settingsView_localizationText = 'settingsView.localizationText';
   static const settingsView = 'settingsView';
   static const emptyView_noGameFoundText = 'emptyView.noGameFoundText';
   static const emptyView = 'emptyView';

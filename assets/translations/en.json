@@ -1,6 +1,6 @@
 {
   "freeGamesView": {
-    "appBarTitle": "Giveaway",
+    "appBarTitle": "Giveaways",
     "platformsText": "Platforms",
     "gameText": "Game",
     "lootText": "Dlc",
@@ -45,10 +45,15 @@
     "permissionsText": "Permissions",
     "acceptText": "Accept",
     "languagesText": "Languages",
-    "disclaimer": "Disclaimer",
     "contact": "Contact",
     "darkModeText": "Dark Mode",
-    "sendText": "Send"
+    "sendText": "Send",
+    "themeText": "Theme",
+    "notificationText": "Notifications",
+    "privacyPolicyText": "Privacy Policy",
+    "privacyText": "Privacy",
+    "eMailText": "Email",
+    "localizationText": "Localization"
   },
   "emptyView": {
     "noGameFoundText": "No Game Found"

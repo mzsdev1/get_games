@@ -1,6 +1,6 @@
 {
   "freeGamesView": {
-    "appBarTitle": "Gratisangebote",
+    "appBarTitle": "Frei",
     "platformsText": "Plattformen",
     "gameText": "Spiel",
     "lootText": "Dlc",
@@ -45,10 +45,15 @@
     "permissionsText": "Berechtigungen",
     "acceptText": "Akzeptieren",
     "languagesText": "Sprachen",
-    "disclaimer": "Haftungsausschluss",
     "contact": "Kontakt",
     "darkModeText": "Dunkelmodus",
-    "sendText": "Senden"
+    "sendText": "Senden",
+    "themeText": "Thema",
+    "notificationText": "Benachrichtigungen",
+    "privacyPolicyText": "Datenschutzbestimmungen",
+    "privacyText": "Datenschutz",
+    "eMailText": "E-Mail",
+    "localizationText": "Lokalisierung"
   },
   "emptyView": {
     "noGameFoundText": "Kein Spiel gefunden"
