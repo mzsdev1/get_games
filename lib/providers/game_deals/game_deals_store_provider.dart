@@ -4,7 +4,7 @@ import 'package:get_games/constants/string_constants.dart';
 
 class StoreApiNameNotifier extends ChangeNotifier {
   String selectedStoreLabel = StringConstants.steam;
-  int selectedApiNumber = 1; // Initial API number
+  int selectedApiNumber = 1;
 
   void changeStore(String newStoreLabel) {
     if (newStoreLabel != selectedStoreLabel) {

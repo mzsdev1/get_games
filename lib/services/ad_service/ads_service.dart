@@ -10,7 +10,6 @@ class GoogleAdsService {
   final T Function<T>(ProviderListenable<T>) _read;
   GoogleAdsService(this._read);
 
-  // maxFailedLoadAttempts
   final int _maxFailedLoadAttempts = 3;
   int _numInterstitialLoadAttempts = 0;
 

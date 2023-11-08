@@ -53,7 +53,6 @@ class FreeGamesBottomSheet extends StatelessWidget {
                               icon: Icon(
                                 Icons.close,
                                 size: 23.w,
-                                // color: Theme.of(context).colorScheme.error,
                               ),
                             )
                           ],

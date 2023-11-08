@@ -31,7 +31,6 @@ class SettingsTile extends StatelessWidget {
               style: Theme.of(context).textTheme.labelSmall!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
-                    // fontFamily: GoogleFonts.roboto().fontFamily,
                     fontSize: 11.sp,
                   ),
             ),
@@ -46,12 +45,10 @@ class SettingsTile extends StatelessWidget {
             subTitle,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 14.sp,
-                  //letterSpacing: 1.w,
                 ),
           ),
           trailing: trailing,
           onTap: onTap,
-          // onTap: onTap,
         ),
       ],
     );

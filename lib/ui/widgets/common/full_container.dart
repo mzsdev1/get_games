@@ -44,7 +44,6 @@ class FullContainer extends StatelessWidget {
             info!,
             overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  //color: Theme.of(context).primaryColor,
                   fontSize: 14.sp,
                 ),
           ),

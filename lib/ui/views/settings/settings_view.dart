@@ -147,7 +147,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       );
                     },
                   ),
-
                   SwitchLangTile(
                     language: Language.tr,
                     langCode: "tr",
@@ -160,7 +159,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       );
                     },
                   ),
-                  // const Divider(),
                   SwitchLangTile(
                     language: Language.pt_br,
                     langCode: "pt",
@@ -173,7 +171,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       );
                     },
                   ),
-                  // const Divider(),
                   SwitchLangTile(
                     language: Language.es,
                     langCode: "es",
@@ -186,7 +183,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       );
                     },
                   ),
-                  // const Divider(),
                   SwitchLangTile(
                     language: Language.fr,
                     langCode: "fr",
@@ -199,7 +195,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       );
                     },
                   ),
-                  // const Divider(),
                   SwitchLangTile(
                     language: Language.de,
                     langCode: "de",
@@ -212,7 +207,6 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                       );
                     },
                   ),
-                  // const Divider(),
                 ],
               ),
             ],

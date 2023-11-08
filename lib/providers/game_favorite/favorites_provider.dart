@@ -27,7 +27,6 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
     } else {
       state = [...state, favoriteId];
 
-      //todo
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

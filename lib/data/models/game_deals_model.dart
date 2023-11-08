@@ -35,8 +35,7 @@ class GameDealsModel {
     gameId = json['gameID'];
     salePrice = json['salePrice'] ?? "0";
     normalPrice = json['normalPrice'] ?? "0";
-    savings = (double.tryParse(json['savings'])?.toStringAsFixed(0) ??
-        "0"); //json['savings'] ?? "0";
+    savings = (double.tryParse(json['savings'])?.toStringAsFixed(0) ?? "0");
     metacriticScore = json['metacriticScore'] ?? "0";
     steamRatingText = json['steamRatingText'] ?? "N/A";
     steamRatingPercent = json['steamRatingPercent'] ?? "0";

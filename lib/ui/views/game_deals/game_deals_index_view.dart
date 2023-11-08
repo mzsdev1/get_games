@@ -26,10 +26,9 @@ class GameDealsIndexView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final storeNum = ref.watch(storeNameProvider);
-    //todo
+
     final favoriteProvider = ref.watch(favoriteGameIdsProvider);
     final buttonEnableProvider = ref.watch(favButtonProvider);
-    //todo:
 
     return Scaffold(
       appBar: AppBar(
@@ -156,7 +155,6 @@ class GameDealsIndexView extends ConsumerWidget {
                     ),
                   ],
                 ),
-                //todo:
                 SizedBox(height: 7.h),
                 Row(
                   children: [
@@ -233,7 +231,6 @@ class GameDealsIndexView extends ConsumerWidget {
                     ),
                   ],
                 ),
-
                 SizedBox(height: 7.h),
                 FullContainer(
                   header: LocaleKeys.gameDealsView_platformText.tr(),

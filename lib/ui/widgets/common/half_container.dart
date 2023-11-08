@@ -44,7 +44,6 @@ class HalfContainer extends StatelessWidget {
               info,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontSize: 14.sp,
-                    //color: Theme.of(context).primaryColor,
                   ),
             ),
           ],

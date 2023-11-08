@@ -34,7 +34,6 @@ class ColumnText extends StatelessWidget {
             data,
             textAlign: TextAlign.start,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  //color: Theme.of(context).primaryColor,
                   fontSize: 14.sp,
                 ),
           ),

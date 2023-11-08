@@ -13,17 +13,6 @@ import 'package:get_games/ui/widgets/free_games/free_games_bottom_sheet.dart';
 import 'package:get_games/ui/widgets/free_games/free_games_main_card_body.dart';
 import 'package:get_games/ui/widgets/free_games/type_dropdown_button.dart';
 
-// final filters = [
-//   'epic-games-store',
-//   'steam',
-//   'gog',
-//   "itchio",
-//   "ubisoft",
-//   "origin",
-//   'battlenet',
-//   "drm-free",
-// ];
-
 class FreeGamesListView extends ConsumerStatefulWidget {
   const FreeGamesListView({super.key});
 

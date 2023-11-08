@@ -11,7 +11,7 @@ class GetButton extends StatelessWidget {
   }) : super(key: key);
 
   final String? buttonText;
-  //final Function()? buttonFunction;
+
   final String urlString;
 
   @override
