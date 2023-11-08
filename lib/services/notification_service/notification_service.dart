@@ -90,8 +90,5 @@ class NotificationService {
     await setupFlutterNotifications();
     initLocalNotification();
     initPushNotifications();
-
-    final fcmToken = await _firebaseMessaging.getToken();
-    print("token: $fcmToken");
   }
 }

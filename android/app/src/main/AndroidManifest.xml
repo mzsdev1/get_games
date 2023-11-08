@@ -17,7 +17,7 @@
     </intent>
   </queries>
   <application
-        android:label="Game Castle"
+        android:label="Get Games"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
     <meta-data
