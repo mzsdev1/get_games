@@ -17,7 +17,7 @@ class DeleteFavoriteDialog extends StatelessWidget {
         title: Text(
           LocaleKeys.favoriteGamesView_alertDialog_clearFavListText.tr(),
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontSize: 24.sp,
+                fontSize: 20.sp,
               ),
         ),
         content: SingleChildScrollView(
