@@ -14,7 +14,7 @@ class EmptyView extends StatelessWidget {
         children: [
           Image.asset(
             "assets/icons/empty.png",
-            width: 85.w,
+            width: 115.w,
           ),
           SizedBox(
             height: 10.h,
