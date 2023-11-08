@@ -1,13 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_games/constants/string_constants.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import 'package:get_games/providers/shared_pref_provider.dart';
+import 'package:get_games/providers/storage/shared_pref_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoriteGameIds extends StateNotifier<List<String>> {
   FavoriteGameIds(this.pref)
-      : super(pref?.getStringList("favorite_game_ids") ?? []);
+      : super(pref?.getStringList(StringConstants.favoriteSharedPrefId) ?? []);
 
   final SharedPreferences? pref;
 
@@ -16,7 +17,6 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
       pref!.remove(favoriteId);
       state = state.where((id) => id != favoriteId).toList();
 
-//todo
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -24,8 +24,6 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
           content: Text(LocaleKeys.snackbarTexts_deletedText.tr()),
         ),
       );
-
-      //todo.
     } else {
       state = [...state, favoriteId];
 
@@ -37,19 +35,15 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
           content: Text(LocaleKeys.snackbarTexts_addedText.tr()),
         ),
       );
-
-      //todo.
     }
 
-    pref!.setStringList("favorite_game_ids", state);
+    pref!.setStringList(StringConstants.favoriteSharedPrefId, state);
   }
 
   void deleteAllFavorites(BuildContext context) {
-    pref!.remove("favorite_game_ids");
+    pref!.remove(StringConstants.favoriteSharedPrefId);
     state = [];
 
-    //todo
-    //ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 3),

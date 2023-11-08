@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_games/constants/string_constants.dart';
 
 class StoreApiNameNotifier extends ChangeNotifier {
-  String selectedStoreLabel = "Steam"; // Initial store name
+  String selectedStoreLabel = StringConstants.steam;
   int selectedApiNumber = 1; // Initial API number
 
   void changeStore(String newStoreLabel) {
     if (newStoreLabel != selectedStoreLabel) {
       selectedStoreLabel = newStoreLabel;
-      selectedApiNumber = (newStoreLabel == "Steam") ? 1 : 25;
-      notifyListeners(); // Notify listeners about the change
+      selectedApiNumber = (newStoreLabel == StringConstants.steam) ? 1 : 25;
+      notifyListeners();
     }
   }
 }

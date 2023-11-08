@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_games/constants/list_constants.dart';
 
 class SelectedFilterNotifier extends StateNotifier<List<String>> {
-  SelectedFilterNotifier() : super(["epic-games-store", "steam", "gog"]);
+  SelectedFilterNotifier() : super(ListConstants.activeStoresList);
 
   void toggleFilter(String filter) {
     state = [...state];

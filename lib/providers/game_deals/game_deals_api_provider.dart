@@ -1,28 +1,21 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/models/game_deals_model.dart';
+import 'package:get_games/data/models/game_deals_model.dart';
 import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:http/http.dart' as http;
 
 final gameDealsProvider = FutureProvider<List<GameDealsModel>>((ref) async {
-  // final priceProvider = ref.watch(gameDealsPriceProvider);
-
-  //todo:
   final minPriceProvider = ref.watch(gameDealsMinPriceProvider);
   final maxPriceProvider = ref.watch(gameDealsMaxPriceProvider);
-  //todo:
-  final storeProviderInt = ref.watch(storeNameProvider).selectedApiNumber;
 
-  // final url = Uri.parse(
-  //     "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${priceProvider.toString()}");
+  final storeProviderInt = ref.watch(storeNameProvider).selectedApiNumber;
 
   final url = Uri.parse(
       "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${minPriceProvider.toString()}&upperPrice=${maxPriceProvider.toString()}");
-  print("slider url: $url");
+
   try {
     final response = await http.get(url);
-    print(url);
 
     if (response.statusCode == 200) {
       final List<dynamic> jsonList = json.decode(response.body);
