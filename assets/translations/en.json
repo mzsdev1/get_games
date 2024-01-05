@@ -1,0 +1,83 @@
+{
+  "freeGamesView": {
+    "appBarTitle": "Giveaways",
+    "platformsText": "Platforms",
+    "gameText": "Game",
+    "lootText": "Dlc",
+    "freeText": "Free",
+    "endDateText": "End Date",
+    "descriptionText": "Description",
+    "instructionsText": "Instructions"
+  },
+  "gameDealsView": {
+    "appBarTitle": "Deals",
+    "platformText": "Platform",
+    "minPrice": "Min",
+    "maxPrice": "Max",
+    "discountedText": "Discounted",
+    "addFavoriteText": "Add Favorite",
+    "reviewsText": "Reviews",
+    "scoreText": "Score",
+    "rateText": "Rate",
+    "avarageReviewText": "Average Review",
+    "releaseDateText": "Release Date",
+    "discountDateText": "Discount Date"
+  },
+
+  "searchGameView": {
+    "textfieldHintText": "Search game",
+    "cheapestText": "Cheapest"
+  },
+
+  "favoriteGamesView": {
+    "appBarTitle": "Favorites",
+    "alertDialog": {
+      "clearFavListText": "Clear Favorite List",
+      "sureDeleteAllText": "Are you sure you want to delete all games on the favorite page?",
+      "undoneText": "This action cannot be undone.",
+      "cancelText": "Cancel",
+      "approveText": "Approve"
+    }
+  },
+
+  "settingsView": {
+    "appBarTitle": "Settings",
+    "permissionsText": "Permissions",
+    "acceptText": "Accept",
+    "languagesText": "Languages",
+    "contact": "Contact",
+    "darkModeText": "Dark Mode",
+    "sendText": "Send",
+    "themeText": "Theme",
+    "notificationText": "Notifications",
+    "privacyPolicyText": "Privacy Policy",
+    "privacyText": "Privacy",
+    "eMailText": "Email",
+    "localizationText": "Localization"
+  },
+  "emptyView": {
+    "noGameFoundText": "No Game Found"
+  },
+  "snackbarTexts": {
+    "addedText": "Game added to favorites list.",
+    "deletedText": "Game removed from favorites list.",
+    "allGamesRemovedText": "All games removed.",
+    "permissionAccepted": "All permissions accepted.",
+    "permissionAlreadyAccepted": "All permissions already accepted."
+  },
+
+  "commonTexts": {
+    "getButtonText": "Get",
+    "priceText": "Price",
+    "typeText": "Type"
+  },
+
+  "languagesTexts": {
+    "englishText": "English",
+    "turkishText": "Turkish",
+    "spanishText": "Spanish",
+    "frenchText": "French",
+    "germanText": "German",
+    "brazilianText": "Brazilian Portuguese"
+  }
+}

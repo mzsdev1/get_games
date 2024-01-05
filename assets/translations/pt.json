@@ -1,0 +1,82 @@
+{
+  "freeGamesView": {
+    "appBarTitle": "Oferta",
+    "platformsText": "Plataformas",
+    "gameText": "Jogo",
+    "lootText": "DLC",
+    "freeText": "Grátis",
+    "endDateText": "Data de Término",
+    "descriptionText": "Descrição",
+    "instructionsText": "Instruções"
+  },
+  "gameDealsView": {
+    "appBarTitle": "Ofertas",
+    "platformText": "Plataforma",
+    "minPrice": "Mín",
+    "maxPrice": "Máx",
+    "discountedText": "Descontado",
+    "addFavoriteText": "Adicionar aos Favoritos",
+    "reviewsText": "Avaliações",
+    "scoreText": "Pontuação",
+    "rateText": "Avaliação",
+    "avarageReviewText": "Avaliação Média",
+    "releaseDateText": "Data de Lançamento",
+    "discountDateText": "Data de Desconto"
+  },
+
+  "searchGameView": {
+    "textfieldHintText": "Pesquisar jogo",
+    "cheapestText": "Mais Barato"
+  },
+
+  "favoriteGamesView": {
+    "appBarTitle": "Favoritos",
+    "alertDialog": {
+      "clearFavListText": "Limpar Lista de Favoritos",
+      "sureDeleteAllText": "Tem certeza de que deseja excluir todos os jogos da página de favoritos?",
+      "undoneText": "Essa ação não pode ser desfeita.",
+      "cancelText": "Cancelar",
+      "approveText": "Aprovar"
+    }
+  },
+
+  "settingsView": {
+    "appBarTitle": "Configurações",
+    "permissionsText": "Permissões",
+    "acceptText": "Aceitar",
+    "languagesText": "Idiomas",
+    "contact": "Contato",
+    "darkModeText": "Modo Escuro",
+    "sendText": "Enviar",
+    "themeText": "Tema",
+    "notificationText": "Notificações",
+    "privacyPolicyText": "Política de Privacidade",
+    "privacyText": "Privacidade",
+    "eMailText": "E-mail",
+    "localizationText": "Localização"
+  },
+  "emptyView": {
+    "noGameFoundText": "Nenhum Jogo Encontrado"
+  },
+  "snackbarTexts": {
+    "addedText": "Jogo adicionado à lista de favoritos.",
+    "deletedText": "Jogo removido da lista de favoritos.",
+    "allGamesRemovedText": "Todos os jogos foram removidos.",
+    "permissionAccepted": "Todas as permissões aceitas.",
+    "permissionAlreadyAccepted": "Todas as permissões já foram aceitas."
+  },
+
+  "commonTexts": {
+    "getButtonText": "Obter",
+    "priceText": "Preço",
+    "typeText": "Tipo"
+  },
+  "languagesTexts": {
+    "englishText": "Inglês",
+    "turkishText": "Turco",
+    "spanishText": "Espanhol",
+    "frenchText": "Francês",
+    "germanText": "Alemão",
+    "brazilianText": "Português Brasileiro"
+  }
+}
