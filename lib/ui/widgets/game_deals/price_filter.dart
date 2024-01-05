@@ -6,8 +6,8 @@ import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
 import 'package:get_games/ui/widgets/game_deals/slider_price_text.dart';
 
-class DealBottomSheet extends StatelessWidget {
-  const DealBottomSheet({
+class PriceFilter extends StatelessWidget {
+  const PriceFilter({
     super.key,
   });
 

@@ -3,45 +3,26 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/services/ad_service/ads_service.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import 'package:get_games/providers/game_favorite/game_favorite_api_provider.dart';
-import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/providers/favorite_games/favorite_games_api_provider.dart';
+import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';
 import 'package:get_games/ui/widgets/common/appbar_title_text.dart';
 import 'package:get_games/ui/widgets/common/empty_view.dart';
 import 'package:get_games/ui/widgets/common/error_image.dart';
 import 'package:get_games/ui/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/ui/widgets/game_favorite/delete_favorite_dialog.dart';
-import 'package:get_games/ui/widgets/game_favorite/price_list_dialog.dart';
+import 'package:get_games/ui/widgets/game_favorite/favorite_price_list_dialog.dart';
 
-class FavoriteGamesView extends ConsumerStatefulWidget {
+class FavoriteGamesView extends ConsumerWidget {
   const FavoriteGamesView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _GameFavoriteViewState();
-}
-
-class _GameFavoriteViewState extends ConsumerState<FavoriteGamesView> {
-  @override
-  void initState() {
-    super.initState();
-    ref.read(googleAdServiceProvider).createInterstitialAd();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    ref.watch(googleAdServiceProvider).interstitialAd?.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final favoriteProvider = ref.watch(gameFavoriteApiProvider);
-    final favIdsList = ref.watch(favoriteGameIdsProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favGamesData = ref.watch(favoriteGamesApiProvider);
+    final favGamesIdList = ref.watch(favoriteGamesIdProvider);
 
     return Scaffold(
-      floatingActionButton: favIdsList.isNotEmpty
+      floatingActionButton: favGamesIdList.isNotEmpty
           ? FloatingActionButton(
               onPressed: () {
                 showDialog(
@@ -64,7 +45,7 @@ class _GameFavoriteViewState extends ConsumerState<FavoriteGamesView> {
               text: LocaleKeys.favoriteGamesView_appBarTitle.tr()),
         ),
       ),
-      body: favoriteProvider.when(
+      body: favGamesData.when(
         data: (data) {
           if (data.isNotEmpty) {
             return ListView.builder(
@@ -79,8 +60,6 @@ class _GameFavoriteViewState extends ConsumerState<FavoriteGamesView> {
                           .r,
                   child: InkWell(
                     onTap: () {
-                      ref.read(googleAdServiceProvider).showInterstitialAd();
-
                       showDialog(
                         context: context,
                         builder: (context) {
@@ -95,7 +74,7 @@ class _GameFavoriteViewState extends ConsumerState<FavoriteGamesView> {
                         key: Key(game.info!.gameID!),
                         onDismissed: (direction) {
                           ref
-                              .read(favoriteGameIdsProvider.notifier)
+                              .read(favoriteGamesIdProvider.notifier)
                               .toggle(game.info!.gameID!, context);
                         },
                         child: Card(

@@ -1,18 +1,20 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_games/constants/string_constants.dart';
 import 'package:get_games/data/models/game_deals_model.dart';
 import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:http/http.dart' as http;
 
-final gameDealsProvider = FutureProvider<List<GameDealsModel>>((ref) async {
+final gameDealsApiProvider = FutureProvider<List<GameDealsModel>>((ref) async {
   final minPriceProvider = ref.watch(gameDealsMinPriceProvider);
   final maxPriceProvider = ref.watch(gameDealsMaxPriceProvider);
 
-  final storeProviderInt = ref.watch(storeNameProvider).selectedApiNumber;
+  final storeProviderInt =
+      ref.watch(gameDealsstoreNameProvider).selectedApiNumber;
 
   final url = Uri.parse(
-      "https://www.cheapshark.com/api/1.0/deals?storeID=${storeProviderInt.toString()}&lowerPrice=${minPriceProvider.toString()}&upperPrice=${maxPriceProvider.toString()}");
+      "${StringConstants.gameDealsBaseUrl}deals?storeID=${storeProviderInt.toString()}&lowerPrice=${minPriceProvider.toString()}&upperPrice=${maxPriceProvider.toString()}");
 
   try {
     final response = await http.get(url);

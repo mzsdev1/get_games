@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/data/models/free_games_model.dart';
 import 'package:intl/intl.dart';
 
-class FreeGameDateContainer extends StatelessWidget {
+class DateContainer extends StatelessWidget {
   final String header;
 
-  const FreeGameDateContainer({
+  const DateContainer({
     Key? key,
     required this.header,
     required this.freeGame,

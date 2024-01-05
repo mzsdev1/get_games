@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 
-class FavoriteGameModel {
+class FavoriteGamesModel {
   Info? info;
   CheapestPriceEver? cheapestPriceEver;
   List<Deals>? deals;
 
-  FavoriteGameModel({this.info, this.cheapestPriceEver, this.deals});
+  FavoriteGamesModel({this.info, this.cheapestPriceEver, this.deals});
 
-  FavoriteGameModel.fromJson(Map<String, dynamic> json) {
+  FavoriteGamesModel.fromJson(Map<String, dynamic> json) {
     info = json['info'] != null ? Info.fromJson(json['info']) : null;
     cheapestPriceEver = json['cheapestPriceEver'] != null
         ? CheapestPriceEver.fromJson(json['cheapestPriceEver'])
@@ -35,7 +35,7 @@ class FavoriteGameModel {
   }
 
   @override
-  bool operator ==(covariant FavoriteGameModel other) {
+  bool operator ==(covariant FavoriteGamesModel other) {
     if (identical(this, other)) return true;
 
     return other.info == info &&

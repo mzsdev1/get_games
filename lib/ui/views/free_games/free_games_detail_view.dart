@@ -11,8 +11,8 @@ import 'package:get_games/ui/widgets/common/half_container.dart';
 import 'package:get_games/ui/widgets/free_games/column_text.dart';
 import 'package:get_games/ui/widgets/free_games/date_container.dart';
 
-class FreeGamesIndexView extends StatelessWidget {
-  const FreeGamesIndexView({super.key, required this.freeGame});
+class FreeGamesDetailView extends StatelessWidget {
+  const FreeGamesDetailView({super.key, required this.freeGame});
 
   final FreeGamesModel freeGame;
 
@@ -87,7 +87,7 @@ class FreeGamesIndexView extends StatelessWidget {
                       title: LocaleKeys.freeGamesView_descriptionText.tr(),
                       data: freeGame.description!),
                   SizedBox(height: 7.h),
-                  FreeGameDateContainer(
+                  DateContainer(
                       header: LocaleKeys.freeGamesView_endDateText.tr(),
                       freeGame: freeGame),
                   SizedBox(height: 7.h),

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/constants/enums/locales.dart';
-import 'package:get_games/helpers/settings_tile_functions.dart';
+import 'package:get_games/helper/settings_tile_functions.dart';
 import 'package:get_games/localizations/init_localization.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import 'package:get_games/helpers/permission_status.dart';
-import 'package:get_games/providers/theme_provider.dart';
+import 'package:get_games/helper/notification_permission_status.dart';
+import 'package:get_games/providers/theme/theme_provider.dart';
 import 'package:get_games/ui/widgets/common/appbar_title_text.dart';
 import 'package:dash_flags/dash_flags.dart';
 import 'package:get_games/ui/widgets/settings/settings_tile.dart';
@@ -24,8 +24,8 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = ref.watch(themeIndexProvider);
-    final status = PermissionStatus();
-    final functions = SettingsTileFunctions();
+    final status = NotificationPermissionStatus();
+    final tileFunc = SettingsTileFunctions();
 
     return Scaffold(
       appBar: PreferredSize(
@@ -69,7 +69,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 title: LocaleKeys.settingsView_privacyText.tr(),
                 leadingIcon: Icons.privacy_tip_outlined,
                 onTap: () {
-                  functions.redictPrivacyWepPage();
+                  tileFunc.redictPrivacyWepPage();
                 },
               ),
               SettingsTile(
@@ -77,7 +77,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 title: LocaleKeys.settingsView_contact.tr(),
                 leadingIcon: Icons.mail_outline,
                 onTap: () {
-                  functions.redictEmailWepPage();
+                  tileFunc.redictEmailWepPage();
                 },
               ),
               Column(

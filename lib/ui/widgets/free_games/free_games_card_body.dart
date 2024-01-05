@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/ui/widgets/common/error_image.dart';
-import 'package:get_games/ui/widgets/free_games/main_rich_text.dart';
+import 'package:get_games/ui/widgets/free_games/custom_rich_text.dart';
 
-class FreeGamesMainCardBody extends StatelessWidget {
+class FreeGamesCardBody extends StatelessWidget {
   final String imagePath;
   final String title;
   final String platforms;
   final String price;
 
-  const FreeGamesMainCardBody({
+  const FreeGamesCardBody({
     super.key,
     required this.imagePath,
     required this.title,
@@ -52,12 +52,12 @@ class FreeGamesMainCardBody extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 3.5.h),
-                  MainRichText(
+                  CustomRichText(
                     title: "${LocaleKeys.freeGamesView_platformsText.tr()}: ",
                     data: platforms,
                   ),
                   SizedBox(height: 3.5.h),
-                  MainRichText(
+                  CustomRichText(
                       title: "${LocaleKeys.commonTexts_priceText.tr()}: ",
                       data: price),
                   SizedBox(height: 3.5.h),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/data/models/favorite_game_model.dart';
-import 'package:get_games/providers/game_favorite/store_name_provider.dart';
+import 'package:get_games/data/models/favorite_games_model.dart';
+import 'package:get_games/providers/favorite_games/store_name_provider.dart';
 
 class FavoritePriceListDialog extends StatelessWidget {
   const FavoritePriceListDialog({

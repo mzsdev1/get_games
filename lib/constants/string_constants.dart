@@ -1,6 +1,11 @@
 class StringConstants {
   const StringConstants._();
 
+  static const freeGamesBaseUrl = "https://www.gamerpower.com/api/";
+  static const gameDealsBaseUrl = "https://www.cheapshark.com/api/1.0/";
+
+  static const cheapShark = "https://www.cheapshark.com/";
+
   static const steam = "Steam";
   static const epicGm = "Epic Games Store";
   static const metaCrit = "Metacritic";

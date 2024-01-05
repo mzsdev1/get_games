@@ -4,10 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/constants/list_constants.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import '../../../providers/free_games/freegames_api_filter.dart';
+import '../../../providers/free_games/free_games_filter_provider.dart';
 
-class FreeGamesBottomSheet extends StatelessWidget {
-  const FreeGamesBottomSheet({
+class StoreFilterBottomSheet extends StatelessWidget {
+  const StoreFilterBottomSheet({
     super.key,
   });
 
@@ -62,7 +62,7 @@ class FreeGamesBottomSheet extends StatelessWidget {
                             children: ListConstants.allStoresList.map(
                               (filter) {
                                 final isSelected = ref
-                                    .watch(selectedFiltersProvider)
+                                    .watch(selectedFilterProvider)
                                     .contains(filter);
 
                                 return Padding(
@@ -83,8 +83,7 @@ class FreeGamesBottomSheet extends StatelessWidget {
                                     selected: isSelected,
                                     onSelected: (_) {
                                       ref
-                                          .read(
-                                              selectedFiltersProvider.notifier)
+                                          .read(selectedFilterProvider.notifier)
                                           .toggleFilter(filter);
                                     },
                                   ),

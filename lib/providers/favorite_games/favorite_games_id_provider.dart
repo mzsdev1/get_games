@@ -6,8 +6,8 @@ import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/storage/shared_pref_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class FavoriteGameIds extends StateNotifier<List<String>> {
-  FavoriteGameIds(this.pref)
+class FavoriteGamesIdNotifier extends StateNotifier<List<String>> {
+  FavoriteGamesIdNotifier(this.pref)
       : super(pref?.getStringList(StringConstants.favoriteSharedPrefId) ?? []);
 
   final SharedPreferences? pref;
@@ -52,11 +52,11 @@ class FavoriteGameIds extends StateNotifier<List<String>> {
   }
 }
 
-final favoriteGameIdsProvider =
-    StateNotifierProvider<FavoriteGameIds, List<String>>((ref) {
+final favoriteGamesIdProvider =
+    StateNotifierProvider<FavoriteGamesIdNotifier, List<String>>((ref) {
   final pref = ref.watch(sharedPrefs).maybeWhen(
         data: (value) => value,
         orElse: () => null,
       );
-  return FavoriteGameIds(pref);
+  return FavoriteGamesIdNotifier(pref);
 });

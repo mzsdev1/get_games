@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MainRichText extends StatelessWidget {
-  const MainRichText({
+class CustomRichText extends StatelessWidget {
+  const CustomRichText({
     Key? key,
     required this.title,
     required this.data,

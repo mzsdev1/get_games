@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/constants/string_constants.dart';
 
-class StoreApiNameNotifier extends ChangeNotifier {
+class StoreNameNotifier extends ChangeNotifier {
   String selectedStoreLabel = StringConstants.steam;
   int selectedApiNumber = 1;
 
@@ -15,6 +15,7 @@ class StoreApiNameNotifier extends ChangeNotifier {
   }
 }
 
-final storeNameProvider = ChangeNotifierProvider<StoreApiNameNotifier>((ref) {
-  return StoreApiNameNotifier();
+final gameDealsstoreNameProvider =
+    ChangeNotifierProvider<StoreNameNotifier>((ref) {
+  return StoreNameNotifier();
 });

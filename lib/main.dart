@@ -2,16 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get_games/ui/views/ad_ump/ad_ump_init_view.dart';
-import 'package:get_games/services/firebase_service/firebase_options.dart';
+import 'package:get_games/firebase/options/firebase_options.dart';
 import 'package:get_games/localizations/init_localization.dart';
-import 'package:get_games/services/notification_service/notification_service.dart';
-import 'package:get_games/providers/theme_provider.dart';
+import 'package:get_games/firebase/notifications/notification_initializer.dart';
+import 'package:get_games/providers/theme/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_games/themes/app_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/ui/views/dashboard/dashboard.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +17,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await MobileAds.instance.initialize();
+
   await NotificationService().initNotifications();
 
   await SystemChrome.setPreferredOrientations([
@@ -57,9 +55,7 @@ class App extends ConsumerWidget {
         theme: appTheme.lightTheme,
         darkTheme: appTheme.darkTheme,
         themeMode: themeModeIndex == false ? ThemeMode.light : ThemeMode.dark,
-        home: const InitializeScreen(
-          targetWidget: DashboardView(),
-        ),
+        home: const Dashboard(),
       ),
     );
   }

@@ -10,7 +10,7 @@ class StoreDropdownButton extends StatelessWidget {
     required this.selectedStore,
   });
 
-  final StoreApiNameNotifier selectedStore;
+  final StoreNameNotifier selectedStore;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class StoreDropdownButton extends StatelessWidget {
       builder: (context, ref, child) => DropdownButton(
         value: selectedStore.selectedStoreLabel,
         onChanged: (value) {
-          ref.read(storeNameProvider.notifier).changeStore(value!);
+          ref.read(gameDealsstoreNameProvider.notifier).changeStore(value!);
         },
         items: ListConstants.storeLabels.map<DropdownMenuItem<String>>(
           (value) {

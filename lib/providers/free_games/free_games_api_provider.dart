@@ -1,16 +1,17 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/providers/free_games/freegames_api_filter.dart';
+import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/providers/free_games/free_games_filter_provider.dart';
 import 'package:get_games/data/models/free_games_model.dart';
 import 'package:http/http.dart' as http;
 
-final freeGamesProvider = FutureProvider<List<FreeGamesModel>>((ref) async {
-  final selectedFilter = ref.watch(selectedFiltersProvider);
+final freeGamesApiProvider = FutureProvider<List<FreeGamesModel>>((ref) async {
+  final selectedFilter = ref.watch(selectedFilterProvider);
   final filtersString = selectedFilter.join('.');
-  final selectedGameTypeString = ref.watch(selectedGameTypeProvider);
+  final selectedGameTypeString = ref.watch(selectedTypeProvider);
 
   final url = Uri.parse(
-      "https://www.gamerpower.com/api/filter?platform=$filtersString&type=$selectedGameTypeString");
+      "${StringConstants.freeGamesBaseUrl}filter?platform=$filtersString&type=$selectedGameTypeString");
 
   try {
     final response = await http.get(url);

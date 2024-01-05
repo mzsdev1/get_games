@@ -23,12 +23,12 @@ class SelectedGameTypeNotifier extends StateNotifier<String> {
   }
 }
 
-final selectedFiltersProvider =
+final selectedFilterProvider =
     StateNotifierProvider<SelectedFilterNotifier, List<String>>((ref) {
   return SelectedFilterNotifier();
 });
 
-final selectedGameTypeProvider =
+final selectedTypeProvider =
     StateNotifierProvider<SelectedGameTypeNotifier, String>((ref) {
   return SelectedGameTypeNotifier();
 });

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/constants/string_constants.dart';
 import 'package:get_games/data/models/game_deals_model.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
-import 'package:get_games/providers/game_favorite/favorites_provider.dart';
-import 'package:get_games/providers/game_search/dialog_button_provider.dart';
+import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';
+import 'package:get_games/providers/game_search/dialog_fav_button_provider.dart';
 import 'package:get_games/ui/widgets/game_deals/deal_date_container.dart';
 import 'package:get_games/ui/widgets/common/error_image.dart';
 import 'package:get_games/ui/widgets/common/full_container.dart';
@@ -18,17 +17,17 @@ import 'package:get_games/ui/widgets/common/half_container.dart';
 import 'package:get_games/ui/widgets/game_deals/rate_container.dart';
 import '../../../localizations/locale_keys.g.dart';
 
-class GameDealsIndexView extends ConsumerWidget {
-  const GameDealsIndexView({super.key, required this.gameDeal});
+class GameDealsDetailView extends ConsumerWidget {
+  const GameDealsDetailView({super.key, required this.gameDeal});
 
   final GameDealsModel gameDeal;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final storeNum = ref.watch(storeNameProvider);
+    final storeNum = ref.watch(gameDealsstoreNameProvider);
 
-    final favoriteProvider = ref.watch(favoriteGameIdsProvider);
-    final buttonEnableProvider = ref.watch(favButtonProvider);
+    final favoriteProvider = ref.watch(favoriteGamesIdProvider);
+    final favButtonProvider = ref.watch(dialogFavButtonProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -194,22 +193,24 @@ class GameDealsIndexView extends ConsumerWidget {
                               width: 30.w,
                             ),
                             IconButton.filledTonal(
-                              onPressed: buttonEnableProvider
+                              onPressed: favButtonProvider
                                   ? () {
                                       ref
                                           .read(
-                                              favoriteGameIdsProvider.notifier)
+                                              favoriteGamesIdProvider.notifier)
                                           .toggle(gameDeal.gameId!, context);
 
                                       ref
-                                          .read(favButtonProvider.notifier)
+                                          .read(
+                                              dialogFavButtonProvider.notifier)
                                           .state = false;
 
                                       Timer(
                                         const Duration(milliseconds: 500),
                                         () {
                                           ref
-                                              .read(favButtonProvider.notifier)
+                                              .read(dialogFavButtonProvider
+                                                  .notifier)
                                               .state = true;
                                         },
                                       );
@@ -348,7 +349,7 @@ class GameDealsIndexView extends ConsumerWidget {
                 GetButton(
                   buttonText: LocaleKeys.commonTexts_getButtonText.tr(),
                   urlString:
-                      "https://www.cheapshark.com/redirect?dealID=${gameDeal.dealID}",
+                      "${StringConstants.cheapShark}redirect?dealID=${gameDeal.dealID}",
                 ),
                 SizedBox(height: 10.h),
               ],

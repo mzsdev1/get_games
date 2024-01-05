@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/data/models/game_deals_model.dart';
-
 import '../../../localizations/locale_keys.g.dart';
 
 class DealDateContainer extends StatelessWidget {
@@ -24,8 +23,7 @@ class DealDateContainer extends StatelessWidget {
     return SizedBox(
       width: 1.sw,
       child: Row(
-        mainAxisAlignment:
-            MainAxisAlignment.spaceBetween, // Adjust alignment as needed
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: Container(
@@ -62,7 +60,6 @@ class DealDateContainer extends StatelessWidget {
                     releaseDate,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 14.sp,
-                          //color: Theme.of(context).primaryColor,
                         ),
                   ),
                 ],
@@ -106,7 +103,6 @@ class DealDateContainer extends StatelessWidget {
                     lastChange,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 14.sp,
-                          //color: Theme.of(context).primaryColor,
                         ),
                   ),
                 ],

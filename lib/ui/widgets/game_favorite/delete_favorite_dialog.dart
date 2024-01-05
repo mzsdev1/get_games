@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';
 
 class DeleteFavoriteDialog extends StatelessWidget {
   const DeleteFavoriteDialog({
@@ -54,7 +54,7 @@ class DeleteFavoriteDialog extends StatelessWidget {
           TextButton(
             onPressed: () {
               ref
-                  .read(favoriteGameIdsProvider.notifier)
+                  .read(favoriteGamesIdProvider.notifier)
                   .deleteAllFavorites(context);
 
               Navigator.of(context).pop();

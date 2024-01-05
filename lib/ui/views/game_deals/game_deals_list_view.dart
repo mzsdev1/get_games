@@ -2,43 +2,24 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/services/ad_service/ads_service.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_deals/game_deals_api_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
-import 'package:get_games/ui/views/game_deals/game_deals_index_view.dart';
+import 'package:get_games/ui/views/game_deals/game_deals_detail_view.dart';
 import 'package:get_games/ui/widgets/common/appbar_title_text.dart';
 import 'package:get_games/ui/widgets/common/empty_view.dart';
 import 'package:get_games/ui/widgets/common/load_progress_indicator.dart';
-import 'package:get_games/ui/widgets/game_deals/deal_filter_select.dart';
+import 'package:get_games/ui/widgets/game_deals/price_filter.dart';
 import 'package:get_games/ui/widgets/game_deals/main_card_body.dart';
 import 'package:get_games/ui/widgets/game_deals/store_dropdown_button.dart';
 
-class GameDealsListView extends ConsumerStatefulWidget {
+class GameDealsListView extends ConsumerWidget {
   const GameDealsListView({super.key});
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() =>
-      _GameDealsListViewState();
-}
-
-class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
-  @override
-  void initState() {
-    super.initState();
-    ref.read(googleAdServiceProvider).createInterstitialAd();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    ref.watch(googleAdServiceProvider).interstitialAd?.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final gameDealsData = ref.watch(gameDealsProvider);
-    final selectedStore = ref.watch(storeNameProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gameDealsData = ref.watch(gameDealsApiProvider);
+    final selectedStore = ref.watch(gameDealsstoreNameProvider);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -49,7 +30,7 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
               AppBarTitleText(text: LocaleKeys.gameDealsView_appBarTitle.tr()),
           actions: [
             StoreDropdownButton(selectedStore: selectedStore),
-            const DealBottomSheet(),
+            const PriceFilter(),
           ],
         ),
       ),
@@ -63,12 +44,10 @@ class _GameDealsListViewState extends ConsumerState<GameDealsListView> {
 
                 return GestureDetector(
                   onTap: () {
-                    ref.read(googleAdServiceProvider).showInterstitialAd();
-
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) =>
-                            GameDealsIndexView(gameDeal: game),
+                            GameDealsDetailView(gameDeal: game),
                       ),
                     );
                   },

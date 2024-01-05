@@ -1,15 +1,18 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/data/models/favorite_game_model.dart';
-import 'package:get_games/providers/game_favorite/favorites_provider.dart';
+import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/data/models/favorite_games_model.dart';
+import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';
 import 'package:http/http.dart' as http;
 
-final gameFavoriteApiProvider = FutureProvider<List<FavoriteGameModel>>(
+final favoriteGamesApiProvider = FutureProvider<List<FavoriteGamesModel>>(
   (ref) async {
-    final gameIds = ref.watch(favoriteGameIdsProvider);
+    final gameIds = ref.watch(favoriteGamesIdProvider);
     final idsString = gameIds.join(',');
+
     var ukk =
-        "https://www.cheapshark.com/api/1.0/games?ids=$idsString&format=array";
+        "${StringConstants.gameDealsBaseUrl}games?ids=$idsString&format=array";
+
     final url = Uri.parse(ukk);
 
     try {
@@ -18,9 +21,9 @@ final gameFavoriteApiProvider = FutureProvider<List<FavoriteGameModel>>(
       if (response.statusCode == 200) {
         final List<dynamic> jsonList = json.decode(response.body);
 
-        final List<FavoriteGameModel> gamesList = jsonList
+        final List<FavoriteGamesModel> gamesList = jsonList
             .map(
-              (json) => FavoriteGameModel.fromJson(
+              (json) => FavoriteGamesModel.fromJson(
                 json as Map<String, dynamic>,
               ),
             )

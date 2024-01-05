@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import '../../../providers/free_games/freegames_api_filter.dart';
+import '../../../providers/free_games/free_games_filter_provider.dart';
 
 class TypeDropdownButton extends StatelessWidget {
   const TypeDropdownButton({
@@ -14,13 +14,11 @@ class TypeDropdownButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final typeProvider = ref.watch(selectedGameTypeProvider);
+        final typeProvider = ref.watch(selectedTypeProvider);
         return DropdownButton(
           value: typeProvider,
           onChanged: (value) {
-            ref
-                .read(selectedGameTypeProvider.notifier)
-                .setSelectedGameType(value!);
+            ref.read(selectedTypeProvider.notifier).setSelectedGameType(value!);
           },
           items: [
             DropdownMenuItem(

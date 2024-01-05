@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/data/models/game_search_model.dart';
-import 'package:get_games/providers/game_favorite/favorites_provider.dart';
-import 'package:get_games/providers/game_search/dialog_button_provider.dart';
+import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';
+import 'package:get_games/providers/game_search/dialog_fav_button_provider.dart';
 
 class SearchDialog extends StatelessWidget {
   const SearchDialog({
@@ -20,8 +20,8 @@ class SearchDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final favoriteProvider = ref.watch(favoriteGameIdsProvider);
-        final buttonEnableProvider = ref.watch(favButtonProvider);
+        final favoriteProvider = ref.watch(favoriteGamesIdProvider);
+        final buttonEnableProvider = ref.watch(dialogFavButtonProvider);
         return Dialog(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8.0).r),
@@ -76,17 +76,19 @@ class SearchDialog extends StatelessWidget {
                         onPressed: buttonEnableProvider
                             ? () {
                                 ref
-                                    .read(favoriteGameIdsProvider.notifier)
+                                    .read(favoriteGamesIdProvider.notifier)
                                     .toggle(game.gameID!, context);
 
-                                ref.read(favButtonProvider.notifier).state =
-                                    false;
+                                ref
+                                    .read(dialogFavButtonProvider.notifier)
+                                    .state = false;
 
                                 Timer(
                                   const Duration(milliseconds: 250),
                                   () {
-                                    ref.read(favButtonProvider.notifier).state =
-                                        true;
+                                    ref
+                                        .read(dialogFavButtonProvider.notifier)
+                                        .state = true;
                                   },
                                 );
                               }

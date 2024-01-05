@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
-import 'package:get_games/services/notification_service/notification_service.dart';
+import 'package:get_games/firebase/notifications/notification_initializer.dart';
 
-class PermissionStatus {
+class NotificationPermissionStatus {
   Future<void> acceptPermission(BuildContext context) async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
 

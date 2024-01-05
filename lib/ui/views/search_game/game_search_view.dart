@@ -1,16 +1,16 @@
-import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/services/ad_service/ads_service.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/game_search/game_search_api_provider.dart';
 import 'package:get_games/ui/widgets/common/empty_view.dart';
 import 'package:get_games/ui/widgets/common/error_image.dart';
 import 'package:get_games/ui/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/ui/widgets/game_search/search_dialog.dart';
+
+import '../../../helper/search_query_handler.dart';
 
 class SearchGameView extends ConsumerStatefulWidget {
   const SearchGameView({super.key});
@@ -23,23 +23,16 @@ class _GameSearchViewState extends ConsumerState<SearchGameView> {
   final controller = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    ref.read(googleAdServiceProvider).createInterstitialAd();
-  }
-
-  @override
   void dispose() {
     super.dispose();
-    ref.watch(googleAdServiceProvider).interstitialAd?.dispose();
     controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final searchGameProvider = ref.watch(gameSearchProvider);
+    final searchGameProvider = ref.watch(gameSearchApiProvider);
 
-    Timer? debounceTimer;
+    final searchQueryHandler = SearchQueryHandler();
 
     return Scaffold(
       appBar: PreferredSize(
@@ -52,23 +45,7 @@ class _GameSearchViewState extends ConsumerState<SearchGameView> {
               FocusScope.of(context).unfocus();
             },
             onChanged: (value) {
-              String currentText = '';
-              final ctrlText = value;
-              final trimmedText = ctrlText.trim();
-              final isMatch = RegExp(r'[a-zA-Z0-9 ]').hasMatch(trimmedText);
-
-              if (trimmedText.isNotEmpty &&
-                  trimmedText.length <= 40 &&
-                  trimmedText.length >= 3 &&
-                  isMatch) {
-                currentText = trimmedText;
-                if (debounceTimer != null) {
-                  debounceTimer!.cancel();
-                }
-                debounceTimer = Timer(const Duration(milliseconds: 600), () {
-                  ref.read(searchQueryProvider.notifier).state = currentText;
-                });
-              }
+              searchQueryHandler.handleTextChange(value, ref);
             },
             decoration: InputDecoration(
               hintText: LocaleKeys.searchGameView_textfieldHintText.tr(),
@@ -109,8 +86,6 @@ class _GameSearchViewState extends ConsumerState<SearchGameView> {
                   padding: const EdgeInsets.symmetric(horizontal: 2).r,
                   child: ListTile(
                     onTap: () {
-                      ref.read(googleAdServiceProvider).showInterstitialAd();
-
                       showDialog(
                         context: context,
                         builder: (context) {
