@@ -1,4 +1,4 @@
-import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/utils/constants/string_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsTileFunctions {

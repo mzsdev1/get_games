@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/constants/list_constants.dart';
+import 'package:get_games/utils/constants/list_constants.dart';
 import 'package:get_games/providers/dashboard/nav_bar_provider.dart';
 import 'package:get_games/ui/widgets/dashboard/bottom_items.dart';
 

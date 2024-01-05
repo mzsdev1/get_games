@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/constants/list_constants.dart';
+import 'package:get_games/utils/constants/list_constants.dart';
 
 class SelectedFilterNotifier extends StateNotifier<List<String>> {
   SelectedFilterNotifier() : super(ListConstants.activeStoresList);

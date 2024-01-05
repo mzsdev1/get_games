@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/utils/constants/string_constants.dart';
 import 'package:get_games/localizations/locale_keys.g.dart';
 import 'package:get_games/providers/storage/shared_pref_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

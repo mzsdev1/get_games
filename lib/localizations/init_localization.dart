@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:get_games/constants/enums/locales.dart';
+import 'package:get_games/utils/constants/enums/locales.dart';
 
 class InitLocalizations extends EasyLocalization {
   InitLocalizations({

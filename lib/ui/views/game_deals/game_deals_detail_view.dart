@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/utils/constants/string_constants.dart';
 import 'package:get_games/data/models/game_deals_model.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';

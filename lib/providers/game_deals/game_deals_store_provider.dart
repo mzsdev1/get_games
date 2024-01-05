@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/utils/constants/string_constants.dart';
 
 class StoreNameNotifier extends ChangeNotifier {
   String selectedStoreLabel = StringConstants.steam;

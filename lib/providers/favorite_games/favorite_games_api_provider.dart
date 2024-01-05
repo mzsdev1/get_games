@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/utils/constants/string_constants.dart';
 import 'package:get_games/data/models/favorite_games_model.dart';
 import 'package:get_games/providers/favorite_games/favorite_games_id_provider.dart';
 import 'package:http/http.dart' as http;

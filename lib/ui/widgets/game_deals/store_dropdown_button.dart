@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_games/constants/list_constants.dart';
+import 'package:get_games/utils/constants/list_constants.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
 
 class StoreDropdownButton extends StatelessWidget {

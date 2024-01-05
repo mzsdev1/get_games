@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/game_search/game_search_api_provider.dart';
+import '../../providers/game_search/game_search_api_provider.dart';
 
 class SearchQueryHandler {
   String currentText = '';

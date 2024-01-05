@@ -10,7 +10,7 @@ import 'package:get_games/ui/widgets/common/error_image.dart';
 import 'package:get_games/ui/widgets/common/load_progress_indicator.dart';
 import 'package:get_games/ui/widgets/game_search/search_dialog.dart';
 
-import '../../../helper/search_query_handler.dart';
+import '../../../utils/helper/search_query_handler.dart';
 
 class SearchGameView extends ConsumerStatefulWidget {
   const SearchGameView({super.key});

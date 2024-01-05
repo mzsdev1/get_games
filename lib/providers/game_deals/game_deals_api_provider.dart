@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_games/constants/string_constants.dart';
+import 'package:get_games/utils/constants/string_constants.dart';
 import 'package:get_games/data/models/game_deals_model.dart';
 import 'package:get_games/providers/game_deals/game_deals_price_provider.dart';
 import 'package:get_games/providers/game_deals/game_deals_store_provider.dart';
