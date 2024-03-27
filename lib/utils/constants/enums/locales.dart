@@ -6,8 +6,10 @@ enum Locales {
   pt(Locale('pt', 'BR')),
   es(Locale('es', 'ES')),
   de(Locale('de', 'DE')),
-  fr(Locale('fr', 'FR'));
+  fr(Locale('fr', 'FR')),
+  vn(Locale('vi', 'VN'));
 
   final Locale locale;
+
   const Locales(this.locale);
 }

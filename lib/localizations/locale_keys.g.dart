@@ -81,5 +81,6 @@ abstract class LocaleKeys {
   static const languagesTexts_frenchText = 'languagesTexts.frenchText';
   static const languagesTexts_germanText = 'languagesTexts.germanText';
   static const languagesTexts_brazilianText = 'languagesTexts.brazilianText';
+  static const languagesTexts_vietnameseText = 'languagesTexts.vietnameseText';
   static const languagesTexts = 'languagesTexts';
 }

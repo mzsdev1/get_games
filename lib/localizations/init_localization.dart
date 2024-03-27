@@ -13,14 +13,8 @@ class InitLocalizations extends EasyLocalization {
           fallbackLocale: Locales.en.locale,
         );
 
-  static final List<Locale> _supportedLocales = [
-    Locales.en.locale,
-    Locales.tr.locale,
-    Locales.es.locale,
-    Locales.pt.locale,
-    Locales.de.locale,
-    Locales.fr.locale,
-  ];
+  static final List<Locale> _supportedLocales =
+      Locales.values.map((e) => e.locale).toList();
 
   static const String _path = "assets/translations";
 

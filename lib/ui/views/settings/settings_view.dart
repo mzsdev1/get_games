@@ -137,8 +137,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                 children: [
                   SwitchLangTile(
                     language: Language.en_us,
-                    langCode: "en",
-                    countryCode: "US",
+                    locale: Locales.en.locale,
                     langText: LocaleKeys.languagesTexts_englishText.tr(),
                     onTap: () {
                       InitLocalizations.updateLanguage(
@@ -149,8 +148,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                   ),
                   SwitchLangTile(
                     language: Language.tr,
-                    langCode: "tr",
-                    countryCode: "TR",
+                    locale: Locales.tr.locale,
                     langText: LocaleKeys.languagesTexts_turkishText.tr(),
                     onTap: () {
                       InitLocalizations.updateLanguage(
@@ -161,8 +159,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                   ),
                   SwitchLangTile(
                     language: Language.pt_br,
-                    langCode: "pt",
-                    countryCode: "BR",
+                    locale: Locales.pt.locale,
                     langText: LocaleKeys.languagesTexts_brazilianText.tr(),
                     onTap: () {
                       InitLocalizations.updateLanguage(
@@ -173,8 +170,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                   ),
                   SwitchLangTile(
                     language: Language.es,
-                    langCode: "es",
-                    countryCode: "ES",
+                    locale: Locales.es.locale,
                     langText: LocaleKeys.languagesTexts_spanishText.tr(),
                     onTap: () {
                       InitLocalizations.updateLanguage(
@@ -185,8 +181,7 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                   ),
                   SwitchLangTile(
                     language: Language.fr,
-                    langCode: "fr",
-                    countryCode: "FR",
+                    locale: Locales.fr.locale,
                     langText: LocaleKeys.languagesTexts_frenchText.tr(),
                     onTap: () {
                       InitLocalizations.updateLanguage(
@@ -197,13 +192,23 @@ class _SettingsViewState extends ConsumerState<SettingsView> {
                   ),
                   SwitchLangTile(
                     language: Language.de,
-                    langCode: "de",
-                    countryCode: "DE",
+                    locale: Locales.de.locale,
                     langText: LocaleKeys.languagesTexts_germanText.tr(),
                     onTap: () {
                       InitLocalizations.updateLanguage(
                         context: context,
                         value: Locales.de,
+                      );
+                    },
+                  ),
+                  SwitchLangTile(
+                    language: Language.vi,
+                    locale: Locales.vn.locale,
+                    langText: LocaleKeys.languagesTexts_vietnameseText.tr(),
+                    onTap: () {
+                      InitLocalizations.updateLanguage(
+                        context: context,
+                        value: Locales.vn,
                       );
                     },
                   ),
