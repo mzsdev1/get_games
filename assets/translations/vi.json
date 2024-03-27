@@ -73,12 +73,12 @@
   },
 
   "languagesTexts": {
-    "englishText": "English",
-    "turkishText": "Turkish",
-    "spanishText": "Spanish",
-    "frenchText": "French",
-    "germanText": "German",
-    "brazilianText": "Brazilian Portuguese",
-    "vietnameseText": "Vietnamese"
+    "englishText": "Tiếng Anh",
+    "turkishText": "Tiếng Thổ Nhĩ Kỳ",
+    "spanishText": "Tiếng Tây Ban Nha",
+    "frenchText": "Tiếng Pháp",
+    "germanText": "Tiếng Đức",
+    "brazilianText": "Tiếng Bồ Đào Nha",
+    "vietnameseText": "Tiếng Việt"
   }
 }
