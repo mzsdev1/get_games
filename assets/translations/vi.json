@@ -1,0 +1,84 @@
+{
+  "freeGamesView": {
+    "appBarTitle": "Đang Free",
+    "platformsText": "Nền Tảng",
+    "gameText": "Game",
+    "lootText": "Dlc",
+    "freeText": "Miễn Phí",
+    "endDateText": "Ngày Kết Thúc",
+    "descriptionText": "Mô Tả",
+    "instructionsText": "Hướng Dẫn"
+  },
+  "gameDealsView": {
+    "appBarTitle": "Đang Giảm Giá",
+    "platformText": "Nền Tảng",
+    "minPrice": "Thấp Nhất",
+    "maxPrice": "Cao Nhất",
+    "discountedText": "Giảm giá",
+    "addFavoriteText": "Thêm vào yêu thích",
+    "reviewsText": "Đánh giá",
+    "scoreText": "Điểm",
+    "rateText": "Tỷ lệ",
+    "avarageReviewText": "Đánh giá trung bình",
+    "releaseDateText": "Ngày Phát Hành",
+    "discountDateText": "Ngày Giảm Giá"
+  },
+
+  "searchGameView": {
+    "textfieldHintText": "Tìm kiếm game",
+    "cheapestText": "Rẻ nhất"
+  },
+
+  "favoriteGamesView": {
+    "appBarTitle": "Yêu Thích",
+    "alertDialog": {
+      "clearFavListText": "Xóa danh sách yêu thích?",
+      "sureDeleteAllText": "Bạn có chắc chắn muốn xóa tất cả game khỏi danh sách yêu thích?",
+      "undoneText": "Hành động này không thể hoàn tác.",
+      "cancelText": "Hủy",
+      "approveText": "Đồng ý"
+    }
+  },
+
+  "settingsView": {
+    "appBarTitle": "Cài Đặt",
+    "permissionsText": "Quyền Truy Cập",
+    "acceptText": "Chấp Nhận",
+    "languagesText": "Ngôn Ngữ",
+    "contact": "Liên Hệ",
+    "darkModeText": "Dark Mode",
+    "sendText": "Gửi",
+    "themeText": "Theme",
+    "notificationText": "Thông Báo",
+    "privacyPolicyText": "Chính Sách Bảo Mật",
+    "privacyText": "Chính Sách",
+    "eMailText": "Email",
+    "localizationText": "Địa Phương Hóa"
+  },
+  "emptyView": {
+    "noGameFoundText": "Không Tìm Thấy Game"
+  },
+  "snackbarTexts": {
+    "addedText": "Đã thêm game vào danh sách yêu thích.",
+    "deletedText": "Đã xóa game khỏi danh sách yêu thích.",
+    "allGamesRemovedText": "Đã xóa tất cả game khỏi danh sách yêu thích.",
+    "permissionAccepted": "Quyền truy cập đã được chấp nhận.",
+    "permissionAlreadyAccepted": "Tất cả quyền truy cập đã được chấp nhận."
+  },
+
+  "commonTexts": {
+    "getButtonText": "Nhận",
+    "priceText": "Giá",
+    "typeText": "Loại"
+  },
+
+  "languagesTexts": {
+    "englishText": "English",
+    "turkishText": "Turkish",
+    "spanishText": "Spanish",
+    "frenchText": "French",
+    "germanText": "German",
+    "brazilianText": "Brazilian Portuguese",
+    "vietnameseText": "Vietnamese"
+  }
+}

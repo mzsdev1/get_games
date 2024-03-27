@@ -8,14 +8,12 @@ class SwitchLangTile extends StatelessWidget {
     Key? key,
     required this.langText,
     required this.onTap,
-    required this.langCode,
-    required this.countryCode,
+    required this.locale,
     required this.language,
   }) : super(key: key);
   final String langText;
   final Function() onTap;
-  final String langCode;
-  final String countryCode;
+  final Locale locale;
   final Language language;
 
   @override
@@ -33,7 +31,7 @@ class SwitchLangTile extends StatelessWidget {
                   fontSize: 14.sp,
                 ),
           ),
-          trailing: context.locale == Locale(langCode, countryCode)
+          trailing: context.locale == locale
               ? Icon(
                   Icons.check,
                   size: 24.w,
